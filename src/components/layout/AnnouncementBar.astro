@@ -22,8 +22,8 @@ import { Sparkles } from '@lucide/astro';
     z-index: 60;
     background: linear-gradient(90deg, #028a62, #03BB85, #02a676);
     overflow: hidden;
-    max-height: 48px;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    height: 40px;
+    transition: opacity 0.3s ease;
   }
 
   .announcement-bar.bar-hidden {
@@ -89,9 +89,9 @@ import { Sparkles } from '@lucide/astro';
   }
 
   @media (max-width: 767px) {
-    .announcement-text { font-size: 11px; white-space: normal; text-align: center; }
-    .announcement-inner { height: auto; padding: 8px 40px 8px 12px; }
-    .announcement-bar { max-height: 64px; }
+    .announcement-bar { height: 48px; }
+    .announcement-inner { height: 48px; padding: 0 12px; }
+    .announcement-text { font-size: 11px; white-space: normal; text-align: center; line-height: 1.3; }
   }
 
   @media (prefers-reduced-motion: reduce) {
