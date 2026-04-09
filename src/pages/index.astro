@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Section from '../components/ui/Section.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+import Badge from '../components/ui/Badge.astro';
+import Card from '../components/ui/Card.astro';
+---
+
+<BaseLayout
+  title="AgendaDr — Gestión de citas médicas para tu consultorio"
+  description="Simplifica la agenda de tu consultorio. Recordatorios automáticos, historial de pacientes y más. Empieza gratis hoy."
+>
+  <Header />
+
+  <main>
+    <Hero />
+
+    <!-- Features placeholder -->
+    <Section bg="gray" id="features">
+      <Container>
+        <div class="text-center mb-12">
+          <Badge variant="neutral" class="mb-4">Funcionalidades</Badge>
+          <h2 class="h2 text-slate-900 dark:text-white">Todo lo que necesitas en un solo lugar</h2>
+          <p class="body-lg mt-4 max-w-xl mx-auto">Diseñado para médicos y especialistas que quieren enfocarse en sus pacientes, no en el papeleo.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {
+            [
+              { title: 'Agenda inteligente', desc: 'Visualiza tus citas del día, semana y mes. Evita cruces de horarios con detección automática.' },
+              { title: 'Recordatorios automáticos', desc: 'Envía confirmaciones y recordatorios por WhatsApp, SMS o email. Reduce las inasistencias hasta un 60%.' },
+              { title: 'Historial de pacientes', desc: 'Accede al historial completo de cada paciente: citas, notas y documentos en un solo lugar.' },
+            ].map(({ title, desc }) => (
+              <Card>
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <div class="w-5 h-5 rounded bg-primary" />
+                </div>
+                <h3 class="h4 text-slate-900 dark:text-white mb-2">{title}</h3>
+                <p class="body-sm text-slate-600 dark:text-slate-400">{desc}</p>
+              </Card>
+            ))
+          }
+        </div>
+      </Container>
+    </Section>
+
+    <!-- How it works placeholder -->
+    <Section bg="white" id="how-it-works">
+      <Container class="text-center">
+        <Badge variant="neutral" class="mb-4">Cómo funciona</Badge>
+        <h2 class="h2 text-slate-900 dark:text-white">En 3 pasos tienes tu consultorio digital</h2>
+        <p class="body-lg mt-4 max-w-xl mx-auto">Configura tu agenda en minutos. Sin instalaciones, sin complicaciones.</p>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {
+            [
+              { step: '01', title: 'Crea tu cuenta', desc: 'Regístrate gratis en menos de 2 minutos. Sin tarjeta de crédito.' },
+              { step: '02', title: 'Configura tu agenda', desc: 'Define tus horarios, servicios y duración de cada tipo de consulta.' },
+              { step: '03', title: 'Comparte y empieza', desc: 'Comparte tu enlace de citas con tus pacientes y empieza a recibir reservas.' },
+            ].map(({ step, title, desc }) => (
+              <div class="flex flex-col items-center text-center">
+                <span class="text-5xl font-display font-semibold text-primary/20 mb-4">{step}</span>
+                <h3 class="h4 text-slate-900 dark:text-white mb-2">{title}</h3>
+                <p class="body-sm text-slate-600 dark:text-slate-400">{desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </Container>
+    </Section>
+
+    <!-- CTA -->
+    <Section bg="gray" id="registro">
+      <Container class="text-center">
+        <h2 class="h2 text-slate-900 dark:text-white">Listo para empezar</h2>
+        <p class="body-lg mt-4 max-w-xl mx-auto">Únete a cientos de médicos que ya gestionan su consultorio con AgendaDr.</p>
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button variant="primary" size="lg" href="#registro">Empezar gratis</Button>
+        </div>
+        <p class="mt-3 text-sm text-slate-500">30 días gratis. Sin tarjeta de crédito.</p>
+      </Container>
+    </Section>
+  </main>
+
+  <Footer />
+</BaseLayout>

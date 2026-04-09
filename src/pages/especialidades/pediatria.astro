@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+---
+<BaseLayout title="Software para pediatría | AgendaDr" description="Sistema de gestión para pediatras. Historial pediátrico, vacunas, agenda y recordatorios para padres.">
+  <Header />
+  <main class="scaffold">
+    <h1 class="h1">AgendaDr para pediatría</h1>
+  </main>
+  <Footer />
+</BaseLayout>
+<style>
+  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
+  :global(html.dark) .scaffold { background:#0f172a; }
+</style>

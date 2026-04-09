@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cal Sans — open source from Cal.com */
+@font-face {
+  font-family: 'Cal Sans';
+  src: url('/fonts/CalSans-Regular.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter — via Google Fonts (loaded in BaseLayout) */
+
+/* Spotlight animation — Aceternity UI */
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+/* Shimmer animation — Magic UI */
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@layer base {
+  :root {
+    /* ── Brand ─────────────────────────────────────── */
+    --color-primary:      #03BB85;
+    --color-primary-hover:#02a676;
+    --color-primary-link: #03BB85; /* link/accent hover; lightens in dark */
+
+    /* ── Typography ─────────────────────────────────── */
+    --font-display: 'Cal Sans', Inter, sans-serif;
+    --font-body:    Inter, sans-serif;
+
+    /* ── Text hierarchy (slate palette) ─────────────── */
+    --text-heading:   #0f172a; /* slate-900  — logos, titles */
+    --text-secondary: #475569; /* slate-600  — nav, labels */
+    --text-tertiary:  #64748b; /* slate-500  — links, body */
+    --text-muted:     #94a3b8; /* slate-400  — captions, icons */
+    --text-label:     #cbd5e1; /* slate-300  — ALL-CAPS column headers */
+
+    /* ── Surfaces ────────────────────────────────────── */
+    --bg-page:   #ffffff;
+    --bg-hover:  #f8fafc; /* slate-50 */
+    --bg-subtle: #f1f5f9; /* slate-100 */
+
+    /* ── Borders ─────────────────────────────────────── */
+    --border-subtle:  #f1f5f9; /* slate-100 — dividers */
+    --border-default: #e2e8f0; /* slate-200 — cards, dropdowns */
+
+    /* ── Radii ───────────────────────────────────────── */
+    --radius-card: 12px;
+    --radius-btn:  8px;
+  }
+
+  /* Dark mode overrides (class strategy: html.dark) */
+  html.dark {
+    --color-primary-link: #4CE5B5; /* lighter tint for links on dark bg */
+
+    --text-heading:   #f1f5f9; /* slate-100 */
+    --text-secondary: #94a3b8; /* slate-400 */
+    --text-tertiary:  #64748b; /* slate-500 — same, readable on dark */
+    --text-muted:     #475569; /* slate-600 */
+    --text-label:     #334155; /* slate-700 */
+
+    --bg-page:   #0f172a; /* slate-900 */
+    --bg-hover:  #1e293b; /* slate-800 */
+    --bg-subtle: #1e293b; /* slate-800 */
+
+    --border-subtle:  #1e293b; /* slate-800 */
+    --border-default: #334155; /* slate-700 */
+  }
+
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  /* Reduced motion override — always respect this */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Typography scale */
+  .h1 {
+    @apply font-display text-5xl font-semibold leading-[1.1] tracking-tight md:text-6xl;
+    letter-spacing: -0.02em;
+  }
+  .h2 {
+    @apply font-display text-4xl font-semibold leading-[1.2] md:text-5xl;
+    letter-spacing: -0.01em;
+  }
+  .h3 {
+    @apply font-body text-2xl font-semibold leading-[1.3];
+  }
+  .h4 {
+    @apply font-body text-xl font-semibold leading-[1.4];
+  }
+  .body-lg {
+    @apply font-body text-lg font-normal leading-[1.7] text-slate-600;
+  }
+  .body-sm {
+    @apply font-body text-sm font-normal leading-[1.6];
+  }
+
+  /* Focus ring global */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+}

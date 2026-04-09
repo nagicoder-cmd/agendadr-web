@@ -1,0 +1,161 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string[];
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'AgendaDr — La plataforma de gestión de citas médicas más sencilla para clínicas y consultorios en Perú.',
+  keywords = [],
+  ogType = 'website',
+  ogImage = '/og-image.png',
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://agendadr.com/#organization',
+      name: 'AgendaDr',
+      legalName: 'ECOGIROS NEGOCIOS E.I.R.L.',
+      url: 'https://agendadr.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://agendadr.com/logo.png',
+        width: 200,
+        height: 60,
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'PE',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'soporte@agendadr.com',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://agendadr.com/#website',
+      url: 'https://agendadr.com',
+      name: 'AgendaDr',
+      description: 'Software de gestión de citas médicas para clínicas y consultorios en Perú',
+      publisher: { '@id': 'https://agendadr.com/#organization' },
+      inLanguage: 'es-PE',
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      Dark mode: prevent FOUC
+      Runs synchronously before any paint — reads localStorage first,
+      then falls back to system preference. Default: light.
+    -->
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
+
+    <!-- Cal Sans — self-hosted, preload critical display font -->
+    <link
+      rel="preload"
+      href="/fonts/CalSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Inter — Google Fonts (preconnect + stylesheet) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Theme color (light / dark) -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#03BB85" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta name="author" content="ECOGIROS NEGOCIOS E.I.R.L." />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="AgendaDr" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@agendadr" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- JSON-LD: Organization + WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!--
+      Google Analytics 4
+      Replace G-XXXXXXXXXX with your Measurement ID before deploying.
+    -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    </script>
+    -->
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 antialiased">
+    <slot />
+  </body>
+</html>
