@@ -76,7 +76,10 @@ const legalLinks = [
 
     <!-- Brand -->
     <div class="footer-brand">
-      <a href="/" class="footer-logo">Agenda<span>Dr</span></a>
+      <a href="/" class="footer-logo" aria-label="AgendaDr inicio">
+        <img src="/images/logos/logo-color-green.svg" alt="AgendaDr" class="footer-logo-img footer-logo-light" />
+        <img src="/images/logos/logo-white.svg"       alt="AgendaDr" class="footer-logo-img footer-logo-dark"  />
+      </a>
       <p class="footer-tagline">La plataforma de gestión de citas médicas más sencilla para clínicas y consultorios en Perú.</p>
       <span class="footer-badge">🇵🇪 Hecho en Perú</span>
 
@@ -138,10 +141,20 @@ const legalLinks = [
 
   <!-- Bottom bar -->
   <div class="footer-bottom">
-    <p>© {year} AgendaDr · ECOGIROS NEGOCIOS E.I.R.L. · RUC 20612344567</p>
+    <p class="footer-copy">© {year} AgendaDr · ECOGIROS NEGOCIOS E.I.R.L. · RUC 20612344567</p>
+
+    <p class="footer-love">
+      Diseñado con <span class="heart">♥</span> por el equipo AgendaDr · Lima, Perú
+    </p>
+
     <nav class="legal-links">
       {legalLinks.map(({ href, label }) => (
-        <a href={href}>{label}</a>
+        label === 'Libro de reclamaciones'
+          ? <a href={href} class="reclamaciones-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              {label}
+            </a>
+          : <a href={href}>{label}</a>
       ))}
     </nav>
   </div>
@@ -172,15 +185,22 @@ const legalLinks = [
 
   /* ── Brand ───────────────────────────────────────── */
   .footer-logo {
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--text-heading);
     text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
+    display: inline-flex;
+    margin-bottom: 12px;
   }
-  .footer-logo span { color: var(--color-primary); }
+
+  .footer-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Light/dark switch */
+  .footer-logo-dark { display: none; }
+  :global(html.dark) .footer-logo-light { display: none; }
+  :global(html.dark) .footer-logo-dark  { display: block; }
 
   .footer-tagline {
     font-size: 12px;
@@ -270,17 +290,20 @@ const legalLinks = [
         "brand"
         "accordions";
       gap: 0;
-      padding: 28px 16px 8px;
+      padding: 36px 20px 8px;
     }
 
     .footer-brand {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border-subtle);
       margin-bottom: 4px;
     }
+
+    .social-links { justify-content: center; }
 
     .footer-cols       { display: none; }
     .footer-accordions {
@@ -360,7 +383,7 @@ const legalLinks = [
   .footer-bottom {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 16px 24px 20px;
     border-top: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
@@ -371,12 +394,34 @@ const legalLinks = [
     color: var(--text-muted);
   }
 
+  .footer-copy { margin: 0; }
+
+  /* "Diseñado con amor" */
+  .footer-love {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .heart {
+    color: #e53e3e;
+    font-style: normal;
+    animation: heartbeat 1.8s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    14%       { transform: scale(1.25); }
+    28%       { transform: scale(1); }
+    42%       { transform: scale(1.15); }
+    56%       { transform: scale(1); }
+  }
+
   @media (max-width: 767px) {
     .footer-bottom {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 16px 16px 24px;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      padding: 16px 20px 32px;
     }
   }
 
@@ -388,7 +433,7 @@ const legalLinks = [
   }
 
   @media (max-width: 767px) {
-    .legal-links { gap: 12px; }
+    .legal-links { gap: 12px; justify-content: center; }
   }
 
   .legal-links a {
@@ -398,4 +443,31 @@ const legalLinks = [
     transition: color 0.15s;
   }
   .legal-links a:hover { color: var(--text-secondary); }
+
+  /* Libro de reclamaciones — destacado */
+  .reclamaciones-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #dc2626 !important;
+    text-decoration: none;
+    padding: 3px 8px;
+    border: 1px solid rgba(220,38,38,0.25);
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .reclamaciones-link:hover {
+    background: rgba(220,38,38,0.06);
+    color: #b91c1c !important;
+  }
+  :global(html.dark) .reclamaciones-link {
+    color: #f87171 !important;
+    border-color: rgba(248,113,113,0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart { animation: none; }
+  }
 </style>
