@@ -5,7 +5,7 @@ import {
   ChevronDown, Menu, X, Sun, Moon,
   Calendar, CreditCard, MessageCircle, ClipboardList,
   FileText, Building2, BarChart2, MapPin, Percent, Stethoscope,
-  UserRound, Store, Hospital, HeartPulse, Users
+  UserRound, Store, Hospital, HeartPulse, Users, Sparkles
 } from '@lucide/astro';
 
 const paraQuien = [
@@ -30,7 +30,8 @@ const paraQuien = [
 
       <!-- Logo (centro en mobile / izquierda en desktop) -->
       <a href="/" class="logo" aria-label="AgendaDr inicio">
-        <span class="logo-text">Agenda<span class="logo-accent">Dr</span></span>
+        <img src="/images/logos/logo-color-green.png" alt="AgendaDr" class="logo-img logo-light" height="36" />
+        <img src="/images/logos/logo-white.png"       alt="AgendaDr" class="logo-img logo-dark"  height="36" />
       </a>
 
       <!-- Nav desktop -->
@@ -73,14 +74,13 @@ const paraQuien = [
           </div>
         </div>
 
-        <a href="/planes" class="nav-link">Precios</a>
-        <a href="/nosotros"  class="nav-link">Nosotros</a>
-        <a href="/contacto"  class="nav-link">Contacto</a>
+        <a href="/planes"   class="nav-link">Precios</a>
+        <a href="/nosotros" class="nav-link">Nosotros</a>
+        <a href="/contacto" class="nav-link">Contacto</a>
       </nav>
 
       <!-- CTAs desktop -->
       <div class="nav-ctas">
-        <!-- Theme toggle -->
         <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="theme-btn">
           <Sun  id="icon-sun"  size={18} class="theme-icon" />
           <Moon id="icon-moon" size={18} class="theme-icon" />
@@ -100,76 +100,139 @@ const paraQuien = [
 
     </div>
   </div>
-
-  <!-- Mobile backdrop -->
-  <div id="mobile-backdrop" class="mobile-backdrop"></div>
-
-  <!-- Mobile drawer -->
-  <div id="mobile-menu" class="mobile-menu">
-    <!-- Drawer header -->
-    <div class="drawer-header">
-      <a href="/" class="logo" aria-label="AgendaDr inicio">
-        <span class="logo-text">Agenda<span class="logo-accent">Dr</span></span>
-      </a>
-      <button id="drawer-close" type="button" aria-label="Cerrar menú" class="drawer-close-btn">
-        <X size={20} />
-      </button>
-    </div>
-    <nav class="mobile-nav">
-
-      <!-- Funcionalidades -->
-      <div class="mobile-section">
-        <button class="mobile-section-toggle" aria-expanded="false">
-          Funcionalidades
-          <ChevronDown size={14} class="chevron" />
-        </button>
-        <div class="mobile-section-body hidden">
-          <a href="/funcionalidades/citas-online"       class="mobile-link mobile-link-sub"><Calendar      size={14} /><span>Citas online</span></a>
-          <a href="/funcionalidades/pagos-medicos"      class="mobile-link mobile-link-sub"><CreditCard    size={14} /><span>Pagos médicos</span></a>
-          <a href="/funcionalidades/whatsapp-clinicas"  class="mobile-link mobile-link-sub"><MessageCircle size={14} /><span>WhatsApp automático</span></a>
-          <a href="/funcionalidades/historial-medico"   class="mobile-link mobile-link-sub"><ClipboardList size={14} /><span>Historial médico</span></a>
-          <a href="/funcionalidades/recetas-digitales"  class="mobile-link mobile-link-sub"><FileText      size={14} /><span>Recetas digitales</span></a>
-          <a href="/funcionalidades/gestion-clinicas"   class="mobile-link mobile-link-sub"><Building2     size={14} /><span>Gestión de clínica</span></a>
-          <a href="/funcionalidades/reportes"           class="mobile-link mobile-link-sub"><BarChart2     size={14} /><span>Reportes</span></a>
-          <a href="/funcionalidades/multi-sede"         class="mobile-link mobile-link-sub"><MapPin        size={14} /><span>Multi-sede</span></a>
-          <a href="/funcionalidades/comisiones"         class="mobile-link mobile-link-sub"><Percent       size={14} /><span>Comisiones</span></a>
-          <a href="/funcionalidades/planes-tratamiento" class="mobile-link mobile-link-sub"><Stethoscope   size={14} /><span>Planes de tratamiento</span></a>
-        </div>
-      </div>
-
-      <!-- Para quién -->
-      <div class="mobile-section">
-        <button class="mobile-section-toggle" aria-expanded="false">
-          Para quién
-          <ChevronDown size={14} class="chevron" />
-        </button>
-        <div class="mobile-section-body hidden">
-          {paraQuien.map(({ href, label }) => (
-            <a href={href} class="mobile-link mobile-link-sub">{label}</a>
-          ))}
-        </div>
-      </div>
-
-      <a href="/planes"   class="mobile-link">Precios</a>
-      <a href="/nosotros" class="mobile-link">Nosotros</a>
-      <a href="/contacto" class="mobile-link">Contacto</a>
-    </nav>
-
-    <div class="mobile-ctas">
-      <a href="https://app.agendadr.com/login" class="mobile-login-link">
-        ¿Ya tienes cuenta? <strong>Iniciar sesión</strong>
-      </a>
-    </div>
-  </div>
 </header>
 
+<!--
+  Backdrop y drawer FUERA del <header> para evitar que el stacking context
+  del header (z-index: 50) limite su apilamiento frente al announcement bar (z-index: 60).
+-->
+<div id="mobile-backdrop" class="mobile-backdrop"></div>
+
+<div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+
+  <!-- Drawer header: logo + cerrar -->
+  <div class="drawer-header">
+    <a href="/" class="logo" aria-label="AgendaDr inicio">
+      <img src="/images/logos/logo-color-green.png" alt="AgendaDr" class="logo-img logo-light" height="32" />
+      <img src="/images/logos/logo-white.png"       alt="AgendaDr" class="logo-img logo-dark"  height="32" />
+    </a>
+    <button id="drawer-close" type="button" aria-label="Cerrar menú" class="drawer-close-btn">
+      <X size={20} />
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="mobile-nav">
+
+    <!-- Funcionalidades accordion -->
+    <div class="mobile-section">
+      <button class="mobile-section-toggle" aria-expanded="false">
+        Funcionalidades
+        <ChevronDown size={14} class="chevron" />
+      </button>
+      <div class="mobile-section-body hidden">
+        <a href="/funcionalidades/citas-online"       class="mobile-link mobile-link-sub"><Calendar      size={14} /><span>Citas online</span></a>
+        <a href="/funcionalidades/pagos-medicos"      class="mobile-link mobile-link-sub"><CreditCard    size={14} /><span>Pagos médicos</span></a>
+        <a href="/funcionalidades/whatsapp-clinicas"  class="mobile-link mobile-link-sub"><MessageCircle size={14} /><span>WhatsApp automático</span></a>
+        <a href="/funcionalidades/historial-medico"   class="mobile-link mobile-link-sub"><ClipboardList size={14} /><span>Historial médico</span></a>
+        <a href="/funcionalidades/recetas-digitales"  class="mobile-link mobile-link-sub"><FileText      size={14} /><span>Recetas digitales</span></a>
+        <a href="/funcionalidades/gestion-clinicas"   class="mobile-link mobile-link-sub"><Building2     size={14} /><span>Gestión de clínica</span></a>
+        <a href="/funcionalidades/reportes"           class="mobile-link mobile-link-sub"><BarChart2     size={14} /><span>Reportes</span></a>
+        <a href="/funcionalidades/multi-sede"         class="mobile-link mobile-link-sub"><MapPin        size={14} /><span>Multi-sede</span></a>
+        <a href="/funcionalidades/comisiones"         class="mobile-link mobile-link-sub"><Percent       size={14} /><span>Comisiones</span></a>
+        <a href="/funcionalidades/planes-tratamiento" class="mobile-link mobile-link-sub"><Stethoscope   size={14} /><span>Planes de tratamiento</span></a>
+      </div>
+    </div>
+
+    <!-- Para quién accordion -->
+    <div class="mobile-section">
+      <button class="mobile-section-toggle" aria-expanded="false">
+        Para quién
+        <ChevronDown size={14} class="chevron" />
+      </button>
+      <div class="mobile-section-body hidden">
+        {paraQuien.map(({ href, label }) => (
+          <a href={href} class="mobile-link mobile-link-sub">{label}</a>
+        ))}
+      </div>
+    </div>
+
+    <a href="/planes"   class="mobile-link">Precios</a>
+    <a href="/nosotros" class="mobile-link">Nosotros</a>
+    <a href="/contacto" class="mobile-link">Contacto</a>
+  </nav>
+
+  <!-- Separador visual entre nav y zona de conversión -->
+  <div class="drawer-separator"></div>
+
+  <!-- Zona de conversión -->
+  <div class="drawer-promo">
+
+    <!-- Card promo con icono decorativo -->
+    <div class="promo-card">
+      <div class="promo-card-body">
+        <div class="promo-badge">
+          <Sparkles size={11} />
+          14 días gratis
+        </div>
+        <p class="promo-title">Digitaliza tu consultorio hoy</p>
+        <p class="promo-sub">Sin tarjeta de crédito · Cancela cuando quieras</p>
+        <a href="/demo" class="promo-cta">Solicitar demo gratuita →</a>
+      </div>
+      <!-- Icono decorativo de fondo -->
+      <div class="promo-deco" aria-hidden="true">
+        <Calendar size={72} />
+      </div>
+    </div>
+
+    <!-- Rating social proof -->
+    <div class="rating-row">
+      <span class="stars">★★★★★</span>
+      <span class="rating-text"><strong>4.8</strong> · +200 reseñas verificadas</span>
+    </div>
+
+    <!-- Quick wins pills -->
+    <div class="quick-wins">
+      <span class="quick-pill">✓ Citas online</span>
+      <span class="quick-pill">✓ Recordatorios</span>
+      <span class="quick-pill">✓ Pagos digitales</span>
+    </div>
+
+    <!-- Trust signal con dot pulsante -->
+    <div class="trust-row">
+      <span class="trust-dot"></span>
+      <span class="trust-text">+500 médicos confían en AgendaDr</span>
+    </div>
+
+  </div>
+
+  <!-- Bottom: planes + login -->
+  <div class="mobile-ctas">
+    <a href="/planes" class="drawer-planes-btn">
+      Ver todos los planes →
+    </a>
+    <a href="https://app.agendadr.com/login" class="mobile-login-link">
+      ¿Ya tienes cuenta? <strong>Iniciar sesión</strong>
+    </a>
+  </div>
+
+</div>
+
+<!-- Botón flotante WhatsApp — siempre visible, z-index menor al drawer -->
+<a id="wa-float-btn" href="https://wa.me/51999999999" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <svg class="wa-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="wa-label">¿Necesitas ayuda?</span>
+</a>
+
 <style>
-  /* ── Base ── */
+  /* ── Base header ── */
   .site-header {
     position: fixed;
     top: 40px; left: 0; right: 0;
     z-index: 50;
-    transition: box-shadow 0.3s ease, top 0.3s ease;
+    transition: box-shadow 0.3s ease;
   }
 
   .header-inner {
@@ -177,11 +240,9 @@ const paraQuien = [
     border-bottom: 1px solid #f1f5f9;
     transition: box-shadow 0.3s ease;
   }
-
   .site-header.header-scrolled .header-inner {
     box-shadow: 0 1px 12px rgba(0,0,0,0.07);
   }
-
   :global(html.dark) .header-inner {
     background: #0f172a;
     border-bottom-color: #1e293b;
@@ -197,7 +258,7 @@ const paraQuien = [
     gap: 32px;
   }
 
-  /* Mobile: hamburger | logo | [cta + toggle] */
+  /* Mobile grid: hamburger | logo | [cta + toggle] */
   @media (max-width: 768px) {
     .header-content {
       display: grid;
@@ -205,35 +266,28 @@ const paraQuien = [
       gap: 0;
       padding: 0 8px 0 4px;
     }
-    .logo {
-      grid-column: 2;
-      justify-self: center;
-    }
-    .hamburger {
-      grid-column: 1;
-      justify-self: start;
-      margin-left: 0;
-    }
-    .mobile-right {
-      grid-column: 3;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .logo          { grid-column: 2; justify-self: center; }
+    .hamburger     { grid-column: 1; justify-self: start; margin-left: 0; }
+    .mobile-right  { grid-column: 3; display: flex; align-items: center; gap: 4px; }
     .nav-desktop,
-    .nav-ctas { display: none !important; }
+    .nav-ctas      { display: none !important; }
   }
 
   /* ── Logo ── */
-  .logo { text-decoration: none; flex-shrink: 0; }
-  .logo-text {
-    font-family: 'Cal Sans', Inter, sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #0f172a;
+  .logo { text-decoration: none; flex-shrink: 0; display: flex; align-items: center; }
+
+  .logo-img {
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
-  :global(html.dark) .logo-text { color: #f1f5f9; }
-  .logo-accent { color: #03BB85; }
+
+  /* Light mode: mostrar verde, ocultar white */
+  .logo-dark { display: none; }
+
+  /* Dark mode: ocultar verde, mostrar white */
+  :global(html.dark) .logo-light { display: none; }
+  :global(html.dark) .logo-dark  { display: block; }
 
   /* ── Nav desktop ── */
   .nav-desktop {
@@ -243,10 +297,7 @@ const paraQuien = [
     gap: 4px;
     flex: 1;
   }
-
-  @media (max-width: 768px) {
-    .nav-desktop { display: none; }
-  }
+  @media (max-width: 768px) { .nav-desktop { display: none; } }
 
   .nav-link {
     padding: 6px 12px;
@@ -258,20 +309,12 @@ const paraQuien = [
     transition: color 0.15s, background 0.15s;
     white-space: nowrap;
   }
-  .nav-link:hover {
-    color: #03BB85;
-    background: #f0fdf9;
-  }
+  .nav-link:hover { color: #03BB85; background: #f0fdf9; }
   :global(html.dark) .nav-link { color: #94a3b8; }
-  :global(html.dark) .nav-link:hover {
-    color: #4CE5B5;
-    background: rgba(3,187,133,0.1);
-  }
+  :global(html.dark) .nav-link:hover { color: #4CE5B5; background: rgba(3,187,133,0.1); }
 
   /* ── Dropdown trigger ── */
-  .nav-item {
-    position: relative;
-  }
+  .nav-item { position: relative; }
 
   .nav-trigger {
     display: flex;
@@ -292,29 +335,17 @@ const paraQuien = [
   .nav-trigger:hover { color: #0f172a; background: #f1f5f9; }
   :global(html.dark) .nav-trigger { color: #94a3b8; }
   :global(html.dark) .nav-trigger:hover { color: #f1f5f9; background: rgba(255,255,255,0.08); }
+  .nav-trigger.active { color: #03BB85; background: #f0fdf9; }
+  :global(html.dark) .nav-trigger.active { color: #4CE5B5; background: rgba(3,187,133,0.1); }
 
-  .nav-trigger.active {
-    color: #03BB85;
-    background: #f0fdf9;
-  }
-  :global(html.dark) .nav-trigger.active {
-    color: #4CE5B5;
-    background: rgba(3,187,133,0.1);
-  }
-
-  .chevron {
-    transition: transform 0.2s ease;
-  }
-  .nav-trigger.active .chevron,
-  .nav-trigger[aria-expanded="true"] .chevron {
-    transform: rotate(180deg);
-  }
+  .chevron { transition: transform 0.2s ease; }
+  .nav-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
 
   /* ── Dropdown panel ── */
   .nav-dropdown {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
     left: 0;
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -324,13 +355,11 @@ const paraQuien = [
     z-index: 100;
     animation: dropIn 0.15s ease-out;
   }
-
   :global(html.dark) .nav-dropdown {
     background: #1e293b;
     border-color: #334155;
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   }
-
   .nav-dropdown.open { display: block; }
 
   @keyframes dropIn {
@@ -364,11 +393,7 @@ const paraQuien = [
   :global(html.dark) .dropdown-item { color: #e2e8f0; }
   :global(html.dark) .dropdown-item:hover { background: #134e4a; color: #4CE5B5; }
 
-  .dropdown-icon {
-    flex-shrink: 0;
-    color: #64748b;
-    transition: color 0.1s;
-  }
+  .dropdown-icon { flex-shrink: 0; color: #64748b; transition: color 0.1s; }
   .dropdown-item:hover .dropdown-icon { color: #03BB85; }
 
   /* ── Badges ── */
@@ -382,39 +407,12 @@ const paraQuien = [
     line-height: 1.6;
     flex-shrink: 0;
   }
-  .badge-new {
-    background: #ecfdf5;
-    color: #059669;
-  }
-  :global(html.dark) .badge-new {
-    background: rgba(5,150,105,0.15);
-    color: #34d399;
-  }
-
-  .nav-link-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .nav-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 2px 7px;
-    border-radius: 999px;
-    line-height: 1.6;
-    background: #fffbeb;
-    color: #d97706;
-    border: 1px solid #fde68a;
-  }
-  :global(html.dark) .nav-badge {
-    background: rgba(217,119,6,0.15);
-    color: #fbbf24;
-    border-color: rgba(217,119,6,0.3);
-  }
+  .badge-new { background: #ecfdf5; color: #059669; }
+  :global(html.dark) .badge-new { background: rgba(5,150,105,0.15); color: #34d399; }
 
   /* ── Theme toggle ── */
   .theme-btn {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,44 +430,20 @@ const paraQuien = [
   :global(html.dark) .theme-btn { color: #94a3b8; }
   :global(html.dark) .theme-btn:hover { background: rgba(255,255,255,0.08); color: #f1f5f9; }
 
-  /* Theme icons — transition opacity+scale */
-  .theme-icon {
-    position: absolute;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .theme-btn { position: relative; }
+  .theme-icon { position: absolute; transition: opacity 0.2s ease, transform 0.2s ease; }
 
-  /* Light mode: show moon, hide sun */
-  #icon-sun, #icon-sun-mobile {
-    opacity: 0; transform: scale(0.6) rotate(-30deg);
-  }
-  #icon-moon, #icon-moon-mobile {
-    opacity: 1; transform: scale(1) rotate(0deg);
-  }
+  /* Light mode: moon visible, sun hidden */
+  #icon-sun, #icon-sun-mobile   { opacity: 0; transform: scale(0.6) rotate(-30deg); }
+  #icon-moon, #icon-moon-mobile { opacity: 1; transform: scale(1) rotate(0deg); }
+  /* Dark mode: sun visible, moon hidden */
+  :global(html.dark) #icon-sun, :global(html.dark) #icon-sun-mobile   { opacity: 1; transform: scale(1) rotate(0deg); }
+  :global(html.dark) #icon-moon, :global(html.dark) #icon-moon-mobile { opacity: 0; transform: scale(0.6) rotate(30deg); }
 
-  /* Dark mode: show sun, hide moon */
-  :global(html.dark) #icon-sun, :global(html.dark) #icon-sun-mobile {
-    opacity: 1; transform: scale(1) rotate(0deg);
-  }
-  :global(html.dark) #icon-moon, :global(html.dark) #icon-moon-mobile {
-    opacity: 0; transform: scale(0.6) rotate(30deg);
-  }
-
-  /* Mobile theme btn: visible only on mobile */
   .theme-btn-mobile { display: none; }
   @media (max-width: 768px) { .theme-btn-mobile { display: flex; } }
 
-  /* Desktop theme btn: hidden on mobile */
-  @media (max-width: 768px) { .nav-ctas .theme-btn:not(.theme-btn-mobile) { display: none; } }
-
-  /* ── CTAs ── */
-  .nav-ctas {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
+  /* ── CTAs desktop ── */
+  .nav-ctas { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
   @media (max-width: 768px) { .nav-ctas { display: none; } }
 
   /* ── Hamburger ── */
@@ -487,80 +461,7 @@ const paraQuien = [
   :global(html.dark) .hamburger:hover { background: #1e293b; }
   @media (max-width: 768px) { .hamburger { display: flex; } }
 
-  /* ── Mobile backdrop ── */
-  .mobile-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 149;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  .mobile-backdrop.backdrop-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* ── Mobile drawer — slide desde la izquierda ── */
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 78vw;
-    max-width: 320px;
-    background: #ffffff;
-    border-right: 1px solid #e2e8f0;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    z-index: 150;
-    transform: translateX(-100%);
-    pointer-events: none;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .mobile-menu.menu-open {
-    transform: translateX(0);
-    pointer-events: auto;
-    box-shadow: 4px 0 32px rgba(0,0,0,0.18);
-  }
-  :global(html.dark) .mobile-menu {
-    background: #0f172a;
-    border-right-color: #1e293b;
-  }
-
-  /* Drawer header */
-  .drawer-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 16px 12px;
-    border-bottom: 1px solid #f1f5f9;
-    flex-shrink: 0;
-  }
-  :global(html.dark) .drawer-header {
-    border-bottom-color: #1e293b;
-  }
-
-  .drawer-close-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: none;
-    background: none;
-    color: #475569;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-  }
-  .drawer-close-btn:hover { background: #f1f5f9; color: #0f172a; }
-  :global(html.dark) .drawer-close-btn { color: #94a3b8; }
-  :global(html.dark) .drawer-close-btn:hover { background: #1e293b; color: #f1f5f9; }
-
-  /* Botón CTA pequeño en header mobile */
+  /* Mobile CTA btn */
   .mobile-cta-btn {
     display: none;
     font-size: 12px;
@@ -576,41 +477,105 @@ const paraQuien = [
   .mobile-cta-btn:hover { background: #02a676; }
   @media (max-width: 768px) { .mobile-cta-btn { display: inline-flex; } }
 
-  /* Mobile right wrapper — oculto en desktop */
   .mobile-right { display: none; }
   @media (max-width: 768px) { .mobile-right { display: flex; } }
 
-  /* Items entran en cascada después de que el drawer se abre */
-  .mobile-nav > *,
-  .mobile-ctas {
+  /* ─────────────────────────────────────────────
+     MOBILE BACKDROP
+     z-index 200 → está en root stacking context,
+     supera al announcement bar (z-index: 60)
+  ───────────────────────────────────────────── */
+  .mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
     opacity: 0;
-    transform: translateX(-12px);
-    transition: opacity 0.22s ease, transform 0.22s ease;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
   }
-  .mobile-menu.menu-open .mobile-nav > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.15s; }
-  .mobile-menu.menu-open .mobile-nav > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.20s; }
-  .mobile-menu.menu-open .mobile-nav > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.25s; }
-  .mobile-menu.menu-open .mobile-nav > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.28s; }
-  .mobile-menu.menu-open .mobile-nav > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.31s; }
-  .mobile-menu.menu-open .mobile-ctas                 { opacity:1; transform:none; transition-delay: 0.34s; }
-
-  /* Ocultar drawer y backdrop en desktop */
-  @media (min-width: 769px) {
-    .mobile-menu { display: none !important; }
-    .mobile-backdrop { display: none !important; }
+  .mobile-backdrop.backdrop-open {
+    opacity: 1;
+    pointer-events: auto;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .mobile-menu { transition: none; }
-    .mobile-menu.menu-open .mobile-nav > *,
-    .mobile-menu.menu-open .mobile-ctas { opacity:1; transform:none; transition:none; }
-  }
-
-  .mobile-nav {
-    padding: 12px 24px 8px;
+  /* ─────────────────────────────────────────────
+     MOBILE DRAWER
+     z-index 201 → sobre el backdrop y sobre el
+     announcement bar (z-index: 60)
+  ───────────────────────────────────────────── */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80vw;
+    max-width: 300px;
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    z-index: 201;
+    transform: translateX(-100%);
+    pointer-events: none;
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .mobile-menu.menu-open {
+    transform: translateX(0);
+    pointer-events: auto;
+    box-shadow: 8px 0 40px rgba(0,0,0,0.20);
+  }
+  :global(html.dark) .mobile-menu {
+    background: #0f172a;
+    border-right-color: #1e293b;
+  }
+
+  /* Ocultar en desktop */
+  @media (min-width: 769px) {
+    .mobile-menu    { display: none !important; }
+    .mobile-backdrop{ display: none !important; }
+  }
+
+  /* ── Drawer header ── */
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 12px 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    flex-shrink: 0;
+  }
+  :global(html.dark) .drawer-header { border-bottom-color: #1e293b; }
+
+  .drawer-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    color: #475569;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+  }
+  .drawer-close-btn:hover { background: #f1f5f9; color: #0f172a; }
+  :global(html.dark) .drawer-close-btn { color: #94a3b8; }
+  :global(html.dark) .drawer-close-btn:hover { background: #1e293b; color: #f1f5f9; }
+
+  /* ── Nav mobile ── */
+  .mobile-nav {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex-shrink: 0;
   }
 
   .mobile-link {
@@ -618,23 +583,23 @@ const paraQuien = [
     padding: 10px 12px;
     font-size: 15px;
     font-weight: 500;
-    color: #374151;
+    color: #1e293b;
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.1s;
+    transition: background 0.12s, color 0.12s;
   }
-  .mobile-link:hover { background: #f8fafc; }
+  .mobile-link:hover { background: #f0fdf9; color: #03BB85; }
   :global(html.dark) .mobile-link { color: #cbd5e1; }
-  :global(html.dark) .mobile-link:hover { background: #1e293b; }
+  :global(html.dark) .mobile-link:hover { background: rgba(3,187,133,0.08); color: #4CE5B5; }
 
   .mobile-link-sub {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     color: #64748b;
-    padding-left: 20px;
+    padding: 7px 12px 7px 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
   }
   :global(html.dark) .mobile-link-sub { color: #94a3b8; }
 
@@ -646,26 +611,243 @@ const paraQuien = [
     padding: 10px 12px;
     font-size: 15px;
     font-weight: 500;
-    color: #374151;
+    color: #1e293b;
     background: none;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
-    transition: background 0.1s;
+    transition: background 0.12s, color 0.12s;
   }
-  .mobile-section-toggle:hover { background: #f8fafc; }
+  .mobile-section-toggle:hover { background: #f0fdf9; color: #03BB85; }
   :global(html.dark) .mobile-section-toggle { color: #cbd5e1; }
-  :global(html.dark) .mobile-section-toggle:hover { background: #1e293b; }
-
+  :global(html.dark) .mobile-section-toggle:hover { background: rgba(3,187,133,0.08); color: #4CE5B5; }
   .mobile-section-toggle.open .chevron { transform: rotate(180deg); }
 
+  /* ── Separador nav → zona conversión ── */
+  .drawer-separator {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 4px 16px 0;
+    flex-shrink: 0;
+  }
+  :global(html.dark) .drawer-separator { background: #1e293b; }
+
+  /* ── Zona de conversión ── */
+  .drawer-promo {
+    padding: 12px 16px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  /* Card promo */
+  .promo-card {
+    position: relative;
+    background: linear-gradient(135deg, #f0fdf9 0%, #dcfce7 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: 14px;
+    padding: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+  :global(html.dark) .promo-card {
+    background: linear-gradient(135deg, rgba(3,187,133,0.09) 0%, rgba(3,187,133,0.14) 100%);
+    border-color: rgba(3,187,133,0.28);
+  }
+
+  .promo-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+    padding-right: 8px;
+  }
+
+  /* Icono decorativo de fondo */
+  .promo-deco {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #03BB85;
+    opacity: 0.12;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+  :global(html.dark) .promo-deco { opacity: 0.08; }
+
+  .promo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #047857;
+    background: #d1fae5;
+    border-radius: 999px;
+    padding: 3px 9px 3px 7px;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+  :global(html.dark) .promo-badge {
+    background: rgba(5,150,105,0.22);
+    color: #34d399;
+  }
+
+  .promo-title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+  :global(html.dark) .promo-title { color: #f1f5f9; }
+
+  .promo-sub {
+    margin: 0;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.4;
+  }
+  :global(html.dark) .promo-sub { color: #94a3b8; }
+
+  .promo-cta {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #03BB85;
+    padding: 7px 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(3,187,133,0.35);
+  }
+  .promo-cta:hover {
+    background: #02a676;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(3,187,133,0.45);
+  }
+  :global(html.dark) .promo-cta { color: #0f172a; }
+
+  /* Rating stars */
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 2px 0;
+  }
+  .stars {
+    color: #f59e0b;
+    font-size: 12px;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .rating-text {
+    font-size: 12px;
+    color: #64748b;
+  }
+  .rating-text strong { color: #374151; font-weight: 700; }
+  :global(html.dark) .rating-text { color: #94a3b8; }
+  :global(html.dark) .rating-text strong { color: #cbd5e1; }
+
+  /* Quick wins pills */
+  .quick-wins {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 8px 0 0;
+  }
+  .quick-pill {
+    font-size: 11px;
+    font-weight: 600;
+    color: #047857;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 999px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  :global(html.dark) .quick-pill {
+    color: #34d399;
+    background: rgba(3,187,133,0.1);
+    border-color: rgba(3,187,133,0.22);
+  }
+
+  /* Trust signal pulsante */
+  .trust-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 2px 0;
+  }
+  .trust-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #03BB85;
+    flex-shrink: 0;
+    animation: pulse-dot 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(3,187,133,0.4); }
+    50%       { box-shadow: 0 0 0 5px rgba(3,187,133,0); }
+  }
+  .trust-text {
+    font-size: 11.5px;
+    color: #64748b;
+    font-weight: 500;
+  }
+  :global(html.dark) .trust-text { color: #94a3b8; }
+
+  /* ── Bottom CTAs ── */
   .mobile-ctas {
-    padding: 16px 24px 24px;
+    padding: 14px 16px 28px;
     border-top: 1px solid #f1f5f9;
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   :global(html.dark) .mobile-ctas { border-top-color: #1e293b; }
+
+  .whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #25D366;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(37,211,102,0.35);
+    letter-spacing: 0.01em;
+  }
+  .whatsapp-link:hover {
+    background: #1ebe5d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(37,211,102,0.45);
+  }
+  :global(html.dark) .whatsapp-link {
+    background: #1a9e4a;
+    box-shadow: 0 2px 8px rgba(37,211,102,0.2);
+  }
+  :global(html.dark) .whatsapp-link:hover {
+    background: #25D366;
+  }
 
   .mobile-login-link {
     display: block;
@@ -683,13 +865,111 @@ const paraQuien = [
   :global(html.dark) .mobile-login-link strong { color: #94a3b8; }
   :global(html.dark) .mobile-login-link:hover,
   :global(html.dark) .mobile-login-link:hover strong { color: #4CE5B5; }
+
+  /* Botón "Ver planes" en el drawer */
+  .drawer-planes-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #03BB85;
+    background: #f0fdf9;
+    border: 1px solid #a7f3d0;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, transform 0.12s;
+  }
+  .drawer-planes-btn:hover { background: #d1fae5; color: #047857; transform: translateY(-1px); }
+  :global(html.dark) .drawer-planes-btn {
+    background: rgba(3,187,133,0.08);
+    border-color: rgba(3,187,133,0.22);
+    color: #4CE5B5;
+  }
+  :global(html.dark) .drawer-planes-btn:hover { background: rgba(3,187,133,0.15); }
+
+  /* ── Botón flotante WhatsApp ── */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 13px 20px 13px 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 1px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, padding 0.3s ease;
+    /* Entra con animación diferida (3s) */
+    opacity: 0;
+    animation: wa-enter 0.5s cubic-bezier(0.34,1.56,0.64,1) 3s forwards;
+  }
+  .wa-float:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(37,211,102,0.55), 0 2px 6px rgba(0,0,0,0.12);
+  }
+
+  .wa-icon { flex-shrink: 0; }
+
+  .wa-label {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  /* En mobile: solo icono (label se oculta en pantallas muy pequeñas) */
+  @media (max-width: 400px) {
+    .wa-float { padding: 14px; }
+    .wa-label { display: none; }
+  }
+
+  @keyframes wa-enter {
+    from { opacity: 0; transform: translateY(16px) scale(0.85); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-float { animation: none; opacity: 1; }
+  }
+
+  /* ── Cascade animation ── */
+  .mobile-nav > *,
+  .drawer-separator,
+  .drawer-promo,
+  .mobile-ctas {
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.10s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.14s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.18s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.21s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.24s; }
+  .mobile-menu.menu-open .drawer-separator            { opacity:1; transform:none; transition-delay:0.26s; }
+  .mobile-menu.menu-open .drawer-promo               { opacity:1; transform:none; transition-delay:0.29s; }
+  .mobile-menu.menu-open .mobile-ctas                { opacity:1; transform:none; transition-delay:0.34s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu { transition: none; }
+    .mobile-backdrop { transition: none; }
+    .mobile-nav > *, .drawer-separator, .drawer-promo, .mobile-ctas {
+      opacity:1; transform:none; transition:none;
+    }
+    .trust-dot { animation: none; }
+    @keyframes pulse-dot { 0%, 100% { box-shadow: none; } }
+  }
 </style>
 
 <script>
-
-  // ── Scroll behavior: sombra al hacer scroll ──
+  // ── Scroll: sombra en header ──
   const header = document.getElementById('header')!;
-
   window.addEventListener('scroll', () => {
     header.classList.toggle('header-scrolled', window.scrollY > 20);
   }, { passive: true });
@@ -699,18 +979,16 @@ const paraQuien = [
     document.documentElement.classList.toggle('dark', dark);
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (_) {}
   }
-
   function initThemeBtn(btn: HTMLElement | null) {
     if (!btn) return;
     btn.addEventListener('click', () => {
       applyTheme(!document.documentElement.classList.contains('dark'));
     });
   }
-
   initThemeBtn(document.getElementById('theme-toggle'));
   initThemeBtn(document.getElementById('theme-toggle-mobile'));
 
-  // ── Dropdown toggle (desktop) — hover + click ──
+  // ── Dropdown desktop (hover + click) ──
   function closeAll() {
     document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
     document.querySelectorAll('.nav-trigger').forEach(t => {
@@ -718,40 +996,33 @@ const paraQuien = [
       t.setAttribute('aria-expanded', 'false');
     });
   }
-
   function openDropdown(trigger: HTMLButtonElement, dropdown: HTMLElement) {
     closeAll();
     dropdown.classList.add('open');
     trigger.classList.add('active');
     trigger.setAttribute('aria-expanded', 'true');
   }
-
   document.querySelectorAll('.nav-item').forEach((item) => {
-    const trigger = item.querySelector('.nav-trigger') as HTMLButtonElement;
+    const trigger  = item.querySelector('.nav-trigger') as HTMLButtonElement;
     const dropdown = item.querySelector('.nav-dropdown') as HTMLElement;
     if (!trigger || !dropdown) return;
-
-    // Hover
     item.addEventListener('mouseenter', () => openDropdown(trigger, dropdown));
     item.addEventListener('mouseleave', closeAll);
-
-    // Click (accesibilidad / teclado)
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdown.classList.contains('open') ? closeAll() : openDropdown(trigger, dropdown);
     });
   });
-
   document.addEventListener('click', closeAll);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
 
   // ── Mobile drawer ──
-  const toggle = document.getElementById('menu-toggle')!;
+  const toggle     = document.getElementById('menu-toggle')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
-  const backdrop = document.getElementById('mobile-backdrop')!;
+  const backdrop   = document.getElementById('mobile-backdrop')!;
   const drawerClose = document.getElementById('drawer-close')!;
-  const iconOpen = document.getElementById('icon-open')!;
-  const iconClose = document.getElementById('icon-close')!;
+  const iconOpen   = document.getElementById('icon-open')!;
+  const iconClose  = document.getElementById('icon-close')!;
 
   function openMenu() {
     mobileMenu.classList.add('menu-open');
@@ -761,7 +1032,6 @@ const paraQuien = [
     iconClose.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
-
   function closeMenu() {
     mobileMenu.classList.remove('menu-open');
     backdrop.classList.remove('backdrop-open');
@@ -774,12 +1044,11 @@ const paraQuien = [
   toggle.addEventListener('click', () => {
     mobileMenu.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
-
-  // Cerrar al hacer click en backdrop o en botón X del drawer
   backdrop.addEventListener('click', closeMenu);
   drawerClose.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-  // ── Mobile section toggles ──
+  // ── Accordion secciones mobile ──
   document.querySelectorAll('.mobile-section-toggle').forEach((btn) => {
     btn.addEventListener('click', () => {
       const body = btn.nextElementSibling as HTMLElement;
@@ -790,7 +1059,7 @@ const paraQuien = [
     });
   });
 
-  // Close on link click
+  // Cerrar drawer al navegar
   mobileMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
