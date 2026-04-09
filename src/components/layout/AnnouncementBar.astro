@@ -1,0 +1,101 @@
+---
+import { Sparkles } from '@lucide/astro';
+---
+
+<div id="announcement-bar" class="announcement-bar">
+  <div class="announcement-inner">
+    <Sparkles size={13} class="announcement-icon" />
+    <p class="announcement-text">
+      <strong>Oferta por tiempo limitado —</strong>
+      Adquiere el plan anual y obtén <strong>2 meses gratis.</strong>
+      <a href="/planes" class="announcement-link">Ver planes →</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    background: linear-gradient(90deg, #028a62, #03BB85, #02a676);
+    overflow: hidden;
+    max-height: 48px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .announcement-bar.bar-hidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .announcement-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+    animation: shimmer-bar 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shimmer-bar {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+
+  .announcement-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px 0 24px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+  }
+
+  .announcement-icon {
+    color: rgba(255,255,255,0.85);
+    flex-shrink: 0;
+  }
+
+  .announcement-text {
+    margin: 0;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .announcement-link {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-left: 6px;
+    transition: opacity 0.15s;
+  }
+  .announcement-link:hover { opacity: 0.75; }
+
+
+  /* Dark mode — borde inferior para separar del header oscuro */
+  :global(html.dark) .announcement-bar {
+    background: linear-gradient(90deg, #026b4f, #028a62, #027a58);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  @media (max-width: 767px) {
+    .announcement-text { font-size: 11px; white-space: normal; text-align: center; }
+    .announcement-inner { height: auto; padding: 8px 40px 8px 12px; }
+    .announcement-bar { max-height: 64px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-bar::before { animation: none; }
+  }
+</style>
+

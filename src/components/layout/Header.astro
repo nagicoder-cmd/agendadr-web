@@ -1,18 +1,12 @@
 ---
 import Button from '../ui/Button.astro';
-
-const funcionalidades = [
-  { href: '/funcionalidades/citas-online',       label: 'Citas online',          icon: '📅' },
-  { href: '/funcionalidades/pagos-medicos',       label: 'Pagos médicos',         icon: '💳' },
-  { href: '/funcionalidades/whatsapp-clinicas',   label: 'WhatsApp automático',   icon: '💬' },
-  { href: '/funcionalidades/historial-medico',    label: 'Historial médico',      icon: '📋' },
-  { href: '/funcionalidades/recetas-digitales',   label: 'Recetas digitales',     icon: '📄' },
-  { href: '/funcionalidades/gestion-clinicas',    label: 'Gestión de clínica',    icon: '🏥' },
-  { href: '/funcionalidades/reportes',            label: 'Reportes',              icon: '📊' },
-  { href: '/funcionalidades/multi-sede',          label: 'Multi-sede',            icon: '🏢' },
-  { href: '/funcionalidades/comisiones',          label: 'Comisiones',            icon: '💰' },
-  { href: '/funcionalidades/planes-tratamiento',  label: 'Planes de tratamiento', icon: '🩺' },
-];
+import AnnouncementBar from './AnnouncementBar.astro';
+import {
+  ChevronDown, Menu, X, Sun, Moon,
+  Calendar, CreditCard, MessageCircle, ClipboardList,
+  FileText, Building2, BarChart2, MapPin, Percent, Stethoscope,
+  UserRound, Store, Hospital, HeartPulse, Users
+} from '@lucide/astro';
 
 const paraQuien = [
   { href: '/para/doctores',        label: 'Doctores independientes' },
@@ -23,11 +17,18 @@ const paraQuien = [
 ];
 ---
 
+<AnnouncementBar />
 <header id="header" class="site-header">
   <div class="header-inner">
     <div class="header-content">
 
-      <!-- Logo -->
+      <!-- Hamburger (mobile izquierda / desktop oculto) -->
+      <button id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="hamburger">
+        <Menu id="icon-open"  size={20} />
+        <X    id="icon-close" size={20} class="hidden" />
+      </button>
+
+      <!-- Logo (centro en mobile / izquierda en desktop) -->
       <a href="/" class="logo" aria-label="AgendaDr inicio">
         <span class="logo-text">Agenda<span class="logo-accent">Dr</span></span>
       </a>
@@ -39,18 +40,20 @@ const paraQuien = [
         <div class="nav-item" id="drop-func">
           <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">
             Funcionalidades
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="chevron">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
+            <ChevronDown size={14} class="chevron" />
           </button>
           <div class="nav-dropdown dropdown-wide" role="menu">
             <div class="dropdown-grid">
-              {funcionalidades.map(({ href, label, icon }) => (
-                <a href={href} class="dropdown-item" role="menuitem">
-                  <span class="dropdown-icon">{icon}</span>
-                  <span>{label}</span>
-                </a>
-              ))}
+              <a href="/funcionalidades/citas-online"      class="dropdown-item" role="menuitem"><Calendar      size={15} class="dropdown-icon" /><span>Citas online</span></a>
+              <a href="/funcionalidades/pagos-medicos"     class="dropdown-item" role="menuitem"><CreditCard    size={15} class="dropdown-icon" /><span>Pagos médicos</span></a>
+              <a href="/funcionalidades/whatsapp-clinicas" class="dropdown-item" role="menuitem"><MessageCircle size={15} class="dropdown-icon" /><span>WhatsApp automático</span><span class="item-badge badge-new">Nuevo</span></a>
+              <a href="/funcionalidades/historial-medico"  class="dropdown-item" role="menuitem"><ClipboardList size={15} class="dropdown-icon" /><span>Historial médico</span></a>
+              <a href="/funcionalidades/recetas-digitales" class="dropdown-item" role="menuitem"><FileText      size={15} class="dropdown-icon" /><span>Recetas digitales</span></a>
+              <a href="/funcionalidades/gestion-clinicas"  class="dropdown-item" role="menuitem"><Building2     size={15} class="dropdown-icon" /><span>Gestión de clínica</span></a>
+              <a href="/funcionalidades/reportes"          class="dropdown-item" role="menuitem"><BarChart2     size={15} class="dropdown-icon" /><span>Reportes</span></a>
+              <a href="/funcionalidades/multi-sede"        class="dropdown-item" role="menuitem"><MapPin        size={15} class="dropdown-icon" /><span>Multi-sede</span></a>
+              <a href="/funcionalidades/comisiones"        class="dropdown-item" role="menuitem"><Percent       size={15} class="dropdown-icon" /><span>Comisiones</span></a>
+              <a href="/funcionalidades/planes-tratamiento"class="dropdown-item" role="menuitem"><Stethoscope   size={15} class="dropdown-icon" /><span>Planes de tratamiento</span></a>
             </div>
           </div>
         </div>
@@ -59,34 +62,37 @@ const paraQuien = [
         <div class="nav-item" id="drop-para">
           <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">
             Para quién
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="chevron">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
+            <ChevronDown size={14} class="chevron" />
           </button>
           <div class="nav-dropdown dropdown-narrow" role="menu">
-            {paraQuien.map(({ href, label }) => (
-              <a href={href} class="dropdown-item" role="menuitem">
-                <span>{label}</span>
-              </a>
-            ))}
+            <a href="/para/doctores"        class="dropdown-item" role="menuitem"><UserRound  size={15} class="dropdown-icon" /><span>Doctores independientes</span></a>
+            <a href="/para/consultorios"    class="dropdown-item" role="menuitem"><Store      size={15} class="dropdown-icon" /><span>Consultorios</span></a>
+            <a href="/para/clinicas"        class="dropdown-item" role="menuitem"><Hospital   size={15} class="dropdown-icon" /><span>Clínicas</span></a>
+            <a href="/para/centros-medicos" class="dropdown-item" role="menuitem"><HeartPulse size={15} class="dropdown-icon" /><span>Centros médicos</span></a>
+            <a href="/para/policlinicos"    class="dropdown-item" role="menuitem"><Users      size={15} class="dropdown-icon" /><span>Policlínicos</span></a>
           </div>
         </div>
 
-        <a href="/planes"    class="nav-link">Precios</a>
+        <a href="/planes" class="nav-link">Precios</a>
         <a href="/nosotros"  class="nav-link">Nosotros</a>
         <a href="/contacto"  class="nav-link">Contacto</a>
       </nav>
 
       <!-- CTAs desktop -->
       <div class="nav-ctas">
+        <!-- Theme toggle -->
+        <button id="theme-toggle" type="button" aria-label="Cambiar tema" class="theme-btn">
+          <Sun  id="icon-sun"  size={18} class="theme-icon" />
+          <Moon id="icon-moon" size={18} class="theme-icon" />
+        </button>
         <Button variant="ghost" size="sm" href="https://app.agendadr.com/login">Iniciar sesión</Button>
-        <Button variant="primary" size="sm" href="https://app.agendadr.com/registro">Empezar gratis</Button>
+        <Button variant="primary" size="sm" href="/demo">Empezar gratis</Button>
       </div>
 
-      <!-- Hamburger -->
-      <button id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="hamburger">
-        <svg id="icon-open"  class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      <!-- Theme toggle mobile (derecha) -->
+      <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema" class="theme-btn theme-btn-mobile">
+        <Sun  id="icon-sun-mobile"  size={18} class="theme-icon" />
+        <Moon id="icon-moon-mobile" size={18} class="theme-icon" />
       </button>
 
     </div>
@@ -100,14 +106,19 @@ const paraQuien = [
       <div class="mobile-section">
         <button class="mobile-section-toggle" aria-expanded="false">
           Funcionalidades
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="chevron"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <ChevronDown size={14} class="chevron" />
         </button>
         <div class="mobile-section-body hidden">
-          {funcionalidades.map(({ href, label, icon }) => (
-            <a href={href} class="mobile-link mobile-link-sub">
-              <span>{icon}</span> {label}
-            </a>
-          ))}
+          <a href="/funcionalidades/citas-online"       class="mobile-link mobile-link-sub"><Calendar      size={14} /><span>Citas online</span></a>
+          <a href="/funcionalidades/pagos-medicos"      class="mobile-link mobile-link-sub"><CreditCard    size={14} /><span>Pagos médicos</span></a>
+          <a href="/funcionalidades/whatsapp-clinicas"  class="mobile-link mobile-link-sub"><MessageCircle size={14} /><span>WhatsApp automático</span></a>
+          <a href="/funcionalidades/historial-medico"   class="mobile-link mobile-link-sub"><ClipboardList size={14} /><span>Historial médico</span></a>
+          <a href="/funcionalidades/recetas-digitales"  class="mobile-link mobile-link-sub"><FileText      size={14} /><span>Recetas digitales</span></a>
+          <a href="/funcionalidades/gestion-clinicas"   class="mobile-link mobile-link-sub"><Building2     size={14} /><span>Gestión de clínica</span></a>
+          <a href="/funcionalidades/reportes"           class="mobile-link mobile-link-sub"><BarChart2     size={14} /><span>Reportes</span></a>
+          <a href="/funcionalidades/multi-sede"         class="mobile-link mobile-link-sub"><MapPin        size={14} /><span>Multi-sede</span></a>
+          <a href="/funcionalidades/comisiones"         class="mobile-link mobile-link-sub"><Percent       size={14} /><span>Comisiones</span></a>
+          <a href="/funcionalidades/planes-tratamiento" class="mobile-link mobile-link-sub"><Stethoscope   size={14} /><span>Planes de tratamiento</span></a>
         </div>
       </div>
 
@@ -115,7 +126,7 @@ const paraQuien = [
       <div class="mobile-section">
         <button class="mobile-section-toggle" aria-expanded="false">
           Para quién
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="chevron"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <ChevronDown size={14} class="chevron" />
         </button>
         <div class="mobile-section-body hidden">
           {paraQuien.map(({ href, label }) => (
@@ -130,8 +141,8 @@ const paraQuien = [
     </nav>
 
     <div class="mobile-ctas">
-      <Button variant="ghost"   size="md" href="https://app.agendadr.com/login">Iniciar sesión</Button>
-      <Button variant="primary" size="md" href="https://app.agendadr.com/registro">Empezar gratis</Button>
+      <Button variant="primary"   size="md" href="/demo">Empezar gratis</Button>
+      <a href="https://app.agendadr.com/login" class="mobile-login-link">Iniciar sesión</a>
     </div>
   </div>
 </header>
@@ -140,20 +151,24 @@ const paraQuien = [
   /* ── Base ── */
   .site-header {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 40px; left: 0; right: 0;
     z-index: 50;
+    transition: box-shadow 0.3s ease, top 0.3s ease;
   }
 
   .header-inner {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .site-header.header-scrolled .header-inner {
+    box-shadow: 0 1px 12px rgba(0,0,0,0.07);
   }
 
   :global(html.dark) .header-inner {
-    background: rgba(15,23,42,0.85);
-    border-bottom-color: rgba(255,255,255,0.06);
+    background: #0f172a;
+    border-bottom-color: #1e293b;
   }
 
   .header-content {
@@ -164,6 +179,31 @@ const paraQuien = [
     display: flex;
     align-items: center;
     gap: 32px;
+  }
+
+  /* Mobile: 3 columnas — hamburger | logo | toggle */
+  @media (max-width: 768px) {
+    .header-content {
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      gap: 0;
+      padding: 0 12px;
+    }
+    .logo {
+      grid-column: 2;
+      justify-self: center;
+    }
+    .hamburger {
+      grid-column: 1;
+      justify-self: start;
+      margin-left: 0;
+    }
+    .theme-btn-mobile {
+      grid-column: 3;
+      justify-self: end;
+    }
+    .nav-desktop,
+    .nav-ctas { display: none !important; }
   }
 
   /* ── Logo ── */
@@ -181,6 +221,7 @@ const paraQuien = [
   .nav-desktop {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     flex: 1;
   }
@@ -199,9 +240,15 @@ const paraQuien = [
     transition: color 0.15s, background 0.15s;
     white-space: nowrap;
   }
-  .nav-link:hover { color: #0f172a; background: rgba(0,0,0,0.04); }
+  .nav-link:hover {
+    color: #03BB85;
+    background: #f0fdf9;
+  }
   :global(html.dark) .nav-link { color: #94a3b8; }
-  :global(html.dark) .nav-link:hover { color: #f1f5f9; background: rgba(255,255,255,0.06); }
+  :global(html.dark) .nav-link:hover {
+    color: #4CE5B5;
+    background: rgba(3,187,133,0.1);
+  }
 
   /* ── Dropdown trigger ── */
   .nav-item {
@@ -224,12 +271,18 @@ const paraQuien = [
     white-space: nowrap;
     font-family: inherit;
   }
-  .nav-trigger:hover { color: #0f172a; background: rgba(0,0,0,0.04); }
+  .nav-trigger:hover { color: #0f172a; background: #f1f5f9; }
   :global(html.dark) .nav-trigger { color: #94a3b8; }
-  :global(html.dark) .nav-trigger:hover { color: #f1f5f9; background: rgba(255,255,255,0.06); }
+  :global(html.dark) .nav-trigger:hover { color: #f1f5f9; background: rgba(255,255,255,0.08); }
 
-  .nav-trigger.active { color: #0f172a; }
-  :global(html.dark) .nav-trigger.active { color: #f1f5f9; }
+  .nav-trigger.active {
+    color: #03BB85;
+    background: #f0fdf9;
+  }
+  :global(html.dark) .nav-trigger.active {
+    color: #4CE5B5;
+    background: rgba(3,187,133,0.1);
+  }
 
   .chevron {
     transition: transform 0.2s ease;
@@ -243,7 +296,7 @@ const paraQuien = [
   .nav-dropdown {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -267,7 +320,7 @@ const paraQuien = [
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .dropdown-wide  { width: 400px; }
+  .dropdown-wide   { width: 440px; }
   .dropdown-narrow { width: 220px; }
 
   .dropdown-grid {
@@ -283,21 +336,113 @@ const paraQuien = [
     padding: 9px 12px;
     font-size: 13px;
     font-weight: 500;
-    color: #374151;
+    color: #0f172a;
     text-decoration: none;
     border-radius: 8px;
     transition: background 0.1s, color 0.1s;
     white-space: nowrap;
   }
-  .dropdown-item:hover { background: #f8fafc; color: #0f172a; }
-  :global(html.dark) .dropdown-item { color: #cbd5e1; }
-  :global(html.dark) .dropdown-item:hover { background: #334155; color: #f1f5f9; }
+  .dropdown-item:hover { background: #f0fdf9; color: #03BB85; }
+  :global(html.dark) .dropdown-item { color: #e2e8f0; }
+  :global(html.dark) .dropdown-item:hover { background: #134e4a; color: #4CE5B5; }
 
   .dropdown-icon {
-    font-size: 15px;
-    line-height: 1;
+    flex-shrink: 0;
+    color: #64748b;
+    transition: color 0.1s;
+  }
+  .dropdown-item:hover .dropdown-icon { color: #03BB85; }
+
+  /* ── Badges ── */
+  .item-badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    line-height: 1.6;
     flex-shrink: 0;
   }
+  .badge-new {
+    background: #ecfdf5;
+    color: #059669;
+  }
+  :global(html.dark) .badge-new {
+    background: rgba(5,150,105,0.15);
+    color: #34d399;
+  }
+
+  .nav-link-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    line-height: 1.6;
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+  }
+  :global(html.dark) .nav-badge {
+    background: rgba(217,119,6,0.15);
+    color: #fbbf24;
+    border-color: rgba(217,119,6,0.3);
+  }
+
+  /* ── Theme toggle ── */
+  .theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    color: #475569;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
+  }
+  .theme-btn:hover { background: rgba(0,0,0,0.05); color: #0f172a; }
+  :global(html.dark) .theme-btn { color: #94a3b8; }
+  :global(html.dark) .theme-btn:hover { background: rgba(255,255,255,0.08); color: #f1f5f9; }
+
+  /* Theme icons — transition opacity+scale */
+  .theme-icon {
+    position: absolute;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .theme-btn { position: relative; }
+
+  /* Light mode: show moon, hide sun */
+  #icon-sun, #icon-sun-mobile {
+    opacity: 0; transform: scale(0.6) rotate(-30deg);
+  }
+  #icon-moon, #icon-moon-mobile {
+    opacity: 1; transform: scale(1) rotate(0deg);
+  }
+
+  /* Dark mode: show sun, hide moon */
+  :global(html.dark) #icon-sun, :global(html.dark) #icon-sun-mobile {
+    opacity: 1; transform: scale(1) rotate(0deg);
+  }
+  :global(html.dark) #icon-moon, :global(html.dark) #icon-moon-mobile {
+    opacity: 0; transform: scale(0.6) rotate(30deg);
+  }
+
+  /* Mobile theme btn: visible only on mobile */
+  .theme-btn-mobile { display: none; }
+  @media (max-width: 768px) { .theme-btn-mobile { display: flex; } }
+
+  /* Desktop theme btn: hidden on mobile */
+  @media (max-width: 768px) { .nav-ctas .theme-btn:not(.theme-btn-mobile) { display: none; } }
 
   /* ── CTAs ── */
   .nav-ctas {
@@ -305,7 +450,6 @@ const paraQuien = [
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
-    margin-left: auto;
   }
 
   @media (max-width: 768px) { .nav-ctas { display: none; } }
@@ -319,22 +463,55 @@ const paraQuien = [
     background: none;
     color: #475569;
     cursor: pointer;
-    margin-left: auto;
   }
   .hamburger:hover { background: #f1f5f9; }
   :global(html.dark) .hamburger { color: #94a3b8; }
   :global(html.dark) .hamburger:hover { background: #1e293b; }
-
   @media (max-width: 768px) { .hamburger { display: flex; } }
 
-  /* ── Mobile menu ── */
+  /* ── Mobile menu — cortina ── */
   .mobile-menu {
+    position: fixed;
+    top: calc(40px + 64px);
+    left: 0; right: 0; bottom: 0;
     background: #ffffff;
     border-top: 1px solid #f1f5f9;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 49;
+    /* Cortina cerrada */
+    transform: scaleY(0);
+    transform-origin: top center;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .mobile-menu.menu-open {
+    transform: scaleY(1);
+    pointer-events: auto;
   }
   :global(html.dark) .mobile-menu {
     background: #0f172a;
     border-top-color: #1e293b;
+  }
+
+  /* Items entran en cascada después de que la cortina se abre */
+  .mobile-nav > *,
+  .mobile-ctas {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.15s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.20s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.25s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.28s; }
+  .mobile-menu.menu-open .mobile-nav > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.31s; }
+  .mobile-menu.menu-open .mobile-ctas                 { opacity:1; transform:none; transition-delay: 0.34s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu { transition: none; transform: none; }
+    .mobile-menu.menu-open .mobile-nav > *, .mobile-ctas { opacity:1; transform:none; transition:none; }
   }
 
   .mobile-nav {
@@ -365,7 +542,7 @@ const paraQuien = [
     padding-left: 20px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
   :global(html.dark) .mobile-link-sub { color: #94a3b8; }
 
@@ -392,61 +569,90 @@ const paraQuien = [
   .mobile-section-toggle.open .chevron { transform: rotate(180deg); }
 
   .mobile-ctas {
-    padding: 12px 24px 20px;
+    padding: 16px 24px 32px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: stretch;
+    gap: 12px;
     border-top: 1px solid #f1f5f9;
-    margin-top: 4px;
+    margin-top: auto;
   }
   :global(html.dark) .mobile-ctas { border-top-color: #1e293b; }
+
+  .mobile-login-link {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.15s;
+  }
+  .mobile-login-link:hover { color: #03BB85; }
+  :global(html.dark) .mobile-login-link { color: #94a3b8; }
+  :global(html.dark) .mobile-login-link:hover { color: #4CE5B5; }
 </style>
 
 <script>
-  // ── Dropdown toggle (desktop) ──
-  const dropItems = document.querySelectorAll('.nav-item');
 
-  dropItems.forEach((item) => {
-    const trigger = item.querySelector('.nav-trigger') as HTMLButtonElement;
-    const dropdown = item.querySelector('.nav-dropdown') as HTMLElement;
-    if (!trigger || !dropdown) return;
+  // ── Scroll behavior: sombra al hacer scroll ──
+  const header = document.getElementById('header')!;
 
-    trigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = dropdown.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      document.querySelectorAll('.nav-trigger').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        dropdown.classList.add('open');
-        trigger.classList.add('active');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('header-scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ── Theme toggle ──
+  function applyTheme(dark: boolean) {
+    document.documentElement.classList.toggle('dark', dark);
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (_) {}
+  }
+
+  function initThemeBtn(btn: HTMLElement | null) {
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      applyTheme(!document.documentElement.classList.contains('dark'));
     });
-  });
+  }
 
-  // Close on outside click
-  document.addEventListener('click', () => {
+  initThemeBtn(document.getElementById('theme-toggle'));
+  initThemeBtn(document.getElementById('theme-toggle-mobile'));
+
+  // ── Dropdown toggle (desktop) — hover + click ──
+  function closeAll() {
     document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
     document.querySelectorAll('.nav-trigger').forEach(t => {
       t.classList.remove('active');
       t.setAttribute('aria-expanded', 'false');
     });
+  }
+
+  function openDropdown(trigger: HTMLButtonElement, dropdown: HTMLElement) {
+    closeAll();
+    dropdown.classList.add('open');
+    trigger.classList.add('active');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const trigger = item.querySelector('.nav-trigger') as HTMLButtonElement;
+    const dropdown = item.querySelector('.nav-dropdown') as HTMLElement;
+    if (!trigger || !dropdown) return;
+
+    // Hover
+    item.addEventListener('mouseenter', () => openDropdown(trigger, dropdown));
+    item.addEventListener('mouseleave', closeAll);
+
+    // Click (accesibilidad / teclado)
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.contains('open') ? closeAll() : openDropdown(trigger, dropdown);
+    });
   });
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      document.querySelectorAll('.nav-trigger').forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-expanded', 'false');
-      });
-    }
-  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
 
   // ── Mobile hamburger ──
   const toggle = document.getElementById('menu-toggle')!;
@@ -454,11 +660,24 @@ const paraQuien = [
   const iconOpen = document.getElementById('icon-open')!;
   const iconClose = document.getElementById('icon-close')!;
 
+  function openMenu() {
+    mobileMenu.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
   toggle.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    iconOpen.classList.toggle('hidden', isOpen);
-    iconClose.classList.toggle('hidden', !isOpen);
+    mobileMenu.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
 
   // ── Mobile section toggles ──
@@ -472,13 +691,8 @@ const paraQuien = [
     });
   });
 
-  // Close mobile menu on link click
+  // Close on link click
   mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>

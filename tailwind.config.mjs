@@ -22,8 +22,8 @@ export default {
           900: '#01523b',
         },
         logo: {
-          blue: '#2196F3',
-          'blue-light': '#5AC0F9',
+          blue: '#03BB85',
+          'blue-light': '#4CE5B5',
         },
         success: { DEFAULT: '#16a34a', light: '#4ade80' },
         warning: { DEFAULT: '#d97706', light: '#fbbf24' },
@@ -40,7 +40,7 @@ export default {
       },
       borderRadius: {
         card: '12px',
-        btn: '8px',
+        btn: '10px',
       },
     },
   },
