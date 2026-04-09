@@ -908,7 +908,7 @@ const paraQuien = [
     background: #25D366;
     color: #ffffff;
     border-radius: 999px;
-    padding: 13px 20px 13px 16px;
+    padding: 14px;
     text-decoration: none;
     box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 1px 4px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease, padding 0.3s ease;
@@ -923,18 +923,7 @@ const paraQuien = [
 
   .wa-icon { flex-shrink: 0; }
 
-  .wa-label {
-    font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
-    letter-spacing: 0.01em;
-  }
-
-  /* En mobile: solo icono (label se oculta en pantallas muy pequeñas) */
-  @media (max-width: 400px) {
-    .wa-float { padding: 14px; }
-    .wa-label { display: none; }
-  }
+  .wa-label { display: none; }
 
   @keyframes wa-enter {
     from { opacity: 0; transform: translateY(16px) scale(0.85); }
