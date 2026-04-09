@@ -89,17 +89,32 @@ const paraQuien = [
         <Button variant="primary" size="sm" href="/demo">Empezar gratis</Button>
       </div>
 
-      <!-- Theme toggle mobile (derecha) -->
-      <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema" class="theme-btn theme-btn-mobile">
-        <Sun  id="icon-sun-mobile"  size={18} class="theme-icon" />
-        <Moon id="icon-moon-mobile" size={18} class="theme-icon" />
-      </button>
+      <!-- Mobile right: CTA + theme toggle -->
+      <div class="mobile-right">
+        <a href="/demo" class="mobile-cta-btn">Empezar gratis</a>
+        <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema" class="theme-btn theme-btn-mobile">
+          <Sun  id="icon-sun-mobile"  size={18} class="theme-icon" />
+          <Moon id="icon-moon-mobile" size={18} class="theme-icon" />
+        </button>
+      </div>
 
     </div>
   </div>
 
+  <!-- Mobile backdrop -->
+  <div id="mobile-backdrop" class="mobile-backdrop"></div>
+
   <!-- Mobile drawer -->
-  <div id="mobile-menu" class="mobile-menu hidden">
+  <div id="mobile-menu" class="mobile-menu">
+    <!-- Drawer header -->
+    <div class="drawer-header">
+      <a href="/" class="logo" aria-label="AgendaDr inicio">
+        <span class="logo-text">Agenda<span class="logo-accent">Dr</span></span>
+      </a>
+      <button id="drawer-close" type="button" aria-label="Cerrar menú" class="drawer-close-btn">
+        <X size={20} />
+      </button>
+    </div>
     <nav class="mobile-nav">
 
       <!-- Funcionalidades -->
@@ -141,8 +156,9 @@ const paraQuien = [
     </nav>
 
     <div class="mobile-ctas">
-      <Button variant="primary"   size="md" href="/demo">Empezar gratis</Button>
-      <a href="https://app.agendadr.com/login" class="mobile-login-link">Iniciar sesión</a>
+      <a href="https://app.agendadr.com/login" class="mobile-login-link">
+        ¿Ya tienes cuenta? <strong>Iniciar sesión</strong>
+      </a>
     </div>
   </div>
 </header>
@@ -181,13 +197,13 @@ const paraQuien = [
     gap: 32px;
   }
 
-  /* Mobile: 3 columnas — hamburger | logo | toggle */
+  /* Mobile: hamburger | logo | [cta + toggle] */
   @media (max-width: 768px) {
     .header-content {
       display: grid;
-      grid-template-columns: 44px 1fr 44px;
+      grid-template-columns: 44px 1fr auto;
       gap: 0;
-      padding: 0 12px;
+      padding: 0 8px 0 4px;
     }
     .logo {
       grid-column: 2;
@@ -198,9 +214,11 @@ const paraQuien = [
       justify-self: start;
       margin-left: 0;
     }
-    .theme-btn-mobile {
+    .mobile-right {
       grid-column: 3;
-      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .nav-desktop,
     .nav-ctas { display: none !important; }
@@ -469,38 +487,105 @@ const paraQuien = [
   :global(html.dark) .hamburger:hover { background: #1e293b; }
   @media (max-width: 768px) { .hamburger { display: flex; } }
 
-  /* ── Mobile menu — cortina ── */
+  /* ── Mobile backdrop ── */
+  .mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 149;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-backdrop.backdrop-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── Mobile drawer — slide desde la izquierda ── */
   .mobile-menu {
     position: fixed;
-    top: calc(40px + 64px);
-    left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 78vw;
+    max-width: 320px;
     background: #ffffff;
-    border-top: 1px solid #f1f5f9;
+    border-right: 1px solid #e2e8f0;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    z-index: 49;
-    /* Cortina cerrada */
-    transform: scaleY(0);
-    transform-origin: top center;
+    z-index: 150;
+    transform: translateX(-100%);
     pointer-events: none;
-    transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .mobile-menu.menu-open {
-    transform: scaleY(1);
+    transform: translateX(0);
     pointer-events: auto;
+    box-shadow: 4px 0 32px rgba(0,0,0,0.18);
   }
   :global(html.dark) .mobile-menu {
     background: #0f172a;
-    border-top-color: #1e293b;
+    border-right-color: #1e293b;
   }
 
-  /* Items entran en cascada después de que la cortina se abre */
+  /* Drawer header */
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 16px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    flex-shrink: 0;
+  }
+  :global(html.dark) .drawer-header {
+    border-bottom-color: #1e293b;
+  }
+
+  .drawer-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    color: #475569;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .drawer-close-btn:hover { background: #f1f5f9; color: #0f172a; }
+  :global(html.dark) .drawer-close-btn { color: #94a3b8; }
+  :global(html.dark) .drawer-close-btn:hover { background: #1e293b; color: #f1f5f9; }
+
+  /* Botón CTA pequeño en header mobile */
+  .mobile-cta-btn {
+    display: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    background: #03BB85;
+    padding: 7px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .mobile-cta-btn:hover { background: #02a676; }
+  @media (max-width: 768px) { .mobile-cta-btn { display: inline-flex; } }
+
+  /* Mobile right wrapper — oculto en desktop */
+  .mobile-right { display: none; }
+  @media (max-width: 768px) { .mobile-right { display: flex; } }
+
+  /* Items entran en cascada después de que el drawer se abre */
   .mobile-nav > *,
   .mobile-ctas {
     opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: translateX(-12px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
   }
   .mobile-menu.menu-open .mobile-nav > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.15s; }
   .mobile-menu.menu-open .mobile-nav > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.20s; }
@@ -509,9 +594,16 @@ const paraQuien = [
   .mobile-menu.menu-open .mobile-nav > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.31s; }
   .mobile-menu.menu-open .mobile-ctas                 { opacity:1; transform:none; transition-delay: 0.34s; }
 
+  /* Ocultar drawer y backdrop en desktop */
+  @media (min-width: 769px) {
+    .mobile-menu { display: none !important; }
+    .mobile-backdrop { display: none !important; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .mobile-menu { transition: none; transform: none; }
-    .mobile-menu.menu-open .mobile-nav > *, .mobile-ctas { opacity:1; transform:none; transition:none; }
+    .mobile-menu { transition: none; }
+    .mobile-menu.menu-open .mobile-nav > *,
+    .mobile-menu.menu-open .mobile-ctas { opacity:1; transform:none; transition:none; }
   }
 
   .mobile-nav {
@@ -569,11 +661,7 @@ const paraQuien = [
   .mobile-section-toggle.open .chevron { transform: rotate(180deg); }
 
   .mobile-ctas {
-    padding: 16px 24px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    padding: 16px 24px 24px;
     border-top: 1px solid #f1f5f9;
     margin-top: auto;
   }
@@ -582,16 +670,19 @@ const paraQuien = [
   .mobile-login-link {
     display: block;
     text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    color: #64748b;
+    font-size: 13px;
+    color: #94a3b8;
     text-decoration: none;
-    padding: 10px;
+    padding: 8px;
     transition: color 0.15s;
   }
+  .mobile-login-link strong { color: #475569; font-weight: 600; }
   .mobile-login-link:hover { color: #03BB85; }
-  :global(html.dark) .mobile-login-link { color: #94a3b8; }
-  :global(html.dark) .mobile-login-link:hover { color: #4CE5B5; }
+  .mobile-login-link:hover strong { color: #03BB85; }
+  :global(html.dark) .mobile-login-link { color: #64748b; }
+  :global(html.dark) .mobile-login-link strong { color: #94a3b8; }
+  :global(html.dark) .mobile-login-link:hover,
+  :global(html.dark) .mobile-login-link:hover strong { color: #4CE5B5; }
 </style>
 
 <script>
@@ -654,14 +745,17 @@ const paraQuien = [
   document.addEventListener('click', closeAll);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
 
-  // ── Mobile hamburger ──
+  // ── Mobile drawer ──
   const toggle = document.getElementById('menu-toggle')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
+  const backdrop = document.getElementById('mobile-backdrop')!;
+  const drawerClose = document.getElementById('drawer-close')!;
   const iconOpen = document.getElementById('icon-open')!;
   const iconClose = document.getElementById('icon-close')!;
 
   function openMenu() {
     mobileMenu.classList.add('menu-open');
+    backdrop.classList.add('backdrop-open');
     toggle.setAttribute('aria-expanded', 'true');
     iconOpen.classList.add('hidden');
     iconClose.classList.remove('hidden');
@@ -670,6 +764,7 @@ const paraQuien = [
 
   function closeMenu() {
     mobileMenu.classList.remove('menu-open');
+    backdrop.classList.remove('backdrop-open');
     toggle.setAttribute('aria-expanded', 'false');
     iconOpen.classList.remove('hidden');
     iconClose.classList.add('hidden');
@@ -679,6 +774,10 @@ const paraQuien = [
   toggle.addEventListener('click', () => {
     mobileMenu.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
+
+  // Cerrar al hacer click en backdrop o en botón X del drawer
+  backdrop.addEventListener('click', closeMenu);
+  drawerClose.addEventListener('click', closeMenu);
 
   // ── Mobile section toggles ──
   document.querySelectorAll('.mobile-section-toggle').forEach((btn) => {
