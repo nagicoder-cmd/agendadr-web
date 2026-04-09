@@ -44,10 +44,10 @@
 
     /* ── Text hierarchy (slate palette) ─────────────── */
     --text-heading:   #0f172a; /* slate-900  — logos, titles */
-    --text-secondary: #475569; /* slate-600  — nav, labels */
-    --text-tertiary:  #64748b; /* slate-500  — links, body */
-    --text-muted:     #94a3b8; /* slate-400  — captions, icons */
-    --text-label:     #cbd5e1; /* slate-300  — ALL-CAPS column headers */
+    --text-secondary: #1e293b; /* slate-800  — nav, labels */
+    --text-tertiary:  #334155; /* slate-700  — links, body */
+    --text-muted:     #64748b; /* slate-500  — captions, icons */
+    --text-label:     #94a3b8; /* slate-400  — ALL-CAPS column headers */
 
     /* ── Surfaces ────────────────────────────────────── */
     --bg-page:   #ffffff;
