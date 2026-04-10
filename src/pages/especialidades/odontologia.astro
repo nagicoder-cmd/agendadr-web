@@ -3,14 +3,754 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="Software para odontología | AgendaDr" description="Sistema de gestión para clínicas dentales. Agenda, historial dental, pagos y recordatorios automáticos.">
+<BaseLayout
+  title="Software para clínica dental en Perú | AgendaDr"
+  description="Software odontológico con planes de tratamiento multi-fase, cobros Yape, CRM WhatsApp y portal de pacientes. Para dentistas y clínicas dentales. Desde S/49/mes."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">AgendaDr para odontología</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-eyebrow">
+          <span class="specialty-badge">🦷 Odontología</span>
+        </div>
+        <h1 class="hero-headline">El software que tu clínica dental<br class="dbr"> estaba esperando.</h1>
+        <p class="hero-sub">Agenda citas, gestiona planes de tratamiento de ortodoncia, cobra con Yape al agendar y deja que tus pacientes vean el progreso de sus brackets desde su portal. Todo en AgendaDr.</p>
+        <div class="hero-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary">Empieza desde S/49/mes →</a>
+          <a href="/demo" class="btn-ghost">Pide una demo gratis</a>
+        </div>
+        <div class="hero-trust">
+          <span>✅ 14 días gratis</span>
+          <span>✅ Sin tarjeta de crédito</span>
+          <span>✅ Onboarding incluido</span>
+        </div>
+      </div>
+      <!-- Decoración fondo -->
+      <div class="hero-deco" aria-hidden="true">🦷</div>
+    </section>
+
+    <!-- POR QUÉ ODONTOLOGÍA + AGENDADR -->
+    <section class="features-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Por qué odontología + AgendaDr</span>
+          <h2>Diseñado para la realidad de una clínica dental.</h2>
+          <p class="section-desc">Cada función fue pensada para los problemas reales que enfrenta un dentista en Perú.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">📋</div>
+            <div class="feat-body">
+              <h3>Planes de tratamiento multi-fase</h3>
+              <p>Brackets metálicos, cerámicos, implantes, endodoncia. Crea el plan con fases, genera citas automáticas. Tu paciente ve en qué fase va desde su portal.</p>
+            </div>
+          </div>
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">💰</div>
+            <div class="feat-body">
+              <h3>Ticket expandible</h3>
+              <p>El paciente viene por limpieza (S/80) y le detectas caries → curación (S/120) → brackets (S/2,500). Agregas servicios del catálogo durante la consulta. El ticket se triplica.</p>
+            </div>
+          </div>
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">📱</div>
+            <div class="feat-body">
+              <h3>Cobros con Yape y Plin</h3>
+              <p>Tu paciente agenda online y paga con Yape. No más cobros en efectivo ni perseguir pagos después de la consulta.</p>
+            </div>
+          </div>
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">💼</div>
+            <div class="feat-body">
+              <h3>Comisiones automáticas</h3>
+              <p>Si tienes varios odontólogos, las comisiones se calculan solas: bruto, comisión, neto. Sin Excel. Sin discusiones a fin de mes.</p>
+            </div>
+          </div>
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">💬</div>
+            <div class="feat-body">
+              <h3>CRM WhatsApp</h3>
+              <p>Los leads de tus anuncios de Instagram llegan al panel de tu recepcionista. Responde y agenda sin salir del sistema. Ningún lead se pierde.</p>
+            </div>
+          </div>
+
+          <div class="feat-card anim-item">
+            <div class="feat-icon">🌐</div>
+            <div class="feat-body">
+              <h3>Portal de pacientes</h3>
+              <p>Tu paciente de ortodoncia ve sus citas, su plan de tratamiento con fases, descarga recetas y reagenda sin llamar. Tú te liberas del teléfono.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CASO DE USO -->
+    <section class="case-section anim-fade-up">
+      <div class="container">
+        <div class="case-card">
+          <div class="case-quote-mark" aria-hidden="true">"</div>
+          <div class="case-content">
+            <div class="case-tag">Caso real</div>
+            <p class="case-text">La Dra. García tiene una clínica dental con 3 odontólogos. Cada uno atiende 12 pacientes al día. Antes usaban cuadernos y WhatsApp personal. Ahora los pacientes agendan solos, pagan con Yape, y el dashboard le muestra cuánto facturó cada doctor. Las comisiones se calculan solas y los pacientes de ortodoncia siguen su plan desde el portal.</p>
+            <div class="case-author">
+              <div class="case-avatar">🦷</div>
+              <div>
+                <strong>Dra. García</strong>
+                <span>Directora — Clínica Dental García, Lima</span>
+              </div>
+            </div>
+          </div>
+          <div class="case-metrics">
+            <div class="metric">
+              <span class="metric-val">3x</span>
+              <span class="metric-label">Ticket promedio</span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">0</span>
+              <span class="metric-label">Cobros en efectivo</span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">100%</span>
+              <span class="metric-label">Comisiones automáticas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN RECOMENDADO -->
+    <section class="plan-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Planes</span>
+          <h2>Elige el plan que se adapta a tu clínica dental.</h2>
+        </div>
+        <div class="plans-row">
+
+          <div class="plan-card anim-item">
+            <div class="plan-for">Solo o 1 dentista</div>
+            <div class="plan-name">Individual</div>
+            <div class="plan-price"><span class="price-amount">S/49</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Agenda online 24/7</li>
+              <li>✓ Historial médico</li>
+              <li>✓ Recetas digitales</li>
+              <li>✓ Cobros con Yape y Plin</li>
+              <li>✓ Recordatorios WhatsApp</li>
+              <li>✓ Portal de pacientes</li>
+            </ul>
+            <a href="https://app.agendadr.com/registro" class="plan-cta plan-cta-ghost">Empezar gratis →</a>
+          </div>
+
+          <div class="plan-card plan-featured anim-item">
+            <div class="plan-badge">Recomendado para clínicas</div>
+            <div class="plan-for">2–5 dentistas</div>
+            <div class="plan-name">Básico</div>
+            <div class="plan-price"><span class="price-amount">S/149</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Todo lo del plan Individual</li>
+              <li>✓ Planes de tratamiento multi-fase</li>
+              <li>✓ Comisiones automáticas</li>
+              <li>✓ CRM WhatsApp</li>
+              <li>✓ Reportes de ingresos por doctor</li>
+              <li>✓ Hasta 5 usuarios</li>
+            </ul>
+            <a href="https://app.agendadr.com/registro" class="plan-cta plan-cta-primary">Empezar gratis →</a>
+          </div>
+
+          <div class="plan-card anim-item">
+            <div class="plan-for">Clínica grande o red</div>
+            <div class="plan-name">Profesional</div>
+            <div class="plan-price"><span class="price-amount">S/299</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Todo lo del plan Básico</li>
+              <li>✓ Multi-sede</li>
+              <li>✓ White-label (tu marca)</li>
+              <li>✓ Reportes avanzados</li>
+              <li>✓ API de integración</li>
+              <li>✓ Usuarios ilimitados</li>
+            </ul>
+            <a href="/demo" class="plan-cta plan-cta-ghost">Hablar con ventas →</a>
+          </div>
+
+        </div>
+        <p class="plans-note">Todos los planes incluyen 14 días de prueba gratuita · Sin contrato · Cancela cuando quieras</p>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-icon" aria-hidden="true">🦷</div>
+          <h2 class="cta-headline">Tu clínica dental merece un sistema moderno.</h2>
+          <p class="cta-sub">Únete a los dentistas que ya digitalizaron su práctica con AgendaDr.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary btn-lg">Empieza desde S/49/mes →</a>
+            <a href="/demo" class="btn-ghost btn-lg">Ver demo en vivo</a>
+          </div>
+          <div class="cta-links">
+            <a href="/especialidades">← Ver todas las especialidades</a>
+            <span>·</span>
+            <a href="/planes">Ver todos los planes →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  /* ── Tokens ── */
+  :root {
+    --green: #03BB85;
+    --green-dark: #029e70;
+    --green-light: rgba(3,187,133,0.1);
+    --bg-page: #ffffff;
+    --bg-subtle: #f8fafc;
+    --text-heading: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page: #0f172a;
+    --bg-subtle: #1e293b;
+    --text-heading: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border: #334155;
+  }
+
+  /* ── Reset base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  main { background: var(--bg-page); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (max-width: 600px) { .container { padding: 0 16px; } }
+
+  .dbr { display: none; }
+  @media (min-width: 768px) { .dbr { display: block; } }
+
+  /* ── HERO ── */
+  .hero-section {
+    position: relative;
+    padding: 140px 0 96px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0fdf9 0%, #ffffff 70%);
+  }
+  :global(html.dark) .hero-section {
+    background: linear-gradient(180deg, rgba(3,187,133,0.06) 0%, var(--bg-page) 70%);
+  }
+
+  .hero-deco {
+    position: absolute;
+    top: 48px;
+    right: 8%;
+    font-size: 120px;
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    transform: rotate(15deg);
+  }
+  @media (max-width: 768px) { .hero-deco { display: none; } }
+
+  .hero-eyebrow { margin-bottom: 20px; }
+
+  .specialty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 16px;
+    letter-spacing: 0.02em;
+  }
+  :global(html.dark) .specialty-badge {
+    background: rgba(3,187,133,0.1);
+    color: #34d399;
+    border-color: rgba(3,187,133,0.25);
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .hero-sub {
+    max-width: 640px;
+    margin: 0 auto 36px;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    box-shadow: 0 2px 12px rgba(3,187,133,0.35);
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(3,187,133,0.45); }
+  .btn-primary.btn-lg { font-size: 16px; padding: 15px 32px; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 24px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+  .btn-ghost.btn-lg { font-size: 16px; padding: 15px 28px; }
+
+  /* ── Section shared ── */
+  .section-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .section-header h2 {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── FEATURES ── */
+  .features-section {
+    padding: 96px 0;
+    background: var(--bg-page);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
+
+  .feat-card {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .feat-card:hover {
+    box-shadow: 0 4px 24px rgba(3,187,133,0.12);
+    border-color: rgba(3,187,133,0.3);
+    transform: translateY(-2px);
+  }
+
+  .feat-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .feat-body h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .feat-body p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── CASO DE USO ── */
+  .case-section {
+    padding: 0 0 96px;
+    background: var(--bg-page);
+  }
+
+  .case-card {
+    position: relative;
+    background: linear-gradient(135deg, #f0fdf9 0%, #ecfdf5 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: start;
+    overflow: hidden;
+  }
+  :global(html.dark) .case-card {
+    background: linear-gradient(135deg, rgba(3,187,133,0.06) 0%, rgba(3,187,133,0.1) 100%);
+    border-color: rgba(3,187,133,0.22);
+  }
+  @media (max-width: 768px) {
+    .case-card { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
+  }
+
+  .case-quote-mark {
+    position: absolute;
+    top: 16px;
+    left: 28px;
+    font-size: 100px;
+    line-height: 1;
+    color: var(--green);
+    opacity: 0.12;
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+
+  .case-content { position: relative; }
+  .case-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #059669;
+    margin-bottom: 16px;
+  }
+  :global(html.dark) .case-tag { color: #34d399; }
+
+  .case-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .case-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .case-avatar {
+    width: 44px;
+    height: 44px;
+    background: #dcfce7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  :global(html.dark) .case-avatar { background: rgba(3,187,133,0.15); }
+  .case-author strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-heading);
+  }
+  .case-author span {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .case-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .case-metrics { flex-direction: row; justify-content: space-around; }
+  }
+  .metric {
+    text-align: center;
+    background: #fff;
+    border: 1px solid #a7f3d0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    min-width: 120px;
+  }
+  :global(html.dark) .metric { background: rgba(255,255,255,0.05); border-color: rgba(3,187,133,0.22); }
+  .metric-val {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .metric-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* ── PLAN SECTION ── */
+  .plan-section {
+    padding: 0 0 96px;
+    background: var(--bg-page);
+  }
+
+  .plans-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .plans-row { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+
+  .plan-card {
+    background: var(--bg-subtle);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  .plan-card.plan-featured {
+    background: #fff;
+    border-color: var(--green);
+    box-shadow: 0 0 0 1px var(--green), 0 8px 32px rgba(3,187,133,0.15);
+  }
+  :global(html.dark) .plan-card.plan-featured {
+    background: rgba(3,187,133,0.06);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .plan-for {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+  .plan-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-heading);
+  }
+  .plan-price { display: flex; align-items: baseline; gap: 2px; }
+  .price-amount {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.02em;
+  }
+  .price-period { font-size: 14px; color: var(--text-muted); }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+  .plan-features li {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .plan-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .plan-cta-primary {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(3,187,133,0.3);
+  }
+  .plan-cta-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+  .plan-cta-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+  }
+  .plan-cta-ghost:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+
+  .plans-note {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    padding: 0 0 96px;
+    background: var(--bg-page);
+  }
+  .cta-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 24px;
+    padding: 64px 40px;
+    text-align: center;
+  }
+  :global(html.dark) .cta-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+  }
+
+  .cta-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+  .cta-headline {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .cta-sub {
+    font-size: 1rem;
+    color: #94a3b8;
+    margin-bottom: 32px;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .cta-card .btn-ghost {
+    color: #cbd5e1;
+    border-color: #475569;
+  }
+  .cta-card .btn-ghost:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(3,187,133,0.1);
+  }
+  .cta-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
+  .cta-links a { color: #64748b; text-decoration: none; transition: color 0.15s; }
+  .cta-links a:hover { color: var(--green); }
+  .cta-links span { color: #334155; }
+
+  /* ── Animaciones ── */
+  .anim-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+  .anim-item { opacity: 0; transform: translateY(20px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .anim-item.visible { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-fade-up, .anim-item { opacity: 1; transform: none; transition: none; }
+  }
 </style>
+
+<script>
+  // IntersectionObserver para animaciones
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      const items = entry.target.querySelectorAll('.anim-item');
+      items.forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 80);
+      });
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+</script>

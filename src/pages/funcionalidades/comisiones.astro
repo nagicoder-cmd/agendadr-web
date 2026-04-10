@@ -3,14 +3,321 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="Comisiones médicas | AgendaDr" description="Calcula comisiones de doctores automáticamente. Configura el porcentaje una vez y el sistema hace el resto.">
+<BaseLayout
+  title="Comisiones de doctores automáticas | AgendaDr"
+  description="Calcula comisiones de doctores automáticamente: bruto, comisión y neto. Sin Excel, sin errores, oculto para el doctor. Disponible desde el plan Básico S/149."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Comisiones médicas</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-badge">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          Comisiones automáticas
+        </div>
+        <h1 class="hero-headline">Comisiones de doctores que se calculan solas.<br class="dbr"> Sin Excel, sin errores.</h1>
+        <p class="hero-sub">Configura el porcentaje de cada doctor una vez. AgendaDr calcula automáticamente: ingreso bruto, comisión del doctor, ingreso neto de la clínica. Por doctor, por período, exportable en un clic. Y el doctor nunca ve su porcentaje.</p>
+        <div class="hero-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary">Empieza ahora →</a>
+          <a href="/planes" class="btn-ghost">Ver planes</a>
+        </div>
+        <div class="hero-plan-note">Disponible desde el plan Básico · S/149/mes</div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="problem-section anim-fade-up">
+      <div class="container">
+        <div class="problem-inner">
+          <div class="problem-icon-big">
+            <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <h2>Fin de mes. Calculator en mano. Y siempre hay reclamos.</h2>
+          <p>Tienes 4 doctores. Cada uno con un porcentaje diferente de comisión. A fin de mes te sientas con tu Excel, sumas consultas, aplicas porcentajes, y rezas para que cuadre.</p>
+          <p>El Dr. Pérez dice que le falta una consulta. La Dra. Torres dice que su porcentaje estaba mal. Y tú pierdes 2 horas arreglando números en vez de gestionar tu clínica.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="how-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Cómo funciona</span>
+          <h2>Configuras una vez. El sistema hace el resto. Siempre.</h2>
+        </div>
+        <div class="steps-col">
+          <div class="step-item anim-item">
+            <div class="step-badge">1</div>
+            <div class="step-body">
+              <h3>Asigna el porcentaje</h3>
+              <p>Al crear o editar un doctor, defines su porcentaje de comisión. 20%, 30%, lo que hayas negociado. Cada doctor puede tener un porcentaje diferente.</p>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item anim-item">
+            <div class="step-badge">2</div>
+            <div class="step-body">
+              <h3>Las consultas se registran</h3>
+              <p>Cada vez que un doctor atiende una consulta, el sistema registra el ingreso y calcula automáticamente la comisión.</p>
+            </div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item anim-item">
+            <div class="step-badge green">3</div>
+            <div class="step-body">
+              <h3>Tú ves el resumen</h3>
+              <p>En tu dashboard: ingreso bruto, comisión del doctor, ingreso neto de la clínica. Por doctor, por día, semana, mes o rango de fechas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA EJEMPLO -->
+    <section class="example-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Ejemplo real</span>
+          <h2>Así se ve el reporte a fin de mes</h2>
+        </div>
+        <div class="table-wrapper">
+          <table class="example-table">
+            <thead>
+              <tr>
+                <th>Doctor</th>
+                <th>Consultas</th>
+                <th>Bruto</th>
+                <th>Comisión</th>
+                <th class="highlight-col">Neto clínica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dr. Carlos M.</td>
+                <td>8 citas</td>
+                <td>S/ 960</td>
+                <td>S/ 288 (30%)</td>
+                <td class="highlight-col"><strong>S/ 672</strong></td>
+              </tr>
+              <tr>
+                <td>Dra. Ana T.</td>
+                <td>5 citas</td>
+                <td>S/ 400</td>
+                <td>S/ 120 (30%)</td>
+                <td class="highlight-col"><strong>S/ 280</strong></td>
+              </tr>
+              <tr>
+                <td>Dr. Luis R.</td>
+                <td>3 citas</td>
+                <td>S/ 300</td>
+                <td>S/ 60 (20%)</td>
+                <td class="highlight-col"><strong>S/ 240</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>TOTAL</strong></td>
+                <td></td>
+                <td><strong>S/ 1,660</strong></td>
+                <td><strong>S/ 468</strong></td>
+                <td class="highlight-col"><strong>S/ 1,192</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Generado automáticamente · Exporta en PDF o Excel con un clic</p>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>¿Por qué las comisiones automáticas cambian todo?</h2>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card anim-item">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3>Cero errores</h3>
+            <p>El sistema suma. Siempre bien. Sin calculadora, sin Excel, sin "me equivoqué en una celda".</p>
+          </div>
+          <div class="benefit-card anim-item">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            </div>
+            <h3>Cero discusiones</h3>
+            <p>El doctor no ve su porcentaje ni puede modificarlo. Tú tienes el reporte limpio con los números que respaldan cada pago.</p>
+          </div>
+          <div class="benefit-card anim-item">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3>Ahorro de tiempo</h3>
+            <p>Lo que antes te tomaba 2 horas a fin de mes, ahora lo tienes en tiempo real. Exportas el PDF y listo.</p>
+          </div>
+          <div class="benefit-card anim-item">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            </div>
+            <h3>Conectado con pagos</h3>
+            <p>Cada pago (Yape, Plin, tarjeta, efectivo) se conecta automáticamente con la comisión del doctor que atendió. Todo cuadra.</p>
+          </div>
+          <div class="benefit-card anim-item">
+            <div class="benefit-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <h3>Transparencia para ti, privacidad para el doctor</h3>
+            <p>Tú ves todo: bruto, comisión, neto. El doctor ve su agenda y sus pacientes. Nunca ve porcentajes ni montos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Preguntas sobre comisiones</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">¿El doctor puede ver su porcentaje de comisión?<svg class="faq-chevron" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>No. Las comisiones son visibles solo para el admin. El doctor ve su agenda, pacientes y notas clínicas, pero nunca ve el porcentaje.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">¿Puedo tener porcentajes diferentes por doctor?<svg class="faq-chevron" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Sí. Cada doctor tiene su propio porcentaje configurable.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">¿La comisión se calcula sobre servicios adicionales?<svg class="faq-chevron" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>La comisión se calcula sobre el precio de la consulta. La configuración de si incluye servicios adicionales del ticket expandible es personalizable por el admin.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">¿Desde qué plan están disponibles las comisiones?<svg class="faq-chevron" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+            <div class="faq-answer"><p>Desde el plan Básico (S/149). El plan Individual no las incluye porque es para 1 doctor solo.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section anim-fade-up">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Las comisiones de tus doctores, resueltas para siempre.</h2>
+          <p>Disponible desde el plan Básico (S/149). Sin errores, sin discusiones, sin Excel.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-cta-white">Empieza ahora →</a>
+            <a href="/planes" class="btn-cta-ghost">Ver planes →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  * { box-sizing:border-box; }
+  main { overflow-x:hidden; }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .dbr { display:none; }
+  @media (min-width:768px) { .dbr { display:block; } }
+  :root { --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1); }
+
+  .btn-primary { display:inline-flex; align-items:center; background:var(--green); color:#fff; font-weight:600; font-size:1rem; padding:13px 28px; border-radius:10px; text-decoration:none; transition:background 150ms, transform 150ms; }
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-1px); }
+  .btn-ghost { display:inline-flex; align-items:center; padding:13px 24px; border:1.5px solid var(--border-default,#e2e8f0); border-radius:10px; font-weight:500; font-size:1rem; color:var(--text-heading,#0f172a); text-decoration:none; transition:border-color 150ms, background 150ms; }
+  .btn-ghost:hover { border-color:var(--green); background:var(--green-light); }
+  .btn-cta-white { display:inline-flex; align-items:center; background:#fff; color:var(--green); font-weight:700; font-size:1rem; padding:14px 32px; border-radius:10px; text-decoration:none; transition:background 150ms; }
+  .btn-cta-white:hover { background:rgba(255,255,255,.9); }
+  .btn-cta-ghost { display:inline-flex; align-items:center; padding:14px 28px; border:1.5px solid rgba(255,255,255,.35); border-radius:10px; font-weight:500; font-size:1rem; color:rgba(255,255,255,.9); text-decoration:none; transition:border-color 150ms, background 150ms; }
+  .btn-cta-ghost:hover { border-color:#fff; background:rgba(255,255,255,.1); }
+
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-header h2 { font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:700; color:var(--text-heading,#0f172a); margin:0 auto; max-width:680px; }
+  .section-tag { display:inline-block; background:var(--green-light); color:var(--green); font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:4px 12px; border-radius:99px; margin-bottom:14px; }
+
+  .anim-fade-up { opacity:0; transform:translateY(28px); transition:opacity .55s ease, transform .55s ease; }
+  .anim-fade-up.visible { opacity:1; transform:none; }
+  .anim-item { opacity:0; transform:translateY(20px); transition:opacity .45s ease, transform .45s ease; }
+  .anim-item.visible { opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce) { .anim-fade-up,.anim-item { opacity:1; transform:none; transition:none; } }
+
+  .hero-section { padding:140px 0 80px; text-align:center; }
+  .hero-badge { display:inline-flex; align-items:center; gap:6px; background:var(--green-light); color:var(--green); font-size:.8rem; font-weight:600; padding:6px 14px; border-radius:99px; margin-bottom:24px; }
+  .hero-headline { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:800; color:var(--text-heading,#0f172a); line-height:1.18; margin:0 auto 20px; max-width:800px; }
+  .hero-sub { font-size:1.05rem; color:var(--text-secondary,#475569); max-width:620px; margin:0 auto 36px; line-height:1.7; }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:16px; }
+  .hero-plan-note { font-size:.82rem; color:var(--text-muted,#94a3b8); }
+
+  .problem-section { padding:72px 0; background:var(--bg-subtle,#f8fafc); }
+  :global(html.dark) .problem-section { background:rgba(255,255,255,.02); }
+  .problem-inner { max-width:640px; margin:0 auto; text-align:center; }
+  .problem-icon-big { width:72px; height:72px; background:rgba(239,68,68,.1); color:#ef4444; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; }
+  .problem-inner h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:var(--text-heading,#0f172a); margin:0 0 16px; }
+  .problem-inner p { font-size:.95rem; color:var(--text-secondary,#475569); line-height:1.7; margin:0 0 12px; }
+
+  .how-section { padding:88px 0; }
+  .steps-col { max-width:600px; margin:0 auto; }
+  .step-item { display:flex; gap:20px; align-items:flex-start; }
+  .step-badge { flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--green-light); color:var(--green); font-weight:700; font-size:.9rem; display:flex; align-items:center; justify-content:center; }
+  .step-badge.green { background:var(--green); color:#fff; }
+  .step-body h3 { font-size:1rem; font-weight:700; color:var(--text-heading,#0f172a); margin:6px 0 6px; }
+  .step-body p { font-size:.9rem; color:var(--text-secondary,#475569); margin:0; line-height:1.6; }
+  .step-connector { width:2px; height:28px; background:var(--border-default,#e2e8f0); margin:8px 0 8px 17px; border-radius:2px; }
+  :global(html.dark) .step-connector { background:rgba(255,255,255,.1); }
+
+  .example-section { padding:88px 0; background:var(--bg-subtle,#f8fafc); }
+  :global(html.dark) .example-section { background:rgba(255,255,255,.02); }
+  .table-wrapper { overflow-x:auto; }
+  .example-table { width:100%; border-collapse:collapse; font-size:.9rem; min-width:520px; }
+  .example-table th { padding:12px 16px; text-align:center; font-weight:700; font-size:.82rem; color:var(--text-heading,#0f172a); border-bottom:2px solid var(--border-default,#e2e8f0); background:var(--bg-page,#fff); }
+  :global(html.dark) .example-table th { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); }
+  .example-table th:first-child { text-align:left; }
+  .example-table td { padding:12px 16px; text-align:center; border-bottom:1px solid var(--border-subtle,#f1f5f9); color:var(--text-secondary,#475569); }
+  :global(html.dark) .example-table td { border-color:rgba(255,255,255,.05); }
+  .example-table td:first-child { text-align:left; color:var(--text-heading,#0f172a); font-weight:500; }
+  .highlight-col { background:rgba(3,187,133,.06); color:var(--green); }
+  :global(html.dark) .highlight-col { background:rgba(3,187,133,.1); }
+  .total-row td { background:var(--bg-subtle,#f8fafc); border-top:2px solid var(--border-default,#e2e8f0); }
+  :global(html.dark) .total-row td { background:rgba(255,255,255,.06); }
+  .table-note { text-align:center; margin-top:14px; font-size:.8rem; color:var(--text-muted,#94a3b8); }
+
+  .benefits-section { padding:88px 0; }
+  .benefits-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+  .benefit-card { background:var(--bg-subtle,#f8fafc); border:1.5px solid var(--border-default,#e2e8f0); border-radius:14px; padding:28px; transition:border-color 200ms, box-shadow 200ms; }
+  .benefit-card:hover { border-color:var(--green); box-shadow:0 4px 20px rgba(3,187,133,.1); }
+  :global(html.dark) .benefit-card { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
+  .benefit-icon { width:40px; height:40px; background:var(--green-light); color:var(--green); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .benefit-card h3 { font-size:.95rem; font-weight:700; color:var(--text-heading,#0f172a); margin:0 0 8px; }
+  .benefit-card p { font-size:.87rem; color:var(--text-secondary,#475569); margin:0; line-height:1.6; }
+
+  .faq-section { padding:88px 0; background:var(--bg-subtle,#f8fafc); }
+  :global(html.dark) .faq-section { background:rgba(255,255,255,.02); }
+  .faq-list { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:6px; }
+  .faq-item { border:1.5px solid var(--border-default,#e2e8f0); border-radius:10px; overflow:hidden; background:var(--bg-page,#fff); }
+  :global(html.dark) .faq-item { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
+  .faq-question { width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 22px; background:none; border:none; cursor:pointer; font-size:.95rem; font-weight:600; color:var(--text-heading,#0f172a); text-align:left; }
+  .faq-chevron { flex-shrink:0; color:var(--text-muted,#94a3b8); transition:transform 250ms ease; }
+  .faq-question[aria-expanded="true"] .faq-chevron { transform:rotate(180deg); }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height 300ms ease; }
+  .faq-answer p { padding:0 22px 18px; margin:0; font-size:.9rem; color:var(--text-secondary,#475569); line-height:1.65; }
+
+  .cta-section { padding:88px 0; }
+  .cta-card { background:linear-gradient(135deg,#02a876 0%,#03BB85 50%,#05d49a 100%); border-radius:20px; padding:64px 48px; text-align:center; box-shadow:0 16px 56px rgba(3,187,133,.3); }
+  .cta-card h2 { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; margin:0 0 16px; }
+  .cta-card p { font-size:1.05rem; color:rgba(255,255,255,.9); max-width:540px; margin:0 auto 36px; line-height:1.65; }
+  .cta-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+  @media (max-width:640px) { .cta-card { padding:44px 24px; } .hero-section { padding:120px 0 60px; } }
 </style>
+
+<script>
+  const obs = new IntersectionObserver(e => { e.forEach(el => { if(el.isIntersecting) { el.target.classList.add('visible'); el.target.querySelectorAll('.anim-item').forEach((i,n) => setTimeout(()=>i.classList.add('visible'),n*80)); } }); }, {threshold:0.1});
+  document.querySelectorAll('.anim-fade-up').forEach(el => obs.observe(el));
+  document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const open = btn.getAttribute('aria-expanded')==='true'; document.querySelectorAll('.faq-question').forEach(b => { b.setAttribute('aria-expanded','false'); (b.nextElementSibling as HTMLElement).style.maxHeight='0'; }); if(!open){ btn.setAttribute('aria-expanded','true'); const a=btn.nextElementSibling as HTMLElement; a.style.maxHeight=a.scrollHeight+'px'; } }); });
+</script>

@@ -3,14 +3,166 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="AgendaDr para policlínicos | Software médico Perú" description="Gestión centralizada para policlínicos con múltiples sedes, doctores y especialidades.">
+<BaseLayout
+  title="Software para policlínicos en Perú | AgendaDr Enterprise"
+  description="Sistema para policlínicos y redes médicas. Doctores y sedes ilimitadas, API, onboarding dedicado y SLA garantizado. AgendaDr Enterprise."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">AgendaDr para policlínicos</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-badge">Para policlínicos y redes médicas</div>
+        <h1 class="hero-headline">Gestiona tu policlínico completo.<br class="dbr"> Todas las sedes, un solo sistema.</h1>
+        <p class="hero-sub">AgendaDr escala con tu operación: doctores ilimitados, múltiples sedes, reportes consolidados, CRM WhatsApp, facturación SUNAT y soporte dedicado. Diseñado para policlínicos y redes médicas que necesitan control total.</p>
+        <div class="hero-actions">
+          <a href="/contacto" class="btn-primary">Contáctanos →</a>
+          <a href="/demo" class="btn-ghost">Pide una demo gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ OBTIENES -->
+    <section class="features-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">AgendaDr Enterprise</span>
+          <h2>Para operaciones que no pueden fallar</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <h3>Doctores y sedes ilimitadas</h3>
+            <p>Sin topes. Agrega cuantos doctores, recepcionistas y ubicaciones necesites. El sistema crece con tu red médica.</p>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+            <h3>Dashboard consolidado</h3>
+            <p>Ve los KPIs de toda la red o filtra por sede. Ingresos, citas, ocupación, comisiones — todo en una pantalla.</p>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+            <h3>API e integraciones</h3>
+            <p>Conecta AgendaDr con tus sistemas internos: ERP, contabilidad, RRHH. API documentada y soporte técnico dedicado.</p>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+            <h3>Onboarding dedicado</h3>
+            <p>Un equipo te acompaña en la implementación: configuración, migración de datos, capacitación al personal. Sin interrumpir tu operación.</p>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <h3>SLA garantizado</h3>
+            <p>Tiempos de respuesta comprometidos por contrato. Tu operación no puede esperar — nosotros tampoco.</p>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="fc-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+            <h3>Gerente de cuenta</h3>
+            <p>Una persona asignada que conoce tu operación y te ayuda a sacar el máximo del sistema. Un interlocutor directo, siempre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUDES DEL PLAN ENTERPRISE -->
+    <section class="includes-section anim-fade-up">
+      <div class="container">
+        <div class="includes-card">
+          <h2>Incluye todo lo del plan Clínica, más:</h2>
+          <div class="includes-grid">
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Doctores y sedes ilimitadas</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>API REST documentada</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Integraciones custom con tus sistemas</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Migración de datos dedicada</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Capacitación a todo el personal</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>SLA por contrato</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Gerente de cuenta asignado</span></div>
+            <div class="inc-item anim-item"><span class="inc-check">✅</span><span>Reportes y dashboards personalizados</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section anim-fade-up">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Hablemos de lo que tu policlínico necesita.</h2>
+          <p>Cada red médica es diferente. Cuéntanos tu operación y te armamos una propuesta a medida.</p>
+          <div class="cta-actions">
+            <a href="/contacto" class="btn-cta-white">Contáctanos →</a>
+            <a href="/demo" class="btn-cta-ghost">Pide una demo gratis →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  * { box-sizing:border-box; }
+  main { overflow-x:hidden; }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .dbr { display:none; }
+  @media (min-width:768px) { .dbr { display:block; } }
+  :root { --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1); }
+
+  .btn-primary { display:inline-flex; align-items:center; background:var(--green); color:#fff; font-weight:600; font-size:1rem; padding:13px 28px; border-radius:10px; text-decoration:none; transition:background 150ms, transform 150ms; }
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-1px); }
+  .btn-ghost { display:inline-flex; align-items:center; padding:13px 24px; border:1.5px solid var(--border-default,#e2e8f0); border-radius:10px; font-weight:500; font-size:1rem; color:var(--text-heading,#0f172a); text-decoration:none; transition:border-color 150ms, background 150ms; }
+  .btn-ghost:hover { border-color:var(--green); background:var(--green-light); }
+  .btn-cta-white { display:inline-flex; align-items:center; background:#fff; color:var(--green); font-weight:700; font-size:1rem; padding:14px 32px; border-radius:10px; text-decoration:none; transition:background 150ms; }
+  .btn-cta-white:hover { background:rgba(255,255,255,.9); }
+  .btn-cta-ghost { display:inline-flex; align-items:center; padding:14px 28px; border:1.5px solid rgba(255,255,255,.35); border-radius:10px; font-weight:500; font-size:1rem; color:rgba(255,255,255,.9); text-decoration:none; transition:border-color 150ms, background 150ms; }
+  .btn-cta-ghost:hover { border-color:#fff; background:rgba(255,255,255,.1); }
+
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-header h2 { font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:700; color:var(--text-heading,#0f172a); margin:0 auto; max-width:700px; }
+  .section-tag { display:inline-block; background:var(--green-light); color:var(--green); font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:4px 12px; border-radius:99px; margin-bottom:14px; }
+
+  .anim-fade-up { opacity:0; transform:translateY(28px); transition:opacity .55s ease, transform .55s ease; }
+  .anim-fade-up.visible { opacity:1; transform:none; }
+  .anim-item { opacity:0; transform:translateY(20px); transition:opacity .45s ease, transform .45s ease; }
+  .anim-item.visible { opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce) { .anim-fade-up,.anim-item { opacity:1; transform:none; transition:none; } }
+
+  .hero-section { padding:140px 0 80px; text-align:center; background:linear-gradient(160deg, rgba(3,187,133,.06) 0%, var(--bg-subtle,#f8fafc) 60%); }
+  :global(html.dark) .hero-section { background:rgba(255,255,255,.02); }
+  .hero-badge { display:inline-block; background:var(--green-light); color:var(--green); font-size:.8rem; font-weight:600; padding:6px 14px; border-radius:99px; margin-bottom:20px; }
+  .hero-headline { font-size:clamp(1.9rem,4.5vw,3rem); font-weight:800; color:var(--text-heading,#0f172a); line-height:1.18; margin:0 auto 20px; max-width:800px; }
+  .hero-sub { font-size:1.05rem; color:var(--text-secondary,#475569); max-width:680px; margin:0 auto 36px; line-height:1.7; }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+
+  .features-section { padding:88px 0; }
+  .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+  .feat-card { background:var(--bg-subtle,#f8fafc); border:1.5px solid var(--border-default,#e2e8f0); border-radius:14px; padding:26px; transition:border-color 200ms, box-shadow 200ms; }
+  .feat-card:hover { border-color:var(--green); box-shadow:0 4px 16px rgba(3,187,133,.1); }
+  :global(html.dark) .feat-card { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
+  .fc-icon { width:44px; height:44px; background:var(--green-light); color:var(--green); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .feat-card h3 { font-size:.92rem; font-weight:700; color:var(--text-heading,#0f172a); margin:0 0 8px; }
+  .feat-card p { font-size:.85rem; color:var(--text-secondary,#475569); margin:0; line-height:1.6; }
+
+  .includes-section { padding:72px 0; background:var(--bg-subtle,#f8fafc); }
+  :global(html.dark) .includes-section { background:rgba(255,255,255,.02); }
+  .includes-card { background:var(--bg-page,#fff); border:1.5px solid var(--green); border-radius:20px; padding:40px; max-width:800px; margin:0 auto; }
+  :global(html.dark) .includes-card { background:rgba(3,187,133,.06); }
+  .includes-card h2 { font-size:1.3rem; font-weight:700; color:var(--text-heading,#0f172a); margin:0 0 28px; text-align:center; }
+  .includes-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .inc-item { display:flex; align-items:center; gap:10px; font-size:.9rem; color:var(--text-secondary,#475569); }
+  .inc-check { flex-shrink:0; font-size:1rem; }
+
+  .cta-section { padding:88px 0; }
+  .cta-card { background:linear-gradient(135deg,#02a876 0%,#03BB85 50%,#05d49a 100%); border-radius:20px; padding:72px 56px; text-align:center; box-shadow:0 20px 64px rgba(3,187,133,.35); }
+  .cta-card h2 { font-size:clamp(1.7rem,3.5vw,2.6rem); font-weight:800; color:#fff; margin:0 0 16px; }
+  .cta-card p { font-size:1.1rem; color:rgba(255,255,255,.9); max-width:560px; margin:0 auto 36px; line-height:1.65; }
+  .cta-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+  @media (max-width:640px) { .cta-card { padding:44px 24px; } .hero-section { padding:120px 0 60px; } }
 </style>
+
+<script>
+  const obs = new IntersectionObserver(e => { e.forEach(el => { if(el.isIntersecting) { el.target.classList.add('visible'); el.target.querySelectorAll('.anim-item').forEach((i,n) => setTimeout(()=>i.classList.add('visible'),n*80)); } }); }, {threshold:0.1});
+  document.querySelectorAll('.anim-fade-up').forEach(el => obs.observe(el));
+</script>

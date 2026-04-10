@@ -2,15 +2,308 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const cases = [
+  {
+    name: 'Dr. Carlos Remigio',
+    role: 'Odontólogo',
+    location: 'Miraflores, Lima',
+    specialty: 'Odontología',
+    tag: 'odontologia',
+    color: '#03BB85',
+    avatar: '🦷',
+    headline: 'De agenda en papel a 3x el ticket promedio en 4 meses',
+    quote: 'Antes mis pacientes no sabían cuánto costaba la ortodoncia hasta que llegaban. Ahora el catálogo lo deja claro antes de agendar. Mi ticket subió de S/80 a S/240 promedio.',
+    metrics: [
+      { val: '3×', label: 'Ticket promedio' },
+      { val: '0', label: 'Cobros en efectivo' },
+      { val: '100%', label: 'Comisiones automáticas' },
+    ],
+    feature: 'Catálogo de servicios con rangos de precio + Yape integrado',
+  },
+  {
+    name: 'Dra. Ana Quispe',
+    role: 'Psicóloga clínica',
+    location: 'Arequipa',
+    specialty: 'Psicología',
+    tag: 'psicologia',
+    color: '#7c3aed',
+    avatar: '🧠',
+    headline: 'Cero doble-booking y confidencialidad total para sus pacientes',
+    quote: 'Mis pacientes me preguntaban si podían agendar sin que nadie supiera. Ahora tienen su portal privado y yo tengo el historial protegido. Nadie puede acceder sin permiso.',
+    metrics: [
+      { val: '0', label: 'Citas duplicadas/mes' },
+      { val: '90%', label: 'Tasa de confirmación' },
+      { val: '100%', label: 'Datos encriptados (Ley 29733)' },
+    ],
+    feature: 'Portal de pacientes + historial encriptado + recordatorios automáticos',
+  },
+  {
+    name: 'Centro Médico San Marcos',
+    role: 'Clínica — 4 doctores',
+    location: 'San Miguel, Lima',
+    specialty: 'Gestión de clínica',
+    tag: 'clinica',
+    color: '#4f46e5',
+    avatar: '🏥',
+    headline: 'De WhatsApp y Excel a un sistema unificado en 1 semana',
+    quote: 'Teníamos a la recepcionista con 3 chats de WhatsApp y un Excel enorme. En una semana lo migramos todo a AgendaDr. Ahora el cierre de mes que tardaba 3 días tarda 10 minutos.',
+    metrics: [
+      { val: '1 sem', label: 'Tiempo de migración' },
+      { val: '10 min', label: 'Cierre mensual (antes: 3 días)' },
+      { val: '4 drs', label: 'Comisiones calculadas solas' },
+    ],
+    feature: 'Multi-doctor + comisiones automáticas + reportes financieros',
+  },
+  {
+    name: 'Dra. Mariela Torres',
+    role: 'Dermatóloga',
+    location: 'San Isidro, Lima',
+    specialty: 'Dermatología',
+    tag: 'dermatologia',
+    color: '#d97706',
+    avatar: '🌟',
+    headline: 'Instagram a cita agendada sin recepcionista de por medio',
+    quote: 'Antes mis pacientes de Instagram me escribían y yo o mi asistente teníamos que responder uno a uno. Ahora el link está en mi bio y agendan solos a las 11pm si quieren.',
+    metrics: [
+      { val: '60%', label: 'Citas agendadas fuera de horario' },
+      { val: '-80%', label: 'Mensajes de agendamiento manual' },
+      { val: '+35%', label: 'Nuevos pacientes en 2 meses' },
+    ],
+    feature: 'Portal white-label + CRM WhatsApp + agendamiento 24/7',
+  },
+  {
+    name: 'Dr. José Paredes',
+    role: 'Pediatra',
+    location: 'Trujillo',
+    specialty: 'Pediatría',
+    tag: 'pediatria',
+    color: '#2563eb',
+    avatar: '🍼',
+    headline: 'Papás informados, recepcionista liberada, citas que se confirman solas',
+    quote: 'Tenía grupos de WhatsApp de mamás que me hacían preguntas todo el día. Ahora tienen el portal del niño con historial, vacunas y las recetas. Las preguntas bajaron un 70%.',
+    metrics: [
+      { val: '-70%', label: 'Consultas fuera de cita' },
+      { val: '95%', label: 'Tasa de asistencia a citas' },
+      { val: '24/7', label: 'Portal disponible para los papás' },
+    ],
+    feature: 'Portal de pacientes + recordatorios automáticos WhatsApp',
+  },
+  {
+    name: 'Centro Vida Sana',
+    role: 'Centro de nutrición — 3 nutricionistas',
+    location: 'Surco, Lima',
+    specialty: 'Nutrición',
+    tag: 'nutricion',
+    color: '#65a30d',
+    avatar: '🥗',
+    headline: 'Planes de alimentación digitales y seguimiento que retiene pacientes',
+    quote: 'Antes el paciente perdía la dieta impresa y nos llamaba para que se la mandáramos de nuevo. Ahora la tiene en su portal para siempre. La retención subió muchísimo.',
+    metrics: [
+      { val: '+42%', label: 'Retención a 3 meses' },
+      { val: '0', label: 'Planes de alimentación perdidos' },
+      { val: '3 nutri', label: 'Agenda unificada en 1 panel' },
+    ],
+    feature: 'Planes de tratamiento digitales + portal de pacientes',
+  },
+];
 ---
-<BaseLayout title="Casos de éxito | AgendaDr" description="Clínicas y consultorios que ya digitalizaron su gestión con AgendaDr.">
+<BaseLayout
+  title="Casos de éxito | AgendaDr"
+  description="Clínicas, consultorios y centros médicos que digitalizaron su gestión con AgendaDr. Resultados reales de médicos peruanos."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Casos de éxito</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <span class="hero-tag">Casos de éxito</span>
+        <h1 class="hero-title">Médicos peruanos que transformaron su clínica con AgendaDr</h1>
+        <p class="hero-sub">Resultados reales de consultorios y clínicas que pasaron de WhatsApp y Excel a un sistema de gestión profesional. Sin exageraciones — solo números.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-val">+500</span>
+            <span class="stat-lab">Médicos activos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-val">+18</span>
+            <span class="stat-lab">Ciudades en Perú</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-val">+15k</span>
+            <span class="stat-lab">Citas al mes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat">
+            <span class="stat-val">98%</span>
+            <span class="stat-lab">Satisfacción</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS -->
+    <section class="cases-section">
+      <div class="container">
+        <div class="cases-grid">
+          {cases.map((c) => (
+            <article class="case-card anim-fade-up">
+              <div class="case-header" style={`--accent:${c.color}`}>
+                <div class="case-avatar">{c.avatar}</div>
+                <div class="case-meta">
+                  <strong class="case-name">{c.name}</strong>
+                  <span class="case-role">{c.role} · {c.location}</span>
+                </div>
+                <span class="case-specialty-badge">{c.specialty}</span>
+              </div>
+              <div class="case-body">
+                <h2 class="case-headline">{c.headline}</h2>
+                <blockquote class="case-quote">"{c.quote}"</blockquote>
+                <div class="case-metrics">
+                  {c.metrics.map((m) => (
+                    <div class="metric">
+                      <span class="metric-val" style={`color:${c.color}`}>{m.val}</span>
+                      <span class="metric-lab">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div class="case-feature">
+                  <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true" style={`color:${c.color}`}><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>{c.feature}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer-section">
+      <div class="container">
+        <p class="disclaimer">Los resultados presentados son representativos de clientes reales. Los nombres y datos han sido ficcionalizados para proteger la privacidad. Los resultados individuales pueden variar según el tipo de clínica, especialidad y forma de uso de la plataforma.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2 class="cta-headline">¿Tu clínica podría ser el siguiente caso de éxito?</h2>
+          <p class="cta-sub">Prueba AgendaDr por 15 días. Si no transforma tu gestión, te devolvemos tu plata.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary btn-lg">Empieza gratis →</a>
+            <a href="/demo" class="btn-ghost-dark btn-lg">Ver demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1);
+    --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media(max-width:600px) { .container { padding:0 16px; } }
+
+  /* HERO */
+  .hero-section { padding:140px 0 72px; text-align:center; background:linear-gradient(180deg,#f0fdf9 0%,var(--bg-page) 70%); }
+  :global(html.dark) .hero-section { background:linear-gradient(180deg,rgba(3,187,133,0.06) 0%,var(--bg-page) 70%); }
+  .hero-tag { display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+  .hero-title { font-size:clamp(1.9rem,4.5vw,3rem); font-weight:800; color:var(--text-heading); line-height:1.15; letter-spacing:-0.025em; margin-bottom:16px; max-width:720px; margin-left:auto; margin-right:auto; }
+  .hero-sub { font-size:clamp(1rem,2vw,1.1rem); color:var(--text-secondary); max-width:580px; margin:0 auto 40px; line-height:1.6; }
+
+  .hero-stats { display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; background:var(--bg-subtle); border:1px solid var(--border); border-radius:16px; padding:20px 32px; display:inline-flex; }
+  .hero-stat { display:flex; flex-direction:column; gap:3px; padding:0 28px; text-align:center; }
+  .stat-val { font-size:1.6rem; font-weight:800; color:var(--green); line-height:1; }
+  .stat-lab { font-size:12px; color:var(--text-muted); }
+  .stat-divider { width:1px; height:36px; background:var(--border); }
+  @media(max-width:600px) { .hero-stats { gap:8px; padding:16px; } .stat-divider { display:none; } .hero-stat { padding:0 16px; } }
+
+  /* CASES GRID */
+  .cases-section { padding:80px 0; }
+  .cases-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  @media(max-width:800px) { .cases-grid { grid-template-columns:1fr; } }
+
+  .case-card {
+    background:var(--bg-page); border:1px solid var(--border); border-radius:18px;
+    overflow:hidden; transition:box-shadow .25s,transform .25s,border-color .25s;
+  }
+  .case-card:hover { box-shadow:0 6px 32px rgba(0,0,0,0.08); transform:translateY(-3px); border-color:rgba(3,187,133,0.25); }
+
+  .case-header {
+    display:flex; align-items:center; gap:12px;
+    padding:20px 24px; background:var(--bg-subtle); border-bottom:1px solid var(--border);
+  }
+  .case-avatar { font-size:28px; flex-shrink:0; }
+  .case-meta { flex:1; display:flex; flex-direction:column; gap:3px; }
+  .case-name { font-size:14px; font-weight:700; color:var(--text-heading); }
+  .case-role { font-size:12px; color:var(--text-muted); }
+  .case-specialty-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; background:rgba(0,0,0,0.06); color:var(--text-muted); white-space:nowrap; }
+  :global(html.dark) .case-specialty-badge { background:rgba(255,255,255,0.08); }
+
+  .case-body { padding:24px; }
+  .case-headline { font-size:15.5px; font-weight:800; color:var(--text-heading); line-height:1.35; margin-bottom:14px; }
+  .case-quote { font-size:13.5px; color:var(--text-secondary); line-height:1.65; font-style:italic; border-left:3px solid var(--accent, #03BB85); padding-left:14px; margin-bottom:20px; }
+
+  .case-metrics { display:flex; gap:0; border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:16px; }
+  .metric { flex:1; padding:12px 10px; text-align:center; border-right:1px solid var(--border); }
+  .metric:last-child { border-right:none; }
+  .metric-val { display:block; font-size:1.2rem; font-weight:800; line-height:1.1; margin-bottom:3px; }
+  .metric-lab { display:block; font-size:10.5px; color:var(--text-muted); line-height:1.3; }
+
+  .case-feature { display:flex; align-items:flex-start; gap:7px; font-size:12.5px; color:var(--text-muted); background:var(--bg-subtle); padding:10px 14px; border-radius:8px; }
+  .case-feature svg { flex-shrink:0; margin-top:1px; }
+
+  /* DISCLAIMER */
+  .disclaimer-section { padding:0 0 24px; }
+  .disclaimer { font-size:12px; color:var(--text-muted); line-height:1.6; text-align:center; max-width:700px; margin:0 auto; font-style:italic; }
+
+  /* CTA */
+  .cta-section { padding:0 0 96px; }
+  .cta-card { background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%); border-radius:24px; padding:64px 40px; text-align:center; }
+  :global(html.dark) .cta-card { background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%); border:1px solid #334155; }
+  @media(max-width:600px) { .cta-card { padding:40px 20px; } }
+  .cta-headline { font-size:clamp(1.6rem,3vw,2.25rem); font-weight:800; color:#f1f5f9; letter-spacing:-0.02em; margin-bottom:12px; }
+  .cta-sub { font-size:1rem; color:#94a3b8; margin-bottom:32px; }
+  .cta-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary { display:inline-flex; align-items:center; background:#03BB85; color:#fff; font-weight:700; font-size:15px; padding:13px 28px; border-radius:10px; text-decoration:none; transition:background .15s,transform .12s; box-shadow:0 2px 12px rgba(3,187,133,0.35); }
+  .btn-primary:hover { background:#029e70; transform:translateY(-1px); }
+  .btn-primary.btn-lg { font-size:16px; padding:15px 32px; }
+  .btn-ghost-dark { display:inline-flex; align-items:center; background:transparent; color:#cbd5e1; font-weight:600; font-size:15px; padding:13px 24px; border-radius:10px; border:1.5px solid #475569; text-decoration:none; transition:all .15s; }
+  .btn-ghost-dark:hover { border-color:#03BB85; color:#03BB85; }
+  .btn-ghost-dark.btn-lg { font-size:16px; padding:15px 28px; }
+
+  /* ANIMACIONES */
+  .anim-fade-up { opacity:0; transform:translateY(28px); transition:opacity .55s ease,transform .55s ease; }
+  .anim-fade-up.visible { opacity:1; transform:translateY(0); }
+  @media(prefers-reduced-motion:reduce) { .anim-fade-up { opacity:1; transform:none; transition:none; } }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+</script>

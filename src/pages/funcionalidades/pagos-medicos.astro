@@ -3,14 +3,804 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="Pagos médicos | AgendaDr" description="Cobra por Yape, Plin o tarjeta directamente desde AgendaDr. Sin efectivo, sin problemas.">
+
+<BaseLayout
+  title="Cobrar citas médicas con Yape y Plin | AgendaDr"
+  description="Cobra las citas médicas con Yape, Plin y tarjeta directamente al agendar. Integrado con Culqi. Sin cobros manuales, la caja cuadra sola. Desde S/49/mes."
+  keywords={['cobrar citas médicas con yape plin', 'pagos consulta médica online', 'cobrar citas yape', 'pasarela pagos clínica']}
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Pagos médicos</h1>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <div class="hero-text anim-fade-up">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Inicio</a>
+            <span aria-hidden="true">›</span>
+            <a href="/funcionalidades">Funcionalidades</a>
+            <span aria-hidden="true">›</span>
+            <span>Pagos médicos</span>
+          </nav>
+          <div class="hero-badge">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            Pagos médicos
+          </div>
+          <h1 class="hero-title">Tu paciente agenda y paga<br />con Yape. Así de fácil.</h1>
+          <p class="hero-sub">
+            AgendaDr integra Culqi para que tus pacientes paguen la consulta con Yape, Plin o tarjeta
+            en el momento de agendar. Sin cobros por fuera, sin efectivo, sin perseguir pagos.
+            La caja cuadra sola.
+          </p>
+          <div class="hero-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary">
+              Empieza ahora
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="/planes" class="btn-secondary">Ver planes</a>
+          </div>
+          <p class="hero-guarantee">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Garantía 15 días · Desde S/49/mes · Sin contrato
+          </p>
+        </div>
+
+        <!-- Hero mockup placeholder -->
+        <div class="hero-visual anim-fade-up" style="--delay:0.1s" aria-hidden="true">
+          <!-- TODO: replace with real screenshot of the payment step in the booking flow -->
+          <div class="mockup-placeholder">
+            <div class="mp-browser-bar">
+              <span class="mp-dot mp-dot--red"></span>
+              <span class="mp-dot mp-dot--yellow"></span>
+              <span class="mp-dot mp-dot--green"></span>
+              <div class="mp-url">app.agendadr.com/<strong>tu-clinica</strong> · Pago</div>
+            </div>
+            <div class="mp-body">
+              <div class="mp-screen-hint">
+                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:#03BB85;opacity:0.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <p>Flujo de pago al agendar</p>
+                <span>Próximamente screenshot real</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── EL PROBLEMA ── -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">El problema</span>
+          <h2 class="section-title">Cobrar no debería ser la parte más difícil de tu consulta.</h2>
+        </div>
+        <div class="problem-copy anim-fade-up" style="--delay:0.08s">
+          <p>
+            Tu paciente termina la consulta y pregunta: "¿Aceptan Yape?". Tu recepcionista saca su celular personal,
+            abre Yape, cobra, anota en un cuaderno, y reza para que la caja cuadre al final del día.
+          </p>
+          <p>
+            O peor: el paciente agenda por WhatsApp y dice "pago allá". Llega el día de la cita y no aparece.
+            Perdiste el horario.
+          </p>
+          <p>
+            Y los que pagan con tarjeta... bueno, muchos consultorios en Perú ni siquiera tienen POS.
+          </p>
+          <p class="problem-callout">Suena conocido, ¿no?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LA SOLUCIÓN — 3 PASOS ── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">La solución</span>
+          <h2 class="section-title">Con AgendaDr, cobrar es parte del agendamiento.</h2>
+        </div>
+        <div class="steps-grid">
+          {[
+            {
+              num: '01',
+              title: 'Tu paciente elige horario',
+              desc: 'Entra a tu portal de citas (con tu marca), elige especialidad, doctor y horario disponible.',
+              icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+            },
+            {
+              num: '02',
+              title: 'Paga con Yape, Plin o tarjeta',
+              desc: 'En el mismo flujo, antes de confirmar la cita, paga con el método que prefiera. Todo integrado con Culqi.',
+              icon: 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z',
+            },
+            {
+              num: '03',
+              title: 'Cita confirmada y pago registrado',
+              desc: 'El paciente recibe la confirmación. El pago se registra automáticamente. La caja cuadra sola.',
+              icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+            },
+          ].map((s, i) => (
+            <div class="step-card anim-item" style={`--i:${i}`}>
+              <div class="step-num-badge">{s.num}</div>
+              <div class="step-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={s.icon}/>
+                </svg>
+              </div>
+              <h3 class="step-title">{s.title}</h3>
+              <p class="step-desc">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MÉTODOS DE PAGO ── -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">Métodos de pago</span>
+          <h2 class="section-title">Todos los métodos que tus pacientes usan.</h2>
+          <p class="section-sub">
+            Todos los pagos procesados por Culqi, la pasarela de pagos líder en Perú. Seguro, rápido y confiable.
+          </p>
+        </div>
+        <div class="payments-grid anim-fade-up" style="--delay:0.08s">
+          {[
+            { name: 'Yape',            highlight: true,  desc: 'El más usado en Perú',            icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' },
+            { name: 'Plin',            highlight: true,  desc: 'BCP, BBVA, Scotiabank e Interbank', icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' },
+            { name: 'Visa',            highlight: false, desc: 'Crédito y débito',                  icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z' },
+            { name: 'Mastercard',      highlight: false, desc: 'Crédito y débito',                  icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z' },
+            { name: 'American Express',highlight: false, desc: 'Tarjeta de crédito',                icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z' },
+            { name: 'Diners Club',     highlight: false, desc: 'Tarjeta de crédito',                icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z' },
+          ].map((p) => (
+            <div class={`payment-card${p.highlight ? ' payment-card--featured' : ''}`}>
+              {p.highlight && <span class="payment-badge">Popular en Perú</span>}
+              <div class="payment-icon" aria-hidden="true">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={p.icon}/>
+                </svg>
+              </div>
+              <div class="payment-name">{p.name}</div>
+              <div class="payment-desc">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+        <p class="payments-note anim-fade-up" style="--delay:0.16s">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          Procesado por Culqi · Certificación PCI DSS · Tu clínica nunca almacena datos de tarjetas
+        </p>
+      </div>
+    </section>
+
+    <!-- ── BENEFICIOS ── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">Beneficios</span>
+          <h2 class="section-title">¿Por qué cobrar al agendar cambia todo?</h2>
+        </div>
+        <div class="benefits-grid">
+          {[
+            {
+              icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+              title: 'Menos inasistencias',
+              desc: 'Cuando el paciente ya pagó, la probabilidad de que falte se reduce drásticamente. Su plata ya está comprometida — va a ir sí o sí.',
+              delay: '0s',
+            },
+            {
+              icon: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636',
+              title: 'Cero cobros manuales',
+              desc: 'Tu recepcionista ya no necesita sacar el celular para cobrar con Yape, ni manejar efectivo, ni anotar nada a mano. Todo se registra solo.',
+              delay: '0.06s',
+            },
+            {
+              icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+              title: 'La caja cuadra siempre',
+              desc: 'Cada pago queda registrado con fecha, hora, método y monto. Al final del día, el reporte de ingresos está listo. Sin sorpresas.',
+              delay: '0.12s',
+            },
+            {
+              icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+              title: 'Boleta automática',
+              desc: 'El sistema genera la boleta o factura electrónica (SUNAT) al momento del pago. Tu paciente la recibe directo. Sin papeleo.',
+              delay: '0.18s',
+            },
+            {
+              icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+              title: 'Tus pacientes lo prefieren',
+              desc: 'En Perú, el 80% de las personas paga con Yape o Plin. Ofrecer estos métodos no es un lujo — es lo mínimo que tus pacientes esperan.',
+              delay: '0.24s',
+            },
+          ].map((b) => (
+            <div class="benefit-card anim-fade-up" style={`--delay:${b.delay}`}>
+              <div class="ben-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={b.icon}/>
+                </svg>
+              </div>
+              <h3 class="ben-title">{b.title}</h3>
+              <p class="ben-desc">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COBROS PRESENCIALES ── -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="presencial-inner anim-fade-up">
+          <div class="presencial-text">
+            <span class="section-label">También presencial</span>
+            <h2 class="presencial-title">También funciona para pacientes que llegan sin agendar online.</h2>
+            <p class="presencial-desc">
+              No todos tus pacientes van a agendar online — y está bien. Si un paciente llega directamente
+              o agenda por teléfono, tu recepcionista puede registrar el pago desde el panel:
+              Yape, Plin, tarjeta, efectivo o transferencia. Todo queda registrado en el mismo sistema.
+            </p>
+            <ul class="presencial-list">
+              {['Yape y Plin', 'Tarjeta de crédito/débito', 'Efectivo', 'Transferencia bancaria'].map((m) => (
+                <li>
+                  <svg width="16" height="16" fill="none" stroke="#03BB85" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="presencial-visual" aria-hidden="true">
+            <!-- TODO: replace with real screenshot of panel payment registration -->
+            <div class="mockup-placeholder">
+              <div class="mp-browser-bar">
+                <span class="mp-dot mp-dot--red"></span>
+                <span class="mp-dot mp-dot--yellow"></span>
+                <span class="mp-dot mp-dot--green"></span>
+                <div class="mp-url">AgendaDr · Registrar pago</div>
+              </div>
+              <div class="mp-body">
+                <div class="mp-screen-hint">
+                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:#03BB85;opacity:0.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <p>Panel de cobro presencial</p>
+                  <span>Próximamente screenshot real</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COMISIONES + PAGOS ── -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="comisiones-card anim-fade-up">
+          <div class="comisiones-icon" aria-hidden="true">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="comisiones-title">Pagos y comisiones que se hablan entre sí.</h2>
+            <p class="comisiones-desc">
+              Cada pago que entra se conecta automáticamente con el módulo de comisiones.
+              Si tu doctor cobra 30% de comisión, el sistema calcula en tiempo real:
+              ingreso bruto, comisión del doctor, ingreso neto de la clínica.
+              Sin Excel, sin calculadora.
+            </p>
+            <a href="/funcionalidades/comisiones" class="comisiones-link">
+              Ver módulo de comisiones
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VS COMPETENCIA ── -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">Comparativa</span>
+          <h2 class="section-title">Nadie en Perú ofrece Yape y Plin así.</h2>
+        </div>
+        <div class="table-wrap anim-fade-up" style="--delay:0.08s">
+          <table class="compare-table" role="table">
+            <thead>
+              <tr>
+                <th scope="col">Método de cobro</th>
+                <th scope="col" class="col-featured">AgendaDr</th>
+                <th scope="col">Doctocliq</th>
+                <th scope="col">AgendaPro</th>
+                <th scope="col">Sin sistema</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { feature: 'Yape al agendar online',           vals: [true,  false, false, false] },
+                { feature: 'Plin al agendar online',           vals: [true,  false, false, false] },
+                { feature: 'Tarjeta al agendar online',        vals: [true,  true,  true,  false] },
+                { feature: 'Pago se registra automáticamente', vals: [true,  true,  true,  false] },
+                { feature: 'Boleta SUNAT automática',          vals: [true,  true,  false, false] },
+                { feature: 'Conectado con comisiones',         vals: [true,  true,  true,  false] },
+              ].map((row) => (
+                <tr>
+                  <td>{row.feature}</td>
+                  {row.vals.map((v, i) => (
+                    <td class={i === 0 ? 'col-featured' : ''}>
+                      {v
+                        ? <span class="check" aria-label="Sí"><svg width="16" height="16" fill="none" stroke="#03BB85" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                        : <span class="cross" aria-label="No"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color:var(--text-muted);opacity:0.4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
+                      }
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-head anim-fade-up">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Preguntas sobre pagos</h2>
+        </div>
+        <div class="faq-list anim-fade-up" style="--delay:0.08s">
+          {[
+            {
+              q: '¿Culqi cobra comisión por transacción?',
+              a: 'Sí. Culqi cobra una comisión estándar por cada transacción procesada. Esta comisión es de Culqi, no de AgendaDr. Los detalles se muestran al configurar tu cuenta de pagos.',
+            },
+            {
+              q: '¿Necesito una cuenta en Culqi?',
+              a: 'Sí. Al configurar tu clínica en AgendaDr, te guiamos para crear tu cuenta de Culqi (o conectar la que ya tengas). Es rápido y gratuito.',
+            },
+            {
+              q: '¿Puedo cobrar en efectivo también?',
+              a: 'Claro. Tu recepcionista puede registrar pagos en efectivo desde el panel. Todo queda en el mismo sistema — no importa el método de pago.',
+            },
+            {
+              q: '¿El paciente puede pagar después de la consulta?',
+              a: 'Sí. Puedes configurar si el pago es obligatorio al agendar o si se cobra después. Tú decides el flujo que funcione mejor para tu consultorio.',
+            },
+            {
+              q: '¿Puedo hacer reembolsos?',
+              a: 'Sí. Los reembolsos se gestionan desde el panel de administración a través de Culqi.',
+            },
+            {
+              q: '¿Los datos de pago están seguros?',
+              a: 'Totalmente. Culqi cumple con los estándares PCI DSS de seguridad. AgendaDr nunca almacena datos de tarjetas — todo lo procesa Culqi.',
+            },
+          ].map((item) => (
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">
+                <span>{item.q}</span>
+                <svg class="faq-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="faq-a">
+                <p>{item.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ── -->
+    <section class="cta-final">
+      <div class="cta-blob cta-blob--1" aria-hidden="true"></div>
+      <div class="cta-blob cta-blob--2" aria-hidden="true"></div>
+      <div class="cta-blob cta-blob--3" aria-hidden="true"></div>
+      <div class="cta-inner anim-fade-up">
+        <h2 class="cta-title">Cobra como paga Perú.</h2>
+        <p class="cta-sub">Tus pacientes usan Yape y Plin para todo. ¿Por qué no para pagar sus citas? Empieza desde S/49 al mes.</p>
+        <div class="cta-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary btn--lg">
+            Empieza ahora
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="/planes" class="btn-outline">Ver planes →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  main { background: var(--bg-page); }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .container--narrow { max-width: 760px; }
+  .section { padding: 88px 24px; }
+  .section--alt { background: var(--bg-subtle); }
+  @media (max-width: 767px) { .section { padding: 60px 16px; } }
+
+  .section-label {
+    display: block; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #03BB85; margin-bottom: 12px;
+  }
+  .section-head { text-align: center; margin-bottom: 56px; }
+  .section-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 600; color: var(--text-heading);
+    line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 14px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--text-muted);
+    max-width: 540px; margin: 0 auto; line-height: 1.7;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; background: #03BB85; color: #0f172a;
+    font-size: 15px; font-weight: 700; border-radius: 10px;
+    text-decoration: none; transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    box-shadow: 0 2px 12px rgba(3,187,133,0.35); white-space: nowrap;
+  }
+  .btn-primary:hover { background: #02a676; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(3,187,133,0.45); }
+  .btn-primary.btn--lg { padding: 15px 32px; font-size: 16px; }
+  .btn-secondary {
+    display: inline-flex; align-items: center;
+    padding: 13px 20px; background: transparent; color: var(--text-secondary);
+    font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 10px;
+    border: 1.5px solid var(--border-default); transition: border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .btn-secondary:hover { border-color: #03BB85; color: #03BB85; }
+  .btn-outline {
+    display: inline-flex; align-items: center;
+    padding: 15px 28px; background: transparent; color: #ffffff;
+    font-size: 15px; font-weight: 600; text-decoration: none; border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.4); transition: border-color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.07); }
+
+  /* ── Animations ── */
+  .anim-fade-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    transition-delay: var(--delay, 0s);
+  }
+  .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+  .anim-item {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1);
+    transition-delay: calc(var(--i, 0) * 0.1s);
+  }
+  .anim-item.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-fade-up, .anim-item { transition: none; opacity: 1; transform: none; }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-top: calc(40px + 64px);
+    overflow: hidden; position: relative;
+  }
+  @media (max-width: 767px) { .hero { padding-top: calc(48px + 56px); } }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 1000px; height: 480px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(3,187,133,0.08) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  :global(html.dark) .hero::before {
+    background: radial-gradient(ellipse at 50% 0%, rgba(3,187,133,0.12) 0%, transparent 68%);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; padding: 64px 24px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 60px; }
+    .hero-visual { display: none; }
+  }
+  @media (max-width: 767px) { .hero-inner { padding: 36px 16px 48px; } }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-muted); margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: #03BB85; }
+  .breadcrumb span[aria-hidden] { color: var(--border-default); }
+  .breadcrumb span:not([aria-hidden]) { color: var(--text-secondary); font-weight: 500; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 600; color: var(--text-secondary);
+    background: var(--bg-subtle); border: 1px solid var(--border-default);
+    border-radius: 999px; padding: 5px 12px; margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600; color: var(--text-heading);
+    line-height: 1.1; letter-spacing: -0.035em; margin: 0 0 20px;
+  }
+  .hero-sub { font-size: 17px; line-height: 1.75; color: var(--text-tertiary); margin: 0 0 32px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+  .hero-guarantee {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-muted); margin: 0;
+  }
+  .hero-guarantee svg { color: #03BB85; flex-shrink: 0; }
+
+  /* ── Mockup placeholder ── */
+  .mockup-placeholder {
+    background: var(--bg-subtle); border: 1.5px solid var(--border-default);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  :global(html.dark) .mockup-placeholder { box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+  .mp-browser-bar {
+    display: flex; align-items: center; gap: 6px; padding: 9px 12px;
+    background: var(--bg-page); border-bottom: 1px solid var(--border-default);
+  }
+  .mp-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .mp-dot--red { background: #ff5f57; }
+  .mp-dot--yellow { background: #febc2e; }
+  .mp-dot--green { background: #28c840; }
+  .mp-url {
+    flex: 1; font-size: 11px; color: var(--text-muted);
+    background: var(--bg-subtle); border-radius: 6px;
+    padding: 3px 10px; text-align: center;
+  }
+  .mp-url strong { color: #03BB85; }
+  .mp-body { min-height: 220px; display: flex; align-items: center; justify-content: center; }
+  .mp-screen-hint {
+    text-align: center; padding: 32px 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .mp-screen-hint p { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin: 0; }
+  .mp-screen-hint span {
+    font-size: 12px; color: var(--text-muted);
+    background: rgba(3,187,133,0.08); border: 1px dashed rgba(3,187,133,0.3);
+    border-radius: 6px; padding: 4px 10px;
+  }
+
+  /* ── Problem copy ── */
+  .problem-copy {
+    display: flex; flex-direction: column; gap: 16px;
+    max-width: 640px; margin: 0 auto; text-align: center;
+  }
+  .problem-copy p { font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin: 0; }
+  .problem-callout { font-weight: 700 !important; color: var(--text-heading) !important; font-size: 18px !important; }
+
+  /* ── Steps ── */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 720px) { .steps-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+  .step-card {
+    background: var(--bg-subtle); border: 1px solid var(--border-default);
+    border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s;
+  }
+  .step-card:hover { border-color: rgba(3,187,133,0.35); }
+  .step-num-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: rgba(3,187,133,0.1); color: #03BB85;
+    font-size: 12px; font-weight: 800; letter-spacing: 0.05em; margin-bottom: 12px;
+  }
+  .step-icon-wrap {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(3,187,133,0.08); color: #03BB85;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  }
+  .step-title { font-size: 15px; font-weight: 700; color: var(--text-heading); margin: 0 0 8px; }
+  .step-desc { font-size: 14px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+
+  /* ── Payment methods ── */
+  .payments-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px;
+  }
+  @media (max-width: 960px) { .payments-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .payments-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .payment-card {
+    background: var(--bg-page); border: 1.5px solid var(--border-default);
+    border-radius: 14px; padding: 20px 16px;
+    text-align: center; position: relative; transition: border-color 0.2s;
+  }
+  .payment-card:hover { border-color: rgba(3,187,133,0.35); }
+  .payment-card--featured {
+    border-color: #03BB85;
+    box-shadow: 0 0 0 3px rgba(3,187,133,0.1);
+  }
+  .payment-badge {
+    position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+    background: #03BB85; color: #0f172a;
+    font-size: 10px; font-weight: 700; padding: 2px 10px;
+    border-radius: 999px; white-space: nowrap;
+  }
+  .payment-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(3,187,133,0.1); color: #03BB85;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
+  }
+  .payment-name { font-size: 13px; font-weight: 700; color: var(--text-heading); margin-bottom: 4px; }
+  .payment-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+  .payments-note {
+    display: flex; align-items: center; gap: 8px; justify-content: center;
+    font-size: 13px; color: var(--text-muted);
+    background: var(--bg-page); border: 1px solid var(--border-subtle);
+    border-radius: 8px; padding: 10px 16px; margin: 0; flex-wrap: wrap;
+  }
+  .payments-note svg { color: #03BB85; flex-shrink: 0; }
+
+  /* ── Benefits ── */
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 860px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+  .benefit-card {
+    background: var(--bg-subtle); border: 1px solid var(--border-default);
+    border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s;
+  }
+  .benefit-card:hover { border-color: rgba(3,187,133,0.4); }
+  .ben-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: rgba(3,187,133,0.1); color: #03BB85;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .ben-title { font-size: 16px; font-weight: 700; color: var(--text-heading); margin: 0 0 10px; }
+  .ben-desc { font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0; }
+
+  /* ── Cobros presenciales ── */
+  .presencial-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  @media (max-width: 860px) {
+    .presencial-inner { grid-template-columns: 1fr; gap: 40px; }
+    .presencial-visual { display: none; }
+  }
+  .presencial-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600; color: var(--text-heading);
+    line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 16px;
+  }
+  .presencial-desc { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin: 0 0 20px; }
+  .presencial-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .presencial-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+
+  /* ── Comisiones card ── */
+  .comisiones-card {
+    display: flex; align-items: flex-start; gap: 24px;
+    background: var(--bg-subtle); border: 1px solid rgba(3,187,133,0.25);
+    border-radius: 20px; padding: 36px 40px;
+  }
+  @media (max-width: 600px) { .comisiones-card { padding: 28px 24px; gap: 18px; } }
+  .comisiones-icon {
+    width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+    background: rgba(3,187,133,0.1); color: #03BB85;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .comisiones-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600; color: var(--text-heading);
+    line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 12px;
+  }
+  .comisiones-desc { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin: 0 0 16px; }
+  .comisiones-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 14px; font-weight: 600; color: #03BB85; text-decoration: none;
+    transition: gap 0.15s;
+  }
+  .comisiones-link:hover { gap: 10px; }
+
+  /* ── Comparison table ── */
+  .table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border-default); }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+  .compare-table thead tr { background: var(--bg-subtle); border-bottom: 1px solid var(--border-default); }
+  .compare-table th { padding: 14px 20px; font-size: 13px; font-weight: 700; color: var(--text-secondary); text-align: center; }
+  .compare-table th:first-child { text-align: left; }
+  .compare-table th.col-featured { color: #03BB85; }
+  .compare-table tbody tr { border-bottom: 1px solid var(--border-subtle); }
+  .compare-table tbody tr:last-child { border-bottom: none; }
+  .compare-table tbody tr:hover { background: var(--bg-subtle); }
+  .compare-table td { padding: 14px 20px; color: var(--text-secondary); text-align: center; }
+  .compare-table td:first-child { text-align: left; font-weight: 500; color: var(--text-heading); }
+  .compare-table td.col-featured { background: rgba(3,187,133,0.04); }
+  .check, .cross { display: inline-flex; align-items: center; justify-content: center; }
+
+  /* ── FAQ ── */
+  .faq-list { border: 1px solid var(--border-default); border-radius: 16px; overflow: hidden; }
+  .faq-item { border-bottom: 1px solid var(--border-subtle); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 24px; background: transparent; border: none; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 600; color: var(--text-heading);
+    text-align: left; transition: background 0.15s;
+  }
+  .faq-q:hover { background: var(--bg-subtle); }
+  .faq-chevron { flex-shrink: 0; color: var(--text-muted); transition: transform 0.25s ease; }
+  .faq-q[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-a p { padding: 0 24px 20px; font-size: 14.5px; line-height: 1.75; color: var(--text-muted); margin: 0; }
+
+  /* ── CTA Final ── */
+  .cta-final {
+    background: linear-gradient(135deg, #028a62 0%, #03BB85 50%, #02a676 100%);
+    padding: 88px 24px; overflow: hidden; position: relative;
+  }
+  .cta-final::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+    animation: shimmer-cta 4s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes shimmer-cta { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+  @media (prefers-reduced-motion: reduce) { .cta-final::before { animation: none; } }
+  .cta-inner { max-width: 680px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .cta-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    font-weight: 600; color: #ffffff; line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 16px;
+  }
+  .cta-sub { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.65; margin: 0 0 36px; }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-actions .btn-primary { background: #ffffff; color: #028a62; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+  .cta-actions .btn-primary:hover { background: #f0fdf9; transform: translateY(-1px); }
+  .cta-blob { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; opacity: 0.35; }
+  .cta-blob--1 { width: 300px; height: 300px; background: rgba(255,255,255,0.15); top: -80px; left: -60px; }
+  .cta-blob--2 { width: 200px; height: 200px; background: rgba(255,255,255,0.1); bottom: -40px; right: 10%; }
+  .cta-blob--3 { width: 150px; height: 150px; background: rgba(2,50,36,0.3); top: 30%; right: -40px; }
 </style>
+
+<script>
+  const obs = new IntersectionObserver(
+    (entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }),
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.anim-fade-up, .anim-item').forEach((el) => obs.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-q').forEach((b) => {
+        b.setAttribute('aria-expanded', 'false');
+        (b.nextElementSibling as HTMLElement).style.maxHeight = '0';
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        const panel = btn.nextElementSibling as HTMLElement;
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>

@@ -5,7 +5,8 @@ import {
   ChevronDown, Menu, X, Sun, Moon,
   Calendar, CreditCard, MessageCircle, ClipboardList,
   FileText, Building2, BarChart2, MapPin, Percent, Stethoscope,
-  UserRound, Store, Hospital, HeartPulse, Users, Sparkles
+  UserRound, Store, Hospital, HeartPulse, Users, Sparkles,
+  Smile, Brain, Heart, Star, Eye, Leaf, Activity
 } from '@lucide/astro';
 
 const paraQuien = [
@@ -71,6 +72,28 @@ const paraQuien = [
             <a href="/para/clinicas"        class="dropdown-item" role="menuitem"><Hospital   size={15} class="dropdown-icon" /><span>Clínicas</span></a>
             <a href="/para/centros-medicos" class="dropdown-item" role="menuitem"><HeartPulse size={15} class="dropdown-icon" /><span>Centros médicos</span></a>
             <a href="/para/policlinicos"    class="dropdown-item" role="menuitem"><Users      size={15} class="dropdown-icon" /><span>Policlínicos</span></a>
+          </div>
+        </div>
+
+        <!-- Especialidades dropdown -->
+        <div class="nav-item" id="drop-esp">
+          <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">
+            Especialidades
+            <ChevronDown size={14} class="chevron" />
+          </button>
+          <div class="nav-dropdown dropdown-esp" role="menu">
+            <div class="dropdown-grid">
+              <a href="/especialidades/odontologia"      class="dropdown-item" role="menuitem"><Smile       size={15} class="dropdown-icon" /><span>Odontología</span></a>
+              <a href="/especialidades/psicologia"       class="dropdown-item" role="menuitem"><Brain       size={15} class="dropdown-icon" /><span>Psicología</span></a>
+              <a href="/especialidades/dermatologia"     class="dropdown-item" role="menuitem"><Sun         size={15} class="dropdown-icon" /><span>Dermatología</span></a>
+              <a href="/especialidades/ginecologia"      class="dropdown-item" role="menuitem"><Heart       size={15} class="dropdown-icon" /><span>Ginecología</span></a>
+              <a href="/especialidades/pediatria"        class="dropdown-item" role="menuitem"><Star        size={15} class="dropdown-icon" /><span>Pediatría</span></a>
+              <a href="/especialidades/oftalmologia"     class="dropdown-item" role="menuitem"><Eye         size={15} class="dropdown-icon" /><span>Oftalmología</span></a>
+              <a href="/especialidades/nutricion"        class="dropdown-item" role="menuitem"><Leaf        size={15} class="dropdown-icon" /><span>Nutrición</span></a>
+              <a href="/especialidades/fisioterapia"     class="dropdown-item" role="menuitem"><Activity    size={15} class="dropdown-icon" /><span>Fisioterapia</span></a>
+              <a href="/especialidades/medicina-general" class="dropdown-item" role="menuitem"><Stethoscope size={15} class="dropdown-icon" /><span>Medicina general</span></a>
+              <a href="/especialidades/medicina-estetica"class="dropdown-item" role="menuitem"><Sparkles   size={15} class="dropdown-icon" /><span>Medicina estética</span></a>
+            </div>
           </div>
         </div>
 
@@ -154,6 +177,26 @@ const paraQuien = [
         {paraQuien.map(({ href, label }) => (
           <a href={href} class="mobile-link mobile-link-sub">{label}</a>
         ))}
+      </div>
+    </div>
+
+    <!-- Especialidades accordion -->
+    <div class="mobile-section">
+      <button class="mobile-section-toggle" aria-expanded="false">
+        Especialidades
+        <ChevronDown size={14} class="chevron" />
+      </button>
+      <div class="mobile-section-body hidden">
+        <a href="/especialidades/odontologia"       class="mobile-link mobile-link-sub"><Smile       size={14} /><span>Odontología</span></a>
+        <a href="/especialidades/psicologia"        class="mobile-link mobile-link-sub"><Brain       size={14} /><span>Psicología</span></a>
+        <a href="/especialidades/dermatologia"      class="mobile-link mobile-link-sub"><Sun         size={14} /><span>Dermatología</span></a>
+        <a href="/especialidades/ginecologia"       class="mobile-link mobile-link-sub"><Heart       size={14} /><span>Ginecología</span></a>
+        <a href="/especialidades/pediatria"         class="mobile-link mobile-link-sub"><Star        size={14} /><span>Pediatría</span></a>
+        <a href="/especialidades/oftalmologia"      class="mobile-link mobile-link-sub"><Eye         size={14} /><span>Oftalmología</span></a>
+        <a href="/especialidades/nutricion"         class="mobile-link mobile-link-sub"><Leaf        size={14} /><span>Nutrición</span></a>
+        <a href="/especialidades/fisioterapia"      class="mobile-link mobile-link-sub"><Activity    size={14} /><span>Fisioterapia</span></a>
+        <a href="/especialidades/medicina-general"  class="mobile-link mobile-link-sub"><Stethoscope size={14} /><span>Medicina general</span></a>
+        <a href="/especialidades/medicina-estetica" class="mobile-link mobile-link-sub"><Sparkles    size={14} /><span>Medicina estética</span></a>
       </div>
     </div>
 
@@ -379,6 +422,7 @@ const paraQuien = [
 
   .dropdown-wide   { width: 440px; }
   .dropdown-narrow { width: 220px; }
+  .dropdown-esp    { width: 440px; }
 
   .dropdown-grid {
     display: grid;
@@ -1078,12 +1122,18 @@ const paraQuien = [
     trigger.classList.add('active');
     trigger.setAttribute('aria-expanded', 'true');
   }
+  let closeTimer: ReturnType<typeof setTimeout> | null = null;
   document.querySelectorAll('.nav-item').forEach((item) => {
     const trigger  = item.querySelector('.nav-trigger') as HTMLButtonElement;
     const dropdown = item.querySelector('.nav-dropdown') as HTMLElement;
     if (!trigger || !dropdown) return;
-    item.addEventListener('mouseenter', () => openDropdown(trigger, dropdown));
-    item.addEventListener('mouseleave', closeAll);
+    item.addEventListener('mouseenter', () => {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      openDropdown(trigger, dropdown);
+    });
+    item.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(closeAll, 150);
+    });
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdown.classList.contains('open') ? closeAll() : openDropdown(trigger, dropdown);

@@ -3,14 +3,423 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="AgendaDr vs DoctorCliq | Comparación" description="Compara AgendaDr vs DoctorCliq. Funcionalidades, precios y soporte. ¿Cuál es mejor para tu clínica?">
+<BaseLayout
+  title="AgendaDr vs Doctocliq | Alternativa con CRM WhatsApp y Yape"
+  description="Comparación AgendaDr vs Doctocliq. Portal de pacientes completo, CRM WhatsApp integrado, cobros con Yape y escalabilidad de doctor a cadena. Garantía 15 días."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">AgendaDr vs DoctorCliq</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="vs-badge-row">
+          <span class="brand-badge brand-us">AgendaDr</span>
+          <span class="vs-circle">vs</span>
+          <span class="brand-badge brand-them">Doctocliq</span>
+        </div>
+        <h1 class="hero-headline">¿Buscas una alternativa a Doctocliq?<br class="dbr"> Conoce AgendaDr.</h1>
+        <p class="hero-sub">Doctocliq es un buen software para odontólogos que empiezan. Pero si necesitas portal de pacientes, CRM WhatsApp integrado, cobros con Yape y un sistema que escale con tu clínica — AgendaDr es tu siguiente paso.</p>
+        <div class="hero-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary">Prueba AgendaDr gratis por 15 días →</a>
+          <a href="/planes" class="btn-ghost">Ver planes</a>
+        </div>
+        <div class="hero-trust">
+          <span>✅ Garantía 15 días con devolución</span>
+          <span>✅ Sin tarjeta de crédito</span>
+          <span>✅ Migración asistida gratis</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA DE COMPARACIÓN -->
+    <section class="table-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Comparación completa</span>
+          <h2>AgendaDr vs Doctocliq — La comparación honesta</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Aspecto</th>
+                <th class="col-us">AgendaDr</th>
+                <th class="col-them">Doctocliq</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Origen</td><td class="us">🇵🇪 Peruano</td><td class="them">Peruano (sede México)</td></tr>
+              <tr class="row-alt"><td>Enfoque</td><td class="us">Clínica como negocio</td><td class="them">Doctor individual (odontología)</td></tr>
+              <tr><td>Plan más barato</td><td class="us win">S/49/mes</td><td class="them">~S/75/mes (USD 19)</td></tr>
+              <tr class="row-alt"><td>Plan gratis</td><td class="them-wins">No (garantía 15 días)</td><td class="them win-them">Sí (30 citas/mes)</td></tr>
+              <tr><td>Portal de pacientes completo</td><td class="us"><span class="yes">✅</span> Historial, recetas, tratamiento, reagendar</td><td class="them"><span class="no">❌</span> Solo link de agendamiento</td></tr>
+              <tr class="row-alt"><td>CRM WhatsApp en el panel</td><td class="us"><span class="yes">✅</span> Bandeja, pipeline, métricas</td><td class="them"><span class="no">❌</span> Marketing básico</td></tr>
+              <tr><td>Cobros con Yape/Plin al agendar</td><td class="us"><span class="yes">✅</span> Nativo con Culqi</td><td class="them"><span class="no">❌</span> Pasarela genérica</td></tr>
+              <tr class="row-alt"><td>Ticket expandible</td><td class="us"><span class="yes">✅</span> Catálogo con mín/máx</td><td class="them"><span class="partial">Parcial</span></td></tr>
+              <tr><td>Portal white-label (tu marca)</td><td class="us"><span class="yes">✅</span> Logo + colores + URL propia</td><td class="them"><span class="no">❌</span> Link por doctor</td></tr>
+              <tr class="row-alt"><td>Comisiones de doctores</td><td class="us"><span class="yes">✅</span> Bruto/comisión/neto, oculto para doctor</td><td class="them"><span class="yes">✅</span> Porcentaje o fijas</td></tr>
+              <tr><td>Facturación SUNAT</td><td class="us"><span class="yes">✅</span></td><td class="them"><span class="yes">✅</span></td></tr>
+              <tr class="row-alt"><td>IA integrada</td><td class="us"><span class="partial">⏳ Próximamente</span></td><td class="them win-them"><span class="yes">✅</span> Soyla</td></tr>
+              <tr><td>Recetas digitales con QR</td><td class="us"><span class="yes">✅</span></td><td class="them"><span class="yes">✅</span></td></tr>
+              <tr class="row-alt"><td>Escala doctor → cadena</td><td class="us"><span class="yes">✅</span> 5 planes en 1 sistema</td><td class="them"><span class="partial">Parcial</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONDE AGENDADR GANA -->
+    <section class="wins-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Ventajas AgendaDr</span>
+          <h2>5 cosas que AgendaDr tiene y Doctocliq no</h2>
+        </div>
+        <div class="wins-grid">
+          <div class="win-card anim-item">
+            <div class="win-num">01</div>
+            <h3>Portal de pacientes completo</h3>
+            <p>Con Doctocliq, tu paciente tiene un link para agendar. Con AgendaDr, tiene un portal donde ve sus citas, descarga recetas, revisa su plan de tratamiento (ej: ortodoncia con fases) y reagenda sin llamar. Tu paciente se siente atendido, no solo agendado.</p>
+          </div>
+          <div class="win-card anim-item">
+            <div class="win-num">02</div>
+            <h3>CRM WhatsApp integrado en el panel</h3>
+            <p>Doctocliq tiene marketing básico. AgendaDr integra WhatsApp Business en el panel de tu recepcionista: mensajes, respuestas rápidas, pipeline de leads, seguimientos programados, métricas de conversión. De Meta Ads a cita agendada sin salir del sistema.</p>
+          </div>
+          <div class="win-card anim-item">
+            <div class="win-num">03</div>
+            <h3>Cobros con Yape y Plin nativos</h3>
+            <p>Doctocliq tiene pagos online genéricos. AgendaDr integra Culqi para que tu paciente pague con Yape o Plin en el momento de agendar. Así paga el 80% de Perú. Sin fricción, sin cobros después.</p>
+          </div>
+          <div class="win-card anim-item">
+            <div class="win-num">04</div>
+            <h3>Portal con tu marca</h3>
+            <p>Doctocliq te da un link de agendamiento genérico. AgendaDr te da un portal completo con tu logo, tus colores y tu URL propia. Tu paciente siente que es tu sistema, no el de un tercero.</p>
+          </div>
+          <div class="win-card anim-item">
+            <div class="win-num">05</div>
+            <h3>Escala sin límites</h3>
+            <p>AgendaDr crece contigo: Individual (S/49) → Básico (S/149) → Profesional (S/299) → Clínica (S/599) → Enterprise. Mismo sistema, sin migraciones. Doctocliq nació para el doctor solo y su escalabilidad hacia clínicas grandes es limitada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONDE DOCTOCLIQ GANA (honestidad) -->
+    <section class="honest-section anim-fade-up">
+      <div class="container">
+        <div class="honest-card">
+          <div class="honest-header">
+            <span class="honest-tag">Seamos honestos</span>
+            <h2>Doctocliq tiene cosas buenas también.</h2>
+            <p>No somos perfectos. Aquí lo que Doctocliq hace mejor que nosotros hoy.</p>
+          </div>
+          <div class="honest-grid">
+            <div class="honest-item">
+              <div class="honest-icon">🆓</div>
+              <h3>Plan gratis</h3>
+              <p>Doctocliq ofrece un plan gratis de 30 citas/mes. AgendaDr no tiene plan gratis, pero sí garantía de 15 días con devolución completa si no te convence.</p>
+            </div>
+            <div class="honest-item">
+              <div class="honest-icon">🤖</div>
+              <h3>IA "Soyla"</h3>
+              <p>Doctocliq tiene una IA integrada para recordatorios y confirmaciones automáticas. AgendaDr está desarrollando esta funcionalidad para una próxima versión.</p>
+            </div>
+            <div class="honest-item">
+              <div class="honest-icon">🤝</div>
+              <h3>Convenios institucionales</h3>
+              <p>Doctocliq tiene convenios con el Colegio Odontológico del Perú (COP) y otras asociaciones. AgendaDr es nuevo y aún está construyendo estos convenios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿PARA QUIÉN ES CADA UNO? -->
+    <section class="decision-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>La pregunta correcta no es cuál es mejor,<br>sino cuál es mejor <em>para ti</em>.</h2>
+        </div>
+        <div class="decision-grid">
+          <div class="decision-card decision-them">
+            <div class="decision-label">Elige Doctocliq si...</div>
+            <ul>
+              <li>Eres odontólogo solo que recién empieza</li>
+              <li>Quieres un plan gratis para probar</li>
+              <li>La IA de recordatorios es prioridad para ti</li>
+              <li>No necesitas portal de pacientes ni CRM WhatsApp</li>
+            </ul>
+          </div>
+          <div class="decision-card decision-us">
+            <div class="decision-label">Elige AgendaDr si...</div>
+            <ul>
+              <li>Tienes o planeas tener más de 1 doctor</li>
+              <li>Haces campañas en Meta Ads y necesitas controlar los leads</li>
+              <li>Quieres que tus pacientes paguen con Yape al agendar</li>
+              <li>Necesitas comisiones automáticas y control financiero</li>
+              <li>Quieres un portal con tu marca, no un link genérico</li>
+              <li>Quieres un sistema que escale de consultorio a cadena</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2 class="cta-headline">¿Listo para dar el salto?</h2>
+          <p class="cta-sub">Prueba AgendaDr por 15 días. Si no te convence, te devolvemos tu plata. Sin preguntas.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary btn-lg">Empieza ahora →</a>
+            <a href="/planes" class="btn-ghost-dark btn-lg">Ver planes →</a>
+          </div>
+          <div class="cta-links">
+            <a href="/comparar/agendapro">AgendaDr vs AgendaPro</a>
+            <span>·</span>
+            <a href="/comparar/medinet">AgendaDr vs Medinet</a>
+            <span>·</span>
+            <a href="/comparar/excel">AgendaDr vs Excel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1);
+    --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media(max-width:600px) { .container { padding:0 16px; } }
+  .dbr { display:none; } @media(min-width:768px) { .dbr { display:block; } }
+
+  /* HERO */
+  .hero-section {
+    padding: 140px 0 80px;
+    text-align: center;
+    background: linear-gradient(180deg, #f0fdf9 0%, var(--bg-page) 70%);
+  }
+  .vs-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .brand-badge {
+    font-size: 15px;
+    font-weight: 800;
+    padding: 8px 20px;
+    border-radius: 10px;
+    letter-spacing: 0.01em;
+  }
+  .brand-us {
+    background: #03BB85;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(3,187,133,0.35);
+  }
+  .brand-them {
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    border: 1.5px solid var(--border);
+  }
+  .vs-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-subtle);
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .hero-headline {
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    max-width: 640px;
+    margin: 0 auto 36px;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
+  .hero-trust { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; font-size:13px; color:var(--text-muted); }
+
+  .btn-primary { display:inline-flex; align-items:center; background:var(--green); color:#fff; font-weight:700; font-size:15px; padding:13px 28px; border-radius:10px; text-decoration:none; transition:background .15s,transform .12s,box-shadow .15s; box-shadow:0 2px 12px rgba(3,187,133,0.35); }
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-1px); }
+  .btn-primary.btn-lg { font-size:16px; padding:15px 32px; }
+  .btn-ghost { display:inline-flex; align-items:center; background:transparent; color:var(--text-secondary); font-weight:600; font-size:15px; padding:13px 24px; border-radius:10px; border:1.5px solid var(--border); text-decoration:none; transition:all .15s; }
+  .btn-ghost:hover { border-color:var(--green); color:var(--green); background:var(--green-light); }
+  .btn-ghost-dark { display:inline-flex; align-items:center; background:transparent; color:#cbd5e1; font-weight:600; font-size:15px; padding:13px 24px; border-radius:10px; border:1.5px solid #475569; text-decoration:none; transition:all .15s; }
+  .btn-ghost-dark:hover { border-color:var(--green); color:var(--green); background:rgba(3,187,133,0.1); }
+  .btn-ghost-dark.btn-lg { font-size:16px; padding:15px 28px; }
+
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-tag { display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .section-header h2 { font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; line-height:1.2; }
+  .section-header h2 em { font-style:italic; color:var(--green); }
+
+  /* TABLE */
+  .table-section { padding:80px 0; background:var(--bg-subtle); }
+  .table-wrap { overflow-x:auto; border-radius:16px; border:1px solid var(--border); box-shadow:0 2px 16px rgba(0,0,0,0.05); }
+  .comp-table { width:100%; border-collapse:collapse; min-width:560px; }
+  .comp-table thead tr { background:var(--bg-subtle); }
+  :global(html.dark) .comp-table thead tr { background:#1e293b; }
+  .comp-table th { padding:14px 20px; font-size:13px; font-weight:700; text-align:left; color:var(--text-heading); border-bottom:2px solid var(--border); }
+  .col-us { background:#ecfdf5; color:#059669 !important; }
+  :global(html.dark) .col-us { background:rgba(3,187,133,0.12) !important; color:#34d399 !important; }
+  .col-them { color:var(--text-muted) !important; }
+  .comp-table td { padding:13px 20px; font-size:13.5px; color:var(--text-secondary); border-bottom:1px solid var(--border); vertical-align:middle; }
+  .comp-table tr:last-child td { border-bottom:none; }
+  .row-alt td { background:var(--bg-page); }
+  :global(html.dark) .row-alt td { background:rgba(255,255,255,0.02); }
+  td.us { background:#f0fdf9 !important; }
+  :global(html.dark) td.us { background:rgba(3,187,133,0.06) !important; }
+  td.them { color:var(--text-muted) !important; }
+  td.win { font-weight:700; color:#059669 !important; }
+  :global(html.dark) td.win { color:#34d399 !important; }
+  td.win-them { font-weight:600; color:#64748b !important; }
+  td.them-wins { color:var(--text-muted) !important; }
+  .yes { color:#059669; font-weight:700; }
+  :global(html.dark) .yes { color:#34d399; }
+  .no { color:#ef4444; font-weight:700; }
+  .partial { color:#f59e0b; font-weight:600; font-size:12px; }
+
+  /* WINS SECTION */
+  .wins-section { padding:80px 0; }
+  .wins-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:900px) { .wins-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px) { .wins-grid { grid-template-columns:1fr; } }
+  .win-card {
+    background:var(--bg-subtle);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:24px;
+    transition:box-shadow .2s,border-color .2s,transform .2s;
+  }
+  .win-card:hover { box-shadow:0 4px 24px rgba(3,187,133,0.12); border-color:rgba(3,187,133,0.3); transform:translateY(-2px); }
+  .win-num {
+    font-size:28px;
+    font-weight:800;
+    color:rgba(3,187,133,0.25);
+    line-height:1;
+    margin-bottom:12px;
+    font-variant-numeric:tabular-nums;
+  }
+  .win-card h3 { font-size:15px; font-weight:700; color:var(--text-heading); margin-bottom:8px; line-height:1.3; }
+  .win-card p { font-size:13.5px; color:var(--text-muted); line-height:1.6; }
+
+  /* HONEST SECTION */
+  .honest-section { padding:0 0 80px; }
+  .honest-card {
+    background:var(--bg-subtle);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:48px;
+  }
+  @media(max-width:600px) { .honest-card { padding:28px 20px; } }
+  .honest-header { text-align:center; margin-bottom:36px; }
+  .honest-tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#f59e0b; margin-bottom:10px; background:#fef3c7; padding:3px 10px; border-radius:999px; }
+  :global(html.dark) .honest-tag { background:rgba(245,158,11,0.15); color:#fbbf24; }
+  .honest-header h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:800; color:var(--text-heading); margin-bottom:8px; }
+  .honest-header p { font-size:14px; color:var(--text-muted); }
+  .honest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:768px) { .honest-grid { grid-template-columns:1fr; } }
+  .honest-item { text-align:center; padding:20px; }
+  .honest-icon { font-size:36px; margin-bottom:12px; }
+  .honest-item h3 { font-size:15px; font-weight:700; color:var(--text-heading); margin-bottom:8px; }
+  .honest-item p { font-size:13.5px; color:var(--text-muted); line-height:1.6; }
+
+  /* DECISION SECTION */
+  .decision-section { padding:0 0 80px; }
+  .decision-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media(max-width:768px) { .decision-grid { grid-template-columns:1fr; } }
+  .decision-card {
+    border-radius:16px;
+    padding:32px;
+    border:2px solid var(--border);
+  }
+  .decision-us {
+    background:#f0fdf9;
+    border-color:var(--green);
+  }
+  :global(html.dark) .decision-us { background:rgba(3,187,133,0.07); }
+  .decision-them {
+    background:var(--bg-subtle);
+  }
+  .decision-label {
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+    color:var(--text-muted);
+  }
+  .decision-us .decision-label { color:#059669; }
+  :global(html.dark) .decision-us .decision-label { color:#34d399; }
+  .decision-card ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .decision-card ul li { font-size:14px; color:var(--text-secondary); line-height:1.4; padding-left:18px; position:relative; }
+  .decision-card ul li::before { content:"→"; position:absolute; left:0; color:var(--text-muted); }
+  .decision-us ul li::before { color:var(--green); }
+
+  /* CTA FINAL */
+  .cta-section { padding:0 0 96px; }
+  .cta-card { background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%); border-radius:24px; padding:64px 40px; text-align:center; }
+  :global(html.dark) .cta-card { background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%); border:1px solid #334155; }
+  .cta-headline { font-size:clamp(1.6rem,3vw,2.25rem); font-weight:800; color:#f1f5f9; letter-spacing:-0.02em; margin-bottom:12px; }
+  .cta-sub { font-size:1rem; color:#94a3b8; margin-bottom:32px; }
+  .cta-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+  .cta-links { display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; font-size:13px; }
+  .cta-links a { color:#64748b; text-decoration:none; transition:color .15s; }
+  .cta-links a:hover { color:var(--green); }
+  .cta-links span { color:#334155; }
+
+  /* ANIMACIONES */
+  .anim-fade-up { opacity:0; transform:translateY(28px); transition:opacity .55s ease,transform .55s ease; }
+  .anim-fade-up.visible { opacity:1; transform:translateY(0); }
+  .anim-item { opacity:0; transform:translateY(20px); transition:opacity .45s ease,transform .45s ease; }
+  .anim-item.visible { opacity:1; transform:translateY(0); }
+  @media(prefers-reduced-motion:reduce) { .anim-fade-up,.anim-item { opacity:1; transform:none; transition:none; } }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('.anim-item').forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 80));
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+</script>

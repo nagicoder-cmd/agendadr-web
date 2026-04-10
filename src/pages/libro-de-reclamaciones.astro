@@ -3,14 +3,458 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 ---
-<BaseLayout title="Libro de reclamaciones | AgendaDr" description="Libro de reclamaciones virtual de AgendaDr. Conforme a Ley 29571.">
+<BaseLayout
+  title="Libro de reclamaciones | AgendaDr"
+  description="Libro de reclamaciones virtual de AgendaDr. Registra tu queja o reclamo conforme al Código de Protección y Defensa del Consumidor — Ley N° 29571."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Libro de reclamaciones</h1>
+  <main>
+
+    <!-- HEADER OFICIAL -->
+    <section class="lr-hero">
+      <div class="container">
+        <div class="lr-badge-row">
+          <div class="peru-badge">
+            <span class="peru-flag">🇵🇪</span>
+            <div>
+              <span class="peru-label">República del Perú</span>
+              <span class="peru-sub">Código de Protección y Defensa del Consumidor — Ley N° 29571</span>
+            </div>
+          </div>
+          <div class="indecopi-badge">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span>Protegido por INDECOPI</span>
+          </div>
+        </div>
+
+        <h1 class="lr-title">
+          <span class="lr-icon-wrap">📋</span>
+          Libro de reclamaciones virtual
+        </h1>
+        <p class="lr-sub">Conforme a lo establecido en el artículo 150° del Código de Protección y Defensa del Consumidor (Ley N° 29571), AgendaDr pone a disposición del consumidor este libro de reclamaciones virtual.</p>
+
+        <div class="lr-info-grid">
+          <div class="lr-info-item">
+            <span class="lr-info-icon">🏢</span>
+            <div>
+              <strong>Proveedor</strong>
+              <span>ECOGIROS NEGOCIOS E.I.R.L.</span>
+            </div>
+          </div>
+          <div class="lr-info-item">
+            <span class="lr-info-icon">📍</span>
+            <div>
+              <strong>Domicilio</strong>
+              <span>Lima, Perú</span>
+            </div>
+          </div>
+          <div class="lr-info-item">
+            <span class="lr-info-icon">🌐</span>
+            <div>
+              <strong>Plataforma</strong>
+              <span>agendadr.com</span>
+            </div>
+          </div>
+          <div class="lr-info-item">
+            <span class="lr-info-icon">⏱️</span>
+            <div>
+              <strong>Plazo de respuesta</strong>
+              <span>Máximo 30 días calendario</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIA QUEJA / RECLAMO -->
+    <section class="diff-section">
+      <div class="container">
+        <div class="diff-cards">
+          <div class="diff-card diff-reclamo">
+            <div class="diff-icon">⚖️</div>
+            <h3>Reclamo</h3>
+            <p>Disconformidad relacionada a los productos o servicios que ofrece AgendaDr. Por ejemplo: cobros incorrectos, funcionalidades que no responden a lo contratado, o falta de cumplimiento del servicio.</p>
+            <span class="diff-tag">Plazo de respuesta: 30 días calendario</span>
+          </div>
+          <div class="diff-card diff-queja">
+            <div class="diff-icon">📢</div>
+            <h3>Queja</h3>
+            <p>Disconformidad con la atención al cliente o con la calidad del soporte brindado. No deriva en un procedimiento en INDECOPI, pero sí obliga a AgendaDr a responder.</p>
+            <span class="diff-tag">Plazo de respuesta: 30 días calendario</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="form-section">
+      <div class="container">
+        <div class="form-card">
+          <div class="form-card-header">
+            <h2>Registra tu reclamo o queja</h2>
+            <p>Completa el formulario. Recibirás un número de ticket de referencia en tu correo electrónico.</p>
+          </div>
+
+          <form class="lr-form" id="lr-form" novalidate>
+
+            <!-- TIPO -->
+            <fieldset class="form-group form-group-tipo">
+              <legend class="form-label required">Tipo de solicitud</legend>
+              <div class="tipo-options">
+                <label class="tipo-option">
+                  <input type="radio" name="tipo" value="reclamo" required>
+                  <span class="tipo-card">
+                    <span class="tipo-icon">⚖️</span>
+                    <span class="tipo-title">Reclamo</span>
+                    <span class="tipo-desc">Disconformidad con el producto o servicio</span>
+                  </span>
+                </label>
+                <label class="tipo-option">
+                  <input type="radio" name="tipo" value="queja">
+                  <span class="tipo-card">
+                    <span class="tipo-icon">📢</span>
+                    <span class="tipo-title">Queja</span>
+                    <span class="tipo-desc">Disconformidad con la atención recibida</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- DATOS DEL CONSUMIDOR -->
+            <div class="form-section-title">
+              <span class="section-num">01</span>
+              Datos del consumidor
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="nombres">Nombres</label>
+                <input class="form-input" type="text" id="nombres" name="nombres" placeholder="Ej: Carlos" autocomplete="given-name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="apellidos">Apellidos</label>
+                <input class="form-input" type="text" id="apellidos" name="apellidos" placeholder="Ej: García López" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="tipo-doc">Tipo de documento</label>
+                <select class="form-input form-select" id="tipo-doc" name="tipo_documento" required>
+                  <option value="" disabled selected>Seleccionar...</option>
+                  <option value="DNI">DNI</option>
+                  <option value="CE">Carné de extranjería</option>
+                  <option value="RUC">RUC</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="num-doc">Número de documento</label>
+                <input class="form-input" type="text" id="num-doc" name="numero_documento" placeholder="Ej: 45678901" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="email">Correo electrónico</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label required" for="telefono">Teléfono / Celular</label>
+                <input class="form-input" type="tel" id="telefono" name="telefono" placeholder="Ej: 987654321" autocomplete="tel" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="direccion">Dirección (opcional)</label>
+              <input class="form-input" type="text" id="direccion" name="direccion" placeholder="Distrito, ciudad">
+            </div>
+
+            <!-- DATOS DEL SERVICIO -->
+            <div class="form-section-title">
+              <span class="section-num">02</span>
+              Datos del bien o servicio contratado
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label required" for="plan">Plan contratado</label>
+                <select class="form-input form-select" id="plan" name="plan" required>
+                  <option value="" disabled selected>Seleccionar...</option>
+                  <option value="Individual">Individual (S/49/mes)</option>
+                  <option value="Básico">Básico (S/149/mes)</option>
+                  <option value="Profesional">Profesional (S/299/mes)</option>
+                  <option value="Clínica">Clínica (S/599/mes)</option>
+                  <option value="Enterprise">Enterprise</option>
+                  <option value="No soy cliente">No soy cliente / Periodo de prueba</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="monto">Monto reclamado (S/)</label>
+                <input class="form-input" type="number" id="monto" name="monto_reclamado" placeholder="0.00" min="0" step="0.01">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label required" for="fecha-hecho">Fecha aproximada del hecho</label>
+              <input class="form-input" type="date" id="fecha-hecho" name="fecha_hecho" required>
+            </div>
+
+            <!-- DETALLE DEL RECLAMO -->
+            <div class="form-section-title">
+              <span class="section-num">03</span>
+              Detalle del reclamo / queja
+            </div>
+            <div class="form-group">
+              <label class="form-label required" for="descripcion">Descripción del hecho</label>
+              <textarea
+                class="form-input form-textarea"
+                id="descripcion"
+                name="descripcion"
+                rows="6"
+                placeholder="Describe con detalle qué ocurrió, qué funcionalidad estuvo involucrada, qué respuesta recibiste de soporte y por qué no estás conforme..."
+                required
+                maxlength="2000"
+              ></textarea>
+              <span class="char-count">Máximo 2000 caracteres</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label required" for="pedido">¿Qué solución esperas?</label>
+              <textarea
+                class="form-input form-textarea"
+                id="pedido"
+                name="pedido"
+                rows="3"
+                placeholder="Ej: Solicito el reembolso de S/149 cobrado el [fecha] o la corrección de la funcionalidad [X]..."
+                required
+                maxlength="1000"
+              ></textarea>
+            </div>
+
+            <!-- CONSENTIMIENTO -->
+            <div class="form-group form-check">
+              <label class="check-label">
+                <input type="checkbox" name="consentimiento" required>
+                <span>Autorizo el tratamiento de mis datos personales para la gestión de este reclamo/queja, conforme a la <a href="/privacidad" target="_blank">Política de Privacidad</a> de AgendaDr y a la Ley N° 29733.</span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-submit" id="btn-submit">
+                <span class="btn-text">Enviar reclamo / queja</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <p class="form-disclaimer">Al enviar este formulario recibirás un correo con el número de ticket de tu reclamo. AgendaDr responderá en un plazo máximo de <strong>30 días calendario</strong>.</p>
+          </form>
+
+          <!-- SUCCESS STATE -->
+          <div class="form-success" id="form-success" hidden>
+            <div class="success-icon">✅</div>
+            <h3>Reclamo registrado</h3>
+            <p>Hemos recibido tu reclamo. Te enviaremos un correo de confirmación con tu número de ticket. Nuestro equipo responderá en un plazo máximo de 30 días calendario.</p>
+            <p class="success-note">Si no recibes el correo en los próximos 10 minutos, revisa tu carpeta de spam o escríbenos a <strong>soporte@agendadr.com</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTA LEGAL -->
+    <section class="legal-note-section">
+      <div class="container">
+        <div class="legal-note">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <p>De acuerdo con el Código de Protección y Defensa del Consumidor (Ley N° 29571), la presentación de un reclamo no impide acudir a otras vías de solución de controversias ni es un requisito previo para interponer una denuncia ante el INDECOPI. Si deseas presentar una denuncia, puedes hacerlo en <strong>indecopi.gob.pe</strong> o llamando al <strong>224-7777</strong> (Lima) o al número gratuito <strong>0-800-4-4040</strong>.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1);
+    --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); padding-top:88px; }
+  .container { max-width:900px; margin:0 auto; padding:0 24px; }
+  @media(max-width:600px) { .container { padding:0 16px; } }
+
+  /* HERO OFICIAL */
+  .lr-hero { padding:48px 0 40px; background:linear-gradient(180deg,#f0fdf9 0%,var(--bg-page) 80%); border-bottom:1px solid var(--border); }
+  :global(html.dark) .lr-hero { background:linear-gradient(180deg,rgba(3,187,133,0.05) 0%,var(--bg-page) 80%); }
+
+  .lr-badge-row { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:28px; }
+  .peru-badge { display:flex; align-items:center; gap:10px; }
+  .peru-flag { font-size:22px; }
+  .peru-badge div { display:flex; flex-direction:column; gap:2px; }
+  .peru-label { font-size:12px; font-weight:800; color:var(--text-heading); letter-spacing:0.04em; text-transform:uppercase; }
+  .peru-sub { font-size:11px; color:var(--text-muted); }
+  .indecopi-badge { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--text-muted); background:var(--bg-subtle); border:1px solid var(--border); padding:6px 12px; border-radius:8px; }
+
+  .lr-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; margin-bottom:12px; display:flex; align-items:center; gap:12px; }
+  .lr-icon-wrap { font-size:2rem; }
+  .lr-sub { font-size:14px; color:var(--text-secondary); line-height:1.6; max-width:700px; margin-bottom:32px; }
+
+  .lr-info-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:760px) { .lr-info-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:480px) { .lr-info-grid { grid-template-columns:1fr; } }
+  .lr-info-item { display:flex; align-items:flex-start; gap:10px; background:var(--bg-page); border:1px solid var(--border); border-radius:10px; padding:14px; }
+  .lr-info-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .lr-info-item div { display:flex; flex-direction:column; gap:2px; }
+  .lr-info-item strong { font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-muted); }
+  .lr-info-item span { font-size:13px; color:var(--text-heading); font-weight:500; }
+
+  /* DIFF SECTION */
+  .diff-section { padding:40px 0; background:var(--bg-subtle); border-bottom:1px solid var(--border); }
+  .diff-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px) { .diff-cards { grid-template-columns:1fr; } }
+  .diff-card { background:var(--bg-page); border:1.5px solid var(--border); border-radius:14px; padding:24px; }
+  .diff-reclamo { border-color:rgba(3,187,133,0.3); }
+  :global(html.dark) .diff-reclamo { border-color:rgba(3,187,133,0.2); }
+  .diff-queja { border-color:rgba(245,158,11,0.3); }
+  :global(html.dark) .diff-queja { border-color:rgba(245,158,11,0.2); }
+  .diff-icon { font-size:28px; margin-bottom:10px; }
+  .diff-card h3 { font-size:16px; font-weight:800; color:var(--text-heading); margin-bottom:8px; }
+  .diff-card p { font-size:13.5px; color:var(--text-muted); line-height:1.6; margin-bottom:12px; }
+  .diff-tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; background:var(--bg-subtle); color:var(--text-muted); border:1px solid var(--border); }
+
+  /* FORM SECTION */
+  .form-section { padding:48px 0 80px; }
+  .form-card { background:var(--bg-page); border:1px solid var(--border); border-radius:20px; overflow:hidden; box-shadow:0 2px 24px rgba(0,0,0,0.06); }
+  :global(html.dark) .form-card { box-shadow:none; }
+  .form-card-header { padding:32px 40px 28px; background:var(--bg-subtle); border-bottom:1px solid var(--border); }
+  @media(max-width:600px) { .form-card-header { padding:24px 20px; } }
+  .form-card-header h2 { font-size:1.4rem; font-weight:800; color:var(--text-heading); margin-bottom:6px; }
+  .form-card-header p { font-size:14px; color:var(--text-muted); }
+
+  .lr-form { padding:40px; display:flex; flex-direction:column; gap:24px; }
+  @media(max-width:600px) { .lr-form { padding:24px 20px; } }
+
+  .form-section-title {
+    display:flex; align-items:center; gap:12px;
+    font-size:13px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--text-muted); padding-bottom:12px; border-bottom:1px solid var(--border);
+    margin-top:8px;
+  }
+  .section-num { background:var(--green); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px) { .form-row { grid-template-columns:1fr; } }
+
+  .form-group { display:flex; flex-direction:column; gap:6px; }
+  .form-label { font-size:13px; font-weight:600; color:var(--text-heading); }
+  .form-label.required::after { content:" *"; color:#ef4444; }
+  .form-input {
+    padding:11px 14px; border:1.5px solid var(--border); border-radius:10px;
+    font-size:14px; color:var(--text-heading); background:var(--bg-page);
+    transition:border-color .15s,box-shadow .15s; outline:none; width:100%;
+    font-family:inherit;
+  }
+  .form-input:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(3,187,133,0.12); }
+  .form-input::placeholder { color:var(--text-muted); }
+  .form-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:36px; cursor:pointer; }
+  .form-textarea { resize:vertical; min-height:100px; }
+  .char-count { font-size:11.5px; color:var(--text-muted); text-align:right; }
+
+  /* TIPO OPTIONS */
+  .form-group-tipo legend { font-size:13px; font-weight:600; color:var(--text-heading); margin-bottom:10px; }
+  .form-group-tipo legend::after { content:" *"; color:#ef4444; }
+  .tipo-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:500px) { .tipo-options { grid-template-columns:1fr; } }
+  .tipo-option { cursor:pointer; }
+  .tipo-option input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
+  .tipo-card {
+    display:flex; flex-direction:column; gap:4px;
+    border:1.5px solid var(--border); border-radius:12px; padding:16px;
+    transition:border-color .15s,background .15s,box-shadow .15s;
+    cursor:pointer; background:var(--bg-subtle);
+  }
+  .tipo-option input[type="radio"]:checked + .tipo-card { border-color:var(--green); background:#f0fdf9; box-shadow:0 0 0 3px rgba(3,187,133,0.1); }
+  :global(html.dark) .tipo-option input[type="radio"]:checked + .tipo-card { background:rgba(3,187,133,0.07); }
+  .tipo-option input[type="radio"]:focus-visible + .tipo-card { outline:2px solid var(--green); outline-offset:2px; }
+  .tipo-icon { font-size:22px; }
+  .tipo-title { font-size:14px; font-weight:700; color:var(--text-heading); }
+  .tipo-desc { font-size:12px; color:var(--text-muted); line-height:1.4; }
+
+  /* CHECK */
+  .form-check { }
+  .check-label { display:flex; align-items:flex-start; gap:10px; cursor:pointer; }
+  .check-label input[type="checkbox"] { margin-top:3px; flex-shrink:0; accent-color:var(--green); width:15px; height:15px; }
+  .check-label span { font-size:13px; color:var(--text-secondary); line-height:1.5; }
+  .check-label a { color:var(--green); text-decoration:none; }
+  .check-label a:hover { text-decoration:underline; }
+
+  .form-actions { display:flex; justify-content:flex-start; }
+  .btn-submit {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--green); color:#fff; font-weight:700; font-size:15px;
+    padding:14px 32px; border-radius:10px; border:none; cursor:pointer;
+    transition:background .15s,transform .12s,box-shadow .15s;
+    box-shadow:0 2px 12px rgba(3,187,133,0.35);
+  }
+  .btn-submit:hover { background:var(--green-dark); transform:translateY(-1px); }
+  .btn-submit:active { transform:translateY(0); }
+  .btn-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+  .btn-spinner { display:none; width:16px; height:16px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; }
+  .btn-submit.loading .btn-spinner { display:block; }
+  .btn-submit.loading .btn-text { opacity:.7; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  .form-disclaimer { font-size:12.5px; color:var(--text-muted); line-height:1.5; max-width:520px; }
+  .form-disclaimer strong { color:var(--text-secondary); }
+
+  /* SUCCESS */
+  .form-success { padding:48px 40px; text-align:center; }
+  @media(max-width:600px) { .form-success { padding:32px 20px; } }
+  .success-icon { font-size:48px; margin-bottom:16px; }
+  .form-success h3 { font-size:1.4rem; font-weight:800; color:var(--text-heading); margin-bottom:12px; }
+  .form-success p { font-size:14px; color:var(--text-secondary); line-height:1.6; margin-bottom:8px; }
+  .success-note { font-size:13px; color:var(--text-muted); }
+  .success-note strong { color:var(--text-secondary); }
+
+  /* LEGAL NOTE */
+  .legal-note-section { padding:0 0 80px; }
+  .legal-note {
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--bg-subtle); border:1px solid var(--border);
+    border-radius:12px; padding:20px 24px; font-size:13px; color:var(--text-muted); line-height:1.6;
+  }
+  .legal-note svg { flex-shrink:0; margin-top:1px; color:var(--text-muted); }
+  .legal-note strong { color:var(--text-secondary); }
+  .legal-note p { margin:0; }
 </style>
+
+<script>
+  const form = document.getElementById('lr-form') as HTMLFormElement | null;
+  const btn = document.getElementById('btn-submit') as HTMLButtonElement | null;
+  const success = document.getElementById('form-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn?.classList.add('loading');
+    if (btn) btn.disabled = true;
+
+    // Simulate submission (replace with real endpoint)
+    await new Promise(r => setTimeout(r, 1800));
+
+    form.hidden = true;
+    if (success) success.hidden = false;
+  });
+
+  // Char counter for textarea
+  const desc = document.getElementById('descripcion') as HTMLTextAreaElement | null;
+  const counter = desc?.closest('.form-group')?.querySelector('.char-count');
+  if (desc && counter) {
+    desc.addEventListener('input', () => {
+      counter.textContent = `${desc.value.length} / 2000 caracteres`;
+    });
+  }
+</script>

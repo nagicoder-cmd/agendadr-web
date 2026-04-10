@@ -2,15 +2,322 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const categories = [
+  {
+    icon: '🚀',
+    title: 'Primeros pasos',
+    desc: 'Configura tu cuenta y empieza a usar AgendaDr en minutos.',
+    articles: [
+      'Cómo crear tu cuenta y configurar tu perfil',
+      'Añadir tu primer doctor y especialidad',
+      'Configurar tu horario de atención',
+      'Invitar a tu recepcionista al sistema',
+      'Cómo compartir tu link de agendamiento con pacientes',
+    ],
+  },
+  {
+    icon: '📅',
+    title: 'Agenda y citas',
+    desc: 'Todo sobre la gestión de citas, horarios y disponibilidad.',
+    articles: [
+      'Crear una cita manual desde el panel',
+      'Configurar días y horarios de atención',
+      'Bloquear horarios y registrar vacaciones',
+      'Cómo reagendar y cancelar citas',
+      'Activar recordatorios automáticos por WhatsApp',
+    ],
+  },
+  {
+    icon: '💳',
+    title: 'Pagos y facturación',
+    desc: 'Cobros con Yape, Plin, tarjeta y emisión de comprobantes SUNAT.',
+    articles: [
+      'Activar cobros con Yape y Plin al agendar',
+      'Configurar tu cuenta Culqi para recibir pagos',
+      'Emitir boletas y facturas electrónicas (SUNAT)',
+      'Configurar precios y rangos de consulta',
+      'Ver el reporte de ingresos y pagos pendientes',
+    ],
+  },
+  {
+    icon: '🗂️',
+    title: 'Historial clínico',
+    desc: 'Notas SOAP, recetas, archivos y planes de tratamiento.',
+    articles: [
+      'Registrar una nota clínica SOAP',
+      'Emitir recetas digitales con código QR',
+      'Subir archivos e imágenes al historial',
+      'Crear y gestionar planes de tratamiento',
+      'El portal del paciente: qué ve y cómo usarlo',
+    ],
+  },
+  {
+    icon: '💬',
+    title: 'WhatsApp y comunicación',
+    desc: 'CRM WhatsApp, pipeline de leads y comunicación con pacientes.',
+    articles: [
+      'Conectar WhatsApp Business API',
+      'Usar la bandeja de mensajes de pacientes',
+      'Configurar respuestas rápidas y plantillas',
+      'Gestionar leads de Meta Ads con el pipeline',
+      'Activar y personalizar mensajes automáticos',
+    ],
+  },
+  {
+    icon: '👥',
+    title: 'Doctores y comisiones',
+    desc: 'Alta de doctores, roles, permisos y cálculo de comisiones.',
+    articles: [
+      'Añadir un doctor al sistema',
+      'Configurar roles y permisos por usuario',
+      'Configurar comisiones por doctor (% o fijo)',
+      'Cómo calcular el neto por doctor al cierre',
+      'Reportes de productividad por especialidad',
+    ],
+  },
+  {
+    icon: '⚙️',
+    title: 'Configuración de cuenta',
+    desc: 'Personalización, logo, colores, URL y datos de facturación.',
+    articles: [
+      'Personalizar tu portal con tu logo y colores',
+      'Configurar tu URL personalizada (white-label)',
+      'Gestionar suscripción y cambiar de plan',
+      'Actualizar datos de facturación y RUC',
+      'Activar o desactivar la autenticación en 2 pasos',
+    ],
+  },
+  {
+    icon: '📊',
+    title: 'Reportes y métricas',
+    desc: 'Entiende el rendimiento de tu clínica con datos en tiempo real.',
+    articles: [
+      'Panel de métricas: qué incluye y cómo leerlo',
+      'Reporte de facturación mensual',
+      'Tasa de confirmación y cancelación de citas',
+      'Reporte de leads y conversión desde Meta Ads',
+      'Exportar reportes a Excel o PDF',
+    ],
+  },
+];
+
+const faqs = [
+  { q: '¿Cuánto tiempo toma configurar AgendaDr?', a: 'La mayoría de nuestros clientes tienen su agenda activa y lista para recibir citas en menos de 1 hora. El proceso incluye crear la cuenta, añadir especialidades, configurar horarios y compartir el link de agendamiento.' },
+  { q: '¿Puedo importar mis pacientes desde Excel?', a: 'Sí. AgendaDr permite importar tu base de datos de pacientes desde un archivo Excel o CSV. Nuestro equipo de migración puede ayudarte sin costo adicional.' },
+  { q: '¿Cómo funciona la garantía de 15 días?', a: 'Si durante los primeros 15 días decides que AgendaDr no es para ti, te devolvemos el 100% de tu pago. Sin preguntas, sin burocracia. Solo escribe a soporte@agendadr.com.' },
+  { q: '¿Puedo usar AgendaDr con varios doctores?', a: 'Sí. Los planes Básico (+3 doctores), Profesional (+8 doctores) y Clínica (ilimitado) están diseñados para equipos. Cada doctor tiene su propia agenda y tú ves todo desde el mismo panel.' },
+  { q: '¿Qué pasa con mis datos si cancelo?', a: 'Tienes 30 días después de cancelar para exportar todos tus datos (pacientes, historial, citas) en formato Excel o PDF. Después de ese plazo los datos son eliminados de nuestros servidores.' },
+];
 ---
-<BaseLayout title="Centro de ayuda | AgendaDr" description="Documentación, tutoriales y soporte para usar AgendaDr.">
+<BaseLayout
+  title="Centro de ayuda | AgendaDr"
+  description="Documentación, tutoriales y soporte para usar AgendaDr. Encuentra respuestas sobre agenda, pagos, historial clínico, WhatsApp y más."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Centro de ayuda</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">¿En qué podemos ayudarte?</h1>
+        <p class="hero-sub">Encuentra artículos, tutoriales y respuestas rápidas sobre todas las funcionalidades de AgendaDr.</p>
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/></svg>
+          <input type="search" class="search-input" placeholder="Busca un artículo, p.ej. &quot;Yape&quot; o &quot;comisiones&quot;..." aria-label="Buscar artículos">
+        </div>
+        <div class="hero-quick">
+          <span class="quick-label">Populares:</span>
+          <button class="quick-tag">Configurar Yape</button>
+          <button class="quick-tag">Recetas con QR</button>
+          <button class="quick-tag">WhatsApp API</button>
+          <button class="quick-tag">Plan de tratamiento</button>
+        </div>
+        <div class="hero-support">
+          <span>¿No encuentras lo que buscas?</span>
+          <a href="/contacto" class="support-link">Habla con soporte →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Documentación</span>
+          <h2>Explora por categoría</h2>
+        </div>
+        <div class="cat-grid">
+          {categories.map((cat) => (
+            <div class="cat-card">
+              <div class="cat-icon">{cat.icon}</div>
+              <h3 class="cat-title">{cat.title}</h3>
+              <p class="cat-desc">{cat.desc}</p>
+              <ul class="cat-articles">
+                {cat.articles.map((a) => (
+                  <li>
+                    <a href="#" class="article-link">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                      {a}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Preguntas frecuentes</span>
+          <h2>Las dudas más comunes</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((item, i) => (
+            <details class="faq-item">
+              <summary class="faq-question">
+                {item.q}
+                <svg class="faq-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <p class="faq-answer">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SOPORTE -->
+    <section class="support-section">
+      <div class="container">
+        <div class="support-card">
+          <div class="support-left">
+            <span class="support-icon">💬</span>
+            <div>
+              <h3>¿Necesitas ayuda personalizada?</h3>
+              <p>Nuestro equipo de soporte está disponible de lunes a sábado de 8am a 8pm (Lima). Tiempo de respuesta promedio: menos de 2 horas.</p>
+            </div>
+          </div>
+          <div class="support-actions">
+            <a href="https://wa.me/51999999999" target="_blank" rel="noopener" class="btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp soporte
+            </a>
+            <a href="mailto:soporte@agendadr.com" class="btn-email">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              soporte@agendadr.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1);
+    --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media(max-width:600px) { .container { padding:0 16px; } }
+
+  /* HERO */
+  .hero-section { padding:140px 0 72px; text-align:center; background:linear-gradient(180deg,#f0fdf9 0%,var(--bg-page) 70%); }
+  :global(html.dark) .hero-section { background:linear-gradient(180deg,rgba(3,187,133,0.06) 0%,var(--bg-page) 70%); }
+  .hero-title { font-size:clamp(2rem,4.5vw,3rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.025em; margin-bottom:12px; }
+  .hero-sub { font-size:clamp(1rem,2vw,1.1rem); color:var(--text-secondary); max-width:520px; margin:0 auto 32px; line-height:1.6; }
+
+  .search-wrap { position:relative; max-width:560px; margin:0 auto 16px; }
+  .search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none; }
+  .search-input { width:100%; padding:14px 16px 14px 46px; border:1.5px solid var(--border); border-radius:12px; font-size:15px; background:var(--bg-page); color:var(--text-heading); outline:none; transition:border-color .15s,box-shadow .15s; }
+  .search-input:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(3,187,133,0.12); }
+  .search-input::placeholder { color:var(--text-muted); }
+
+  .hero-quick { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+  .quick-label { font-size:12.5px; color:var(--text-muted); }
+  .quick-tag { font-size:12.5px; font-weight:600; padding:5px 12px; border-radius:999px; border:1.5px solid var(--border); background:transparent; color:var(--text-secondary); cursor:pointer; transition:all .15s; }
+  .quick-tag:hover { border-color:var(--green); color:var(--green); background:var(--green-light); }
+
+  .hero-support { display:flex; align-items:center; justify-content:center; gap:8px; font-size:13.5px; color:var(--text-muted); }
+  .support-link { color:var(--green); font-weight:600; text-decoration:none; }
+  .support-link:hover { text-decoration:underline; }
+
+  /* CATEGORIES */
+  .categories-section { padding:80px 0; background:var(--bg-subtle); }
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-tag { display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .section-header h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; }
+
+  .cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:1000px) { .cat-grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px) { .cat-grid { grid-template-columns:1fr; } }
+
+  .cat-card {
+    background:var(--bg-page); border:1px solid var(--border); border-radius:14px; padding:24px;
+    transition:box-shadow .2s,border-color .2s,transform .2s;
+  }
+  .cat-card:hover { box-shadow:0 4px 24px rgba(3,187,133,0.1); border-color:rgba(3,187,133,0.3); transform:translateY(-2px); }
+  .cat-icon { font-size:28px; margin-bottom:10px; }
+  .cat-title { font-size:15px; font-weight:700; color:var(--text-heading); margin-bottom:6px; }
+  .cat-desc { font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:16px; }
+  .cat-articles { list-style:none; display:flex; flex-direction:column; gap:6px; }
+  .article-link {
+    display:flex; align-items:center; gap:6px;
+    font-size:12.5px; color:var(--text-secondary); text-decoration:none;
+    transition:color .15s;
+  }
+  .article-link svg { color:var(--text-muted); flex-shrink:0; transition:color .15s,transform .15s; }
+  .article-link:hover { color:var(--green); }
+  .article-link:hover svg { color:var(--green); transform:translateX(2px); }
+
+  /* FAQ */
+  .faq-section { padding:80px 0; }
+  .faq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:8px; }
+  .faq-item {
+    background:var(--bg-subtle); border:1px solid var(--border); border-radius:12px;
+    overflow:hidden; transition:border-color .2s;
+  }
+  .faq-item[open] { border-color:rgba(3,187,133,0.35); }
+  .faq-question {
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:18px 20px; font-size:14.5px; font-weight:600; color:var(--text-heading);
+    cursor:pointer; list-style:none; user-select:none;
+  }
+  .faq-question::-webkit-details-marker { display:none; }
+  .faq-chevron { flex-shrink:0; color:var(--text-muted); transition:transform .25s ease; }
+  .faq-item[open] .faq-chevron { transform:rotate(180deg); }
+  .faq-answer { padding:0 20px 18px; font-size:14px; color:var(--text-secondary); line-height:1.7; }
+
+  /* SUPPORT CTA */
+  .support-section { padding:0 0 96px; }
+  .support-card {
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    background:var(--bg-subtle); border:1px solid var(--border); border-radius:16px; padding:28px 32px;
+    flex-wrap:wrap;
+  }
+  @media(max-width:600px) { .support-card { padding:20px; } }
+  .support-left { display:flex; align-items:flex-start; gap:16px; flex:1; min-width:200px; }
+  .support-icon { font-size:28px; flex-shrink:0; }
+  .support-left h3 { font-size:15px; font-weight:700; color:var(--text-heading); margin-bottom:4px; }
+  .support-left p { font-size:13.5px; color:var(--text-muted); line-height:1.5; }
+  .support-actions { display:flex; gap:10px; flex-wrap:wrap; }
+  .btn-whatsapp { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-weight:700; font-size:13.5px; padding:11px 20px; border-radius:10px; text-decoration:none; transition:filter .15s; }
+  .btn-whatsapp:hover { filter:brightness(0.92); }
+  .btn-email { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--text-secondary); font-weight:600; font-size:13.5px; padding:11px 20px; border-radius:10px; border:1.5px solid var(--border); text-decoration:none; transition:all .15s; }
+  .btn-email:hover { border-color:var(--green); color:var(--green); }
 </style>

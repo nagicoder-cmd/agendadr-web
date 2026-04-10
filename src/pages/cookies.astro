@@ -2,15 +2,221 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const updated = '10 de abril de 2026';
 ---
-<BaseLayout title="Política de cookies | AgendaDr" description="Política de cookies de AgendaDr. Cookies esenciales y de análisis.">
+<BaseLayout
+  title="Política de cookies | AgendaDr"
+  description="Política de cookies de AgendaDr. Qué cookies usamos, para qué y cómo gestionarlas. ECOGIROS NEGOCIOS E.I.R.L."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Política de cookies</h1>
+  <main>
+    <div class="legal-layout">
+
+      <aside class="toc">
+        <div class="toc-inner">
+          <p class="toc-label">En esta página</p>
+          <nav>
+            <a href="#que-son">1. ¿Qué son las cookies?</a>
+            <a href="#tipos">2. Cookies que usamos</a>
+            <a href="#terceros">3. Cookies de terceros</a>
+            <a href="#gestion">4. Cómo gestionarlas</a>
+            <a href="#cambios">5. Cambios a esta política</a>
+            <a href="#contacto">6. Contacto</a>
+          </nav>
+        </div>
+      </aside>
+
+      <article class="legal-content">
+        <div class="doc-header">
+          <span class="doc-tag">Documento legal</span>
+          <h1>Política de cookies</h1>
+          <p class="doc-meta">Última actualización: <strong>{updated}</strong> · ECOGIROS NEGOCIOS E.I.R.L.</p>
+          <div class="doc-notice">
+            Esta política explica qué cookies utiliza agendadr.com, para qué sirven y cómo puedes gestionarlas o deshabilitarlas.
+          </div>
+        </div>
+
+        <section id="que-son">
+          <h2><span class="num">1.</span> ¿Qué son las cookies?</h2>
+          <p>Las cookies son pequeños archivos de texto que un sitio web guarda en tu dispositivo cuando lo visitas. Sirven para que la web recuerde tus preferencias, mantenga tu sesión activa o recopile información anónima de uso.</p>
+          <p>No todas las cookies son iguales: algunas son indispensables para que el sitio funcione, otras ayudan a mejorar la experiencia y otras se usan para análisis o publicidad.</p>
+        </section>
+
+        <section id="tipos">
+          <h2><span class="num">2.</span> Cookies que usamos</h2>
+
+          <div class="cookie-table-wrap">
+            <table class="cookie-table">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Nombre / Origen</th>
+                  <th>Propósito</th>
+                  <th>Duración</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-essential">Esencial</span></td>
+                  <td>session_id</td>
+                  <td>Mantiene tu sesión autenticada en la plataforma</td>
+                  <td>Sesión</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-essential">Esencial</span></td>
+                  <td>csrf_token</td>
+                  <td>Protección contra ataques CSRF</td>
+                  <td>Sesión</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-essential">Esencial</span></td>
+                  <td>theme_pref</td>
+                  <td>Guarda tu preferencia de modo claro/oscuro</td>
+                  <td>1 año</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-analytics">Analítica</span></td>
+                  <td>_ga, _gid (Google Analytics)</td>
+                  <td>Analítica de uso anónima (páginas visitadas, tiempo, dispositivo)</td>
+                  <td>2 años / 24h</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-analytics">Analítica</span></td>
+                  <td>_clck (Microsoft Clarity)</td>
+                  <td>Mapas de calor y grabaciones de sesión anonimizadas</td>
+                  <td>1 año</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-marketing">Marketing</span></td>
+                  <td>fbp (Meta Pixel)</td>
+                  <td>Seguimiento de conversiones desde Meta Ads</td>
+                  <td>90 días</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="table-note">Las cookies esenciales no pueden desactivarse sin afectar el funcionamiento de la plataforma. Las de analítica y marketing requieren tu consentimiento.</p>
+        </section>
+
+        <section id="terceros">
+          <h2><span class="num">3.</span> Cookies de terceros</h2>
+          <p>Algunos servicios de terceros que integra AgendaDr pueden instalar sus propias cookies:</p>
+          <ul>
+            <li><strong>Google LLC</strong> — Google Analytics: analítica de uso. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad</a>.</li>
+            <li><strong>Microsoft Corporation</strong> — Microsoft Clarity: mapas de calor. <a href="https://privacy.microsoft.com" target="_blank" rel="noopener">Política de privacidad</a>.</li>
+            <li><strong>Meta Platforms</strong> — Meta Pixel: conversiones publicitarias. <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Política de privacidad</a>.</li>
+          </ul>
+          <p>AgendaDr no controla las cookies instaladas por terceros. Consulta sus respectivas políticas para más detalles.</p>
+        </section>
+
+        <section id="gestion">
+          <h2><span class="num">4.</span> Cómo gestionar las cookies</h2>
+          <p>Puedes gestionar o eliminar cookies desde la configuración de tu navegador:</p>
+          <ul>
+            <li><strong>Google Chrome:</strong> Configuración → Privacidad y seguridad → Cookies.</li>
+            <li><strong>Mozilla Firefox:</strong> Opciones → Privacidad y seguridad → Cookies.</li>
+            <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos de sitios web.</li>
+            <li><strong>Microsoft Edge:</strong> Configuración → Privacidad y cookies.</li>
+          </ul>
+          <p>Ten en cuenta que deshabilitar todas las cookies puede afectar el funcionamiento de la plataforma AgendaDr, especialmente las funciones que requieren sesión autenticada.</p>
+          <p>Para revocar el consentimiento de cookies de analítica o marketing, puedes usar las herramientas de opt-out de Google (<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out</a>) y Meta (<a href="https://www.facebook.com/settings/?tab=ads" target="_blank" rel="noopener">configuración de anuncios de Meta</a>).</p>
+        </section>
+
+        <section id="cambios">
+          <h2><span class="num">5.</span> Cambios a esta política</h2>
+          <p>Podemos actualizar esta política cuando añadamos nuevas cookies o cambiemos el uso de las existentes. Te notificaremos los cambios mediante un banner en el sitio web.</p>
+        </section>
+
+        <section id="contacto">
+          <h2><span class="num">6.</span> Contacto</h2>
+          <p>Para preguntas sobre el uso de cookies escríbenos a:</p>
+          <ul class="contact-list">
+            <li>📧 <strong>Email:</strong> privacidad@agendadr.com</li>
+            <li>🏢 <strong>Empresa:</strong> ECOGIROS NEGOCIOS E.I.R.L.</li>
+          </ul>
+        </section>
+
+        <div class="doc-footer">
+          Texto de referencia. El texto definitivo será revisado por el asesor legal de ECOGIROS NEGOCIOS E.I.R.L.
+        </div>
+      </article>
+    </div>
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); padding-top:88px; overflow-x:hidden; }
+
+  .legal-layout {
+    max-width:1100px; margin:0 auto; padding:48px 24px 96px;
+    display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:start;
+  }
+  @media(max-width:900px) { .legal-layout { grid-template-columns:1fr; } }
+  @media(max-width:600px) { .legal-layout { padding:32px 16px 80px; } }
+  .legal-content { min-width:0; }
+
+  .toc { position:sticky; top:100px; }
+  @media(max-width:900px) { .toc { display:none; } }
+  .toc-inner { background:var(--bg-subtle); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .toc-label { font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; }
+  .toc nav { display:flex; flex-direction:column; gap:4px; }
+  .toc nav a { font-size:13px; color:var(--text-muted); text-decoration:none; padding:5px 8px; border-radius:6px; transition:all .15s; }
+  .toc nav a:hover { color:var(--green); background:rgba(3,187,133,0.08); }
+
+  .doc-header { margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border); }
+  .doc-tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .doc-header h1 { font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; margin-bottom:8px; }
+  .doc-meta { font-size:13px; color:var(--text-muted); margin-bottom:20px; }
+  .doc-meta strong { color:var(--text-secondary); }
+  .doc-notice { background:var(--bg-subtle); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:8px; padding:16px 20px; font-size:13.5px; color:var(--text-secondary); line-height:1.6; }
+
+  .legal-content section { margin-bottom:40px; padding-bottom:40px; border-bottom:1px solid var(--border); }
+  .legal-content section:last-of-type { border-bottom:none; }
+  .legal-content h2 { font-size:1.15rem; font-weight:700; color:var(--text-heading); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .num { color:var(--green); }
+  .legal-content p { font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:12px; }
+  .legal-content p:last-child { margin-bottom:0; }
+  .legal-content ul { margin:8px 0 12px 20px; display:flex; flex-direction:column; gap:8px; }
+  .legal-content ul li { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+  .legal-content a { color:var(--green); text-decoration:none; }
+  .legal-content a:hover { text-decoration:underline; }
+  .contact-list { list-style:none; margin-left:0 !important; }
+
+  /* COOKIE TABLE */
+  .cookie-table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--border); margin:16px 0; }
+  .cookie-table { width:100%; border-collapse:collapse; min-width:480px; }
+  .cookie-table thead tr { background:var(--bg-subtle); }
+  :global(html.dark) .cookie-table thead tr { background:#1e293b; }
+  .cookie-table th { padding:12px 16px; font-size:12px; font-weight:700; text-align:left; color:var(--text-muted); letter-spacing:0.04em; text-transform:uppercase; border-bottom:1px solid var(--border); }
+  .cookie-table td { padding:12px 16px; font-size:13px; color:var(--text-secondary); border-bottom:1px solid var(--border); vertical-align:middle; }
+  .cookie-table tr:last-child td { border-bottom:none; }
+  .cookie-table tr:nth-child(even) td { background:var(--bg-page); }
+  :global(html.dark) .cookie-table tr:nth-child(even) td { background:rgba(255,255,255,0.02); }
+
+  .badge { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap; }
+  .badge-essential { background:#f0fdf9; color:#059669; border:1px solid #a7f3d0; }
+  :global(html.dark) .badge-essential { background:rgba(3,187,133,0.15); color:#34d399; border-color:rgba(3,187,133,0.2); }
+  .badge-analytics { background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe; }
+  :global(html.dark) .badge-analytics { background:rgba(37,99,235,0.12); color:#93c5fd; border-color:rgba(37,99,235,0.2); }
+  .badge-marketing { background:#fdf4ff; color:#9333ea; border:1px solid #e9d5ff; }
+  :global(html.dark) .badge-marketing { background:rgba(147,51,234,0.12); color:#c084fc; border-color:rgba(147,51,234,0.2); }
+
+  .table-note { font-size:12.5px !important; color:var(--text-muted) !important; font-style:italic; margin-top:8px; }
+
+  .doc-footer { margin-top:40px; padding:16px 20px; background:#fffbeb; border:1px solid #fde68a; border-radius:8px; font-size:12.5px; color:#92400e; line-height:1.5; }
+  :global(html.dark) .doc-footer { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); color:#fbbf24; }
 </style>

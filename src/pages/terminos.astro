@@ -2,15 +2,192 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const updated = '10 de abril de 2026';
 ---
-<BaseLayout title="Términos y condiciones | AgendaDr" description="Términos y condiciones del servicio AgendaDr. ECOGIROS NEGOCIOS E.I.R.L.">
+<BaseLayout
+  title="Términos y condiciones | AgendaDr"
+  description="Términos y condiciones del servicio AgendaDr. Lee antes de usar la plataforma. ECOGIROS NEGOCIOS E.I.R.L."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">Términos y condiciones</h1>
+  <main>
+    <div class="legal-layout">
+
+      <!-- Sidebar TOC -->
+      <aside class="toc">
+        <div class="toc-inner">
+          <p class="toc-label">En esta página</p>
+          <nav>
+            <a href="#objeto">1. Objeto</a>
+            <a href="#acceso">2. Acceso y uso</a>
+            <a href="#planes">3. Planes y pagos</a>
+            <a href="#obligaciones">4. Obligaciones del usuario</a>
+            <a href="#propiedad">5. Propiedad intelectual</a>
+            <a href="#datos">6. Protección de datos</a>
+            <a href="#responsabilidad">7. Limitación de responsabilidad</a>
+            <a href="#modificaciones">8. Modificaciones</a>
+            <a href="#terminacion">9. Terminación</a>
+            <a href="#ley">10. Ley aplicable</a>
+            <a href="#contacto">11. Contacto</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="legal-content">
+        <div class="doc-header">
+          <span class="doc-tag">Documento legal</span>
+          <h1>Términos y condiciones</h1>
+          <p class="doc-meta">Última actualización: <strong>{updated}</strong> · ECOGIROS NEGOCIOS E.I.R.L.</p>
+          <div class="doc-notice">
+            Este documento establece los términos y condiciones que rigen el uso de la plataforma AgendaDr. Al registrarte o usar el servicio, aceptas estos términos en su totalidad. Si no estás de acuerdo, no uses la plataforma.
+          </div>
+        </div>
+
+        <section id="objeto">
+          <h2><span class="num">1.</span> Objeto del contrato</h2>
+          <p>Los presentes Términos y Condiciones (en adelante, "Términos") regulan el acceso y uso de la plataforma de gestión médica AgendaDr (en adelante, "la Plataforma"), operada por <strong>ECOGIROS NEGOCIOS E.I.R.L.</strong>, con domicilio en Lima, Perú (en adelante, "AgendaDr").</p>
+          <p>La Plataforma ofrece herramientas para la gestión de citas médicas, historial clínico, pagos, comunicación con pacientes y administración de consultorios y clínicas. AgendaDr actúa como proveedor de software y no presta servicios médicos ni es responsable del contenido clínico ingresado por los usuarios.</p>
+        </section>
+
+        <section id="acceso">
+          <h2><span class="num">2.</span> Acceso y uso de la plataforma</h2>
+          <p>Para acceder a la Plataforma debes ser mayor de 18 años, tener capacidad legal para celebrar contratos y proporcionar información veraz durante el registro.</p>
+          <p>El usuario es responsable de mantener la confidencialidad de sus credenciales de acceso y de todas las actividades realizadas bajo su cuenta. Deberá notificar inmediatamente a AgendaDr ante cualquier uso no autorizado.</p>
+          <p>AgendaDr se reserva el derecho de suspender o cancelar cuentas que incumplan estos Términos, sin perjuicio de las acciones legales correspondientes.</p>
+        </section>
+
+        <section id="planes">
+          <h2><span class="num">3.</span> Planes y pagos</h2>
+          <p>AgendaDr ofrece distintos planes de suscripción con precios expresados en Soles (PEN). Los precios vigentes se muestran en la página <a href="/planes">/planes</a> y pueden estar sujetos a impuestos aplicables.</p>
+          <p>El periodo de prueba de <strong>15 días</strong> permite el uso completo de las funcionalidades del plan contratado. Si durante ese periodo el usuario decide no continuar y lo notifica dentro del plazo, AgendaDr realizará el reembolso íntegro sin preguntas.</p>
+          <p>Transcurrido el periodo de prueba, el cobro se realizará automáticamente cada mes o año según el ciclo elegido. La suscripción se renueva automáticamente hasta que el usuario la cancele desde su panel o escriba a soporte@agendadr.com.</p>
+          <p>AgendaDr puede modificar los precios con un aviso previo mínimo de 30 días calendario.</p>
+        </section>
+
+        <section id="obligaciones">
+          <h2><span class="num">4.</span> Obligaciones del usuario</h2>
+          <p>El usuario se compromete a:</p>
+          <ul>
+            <li>Usar la Plataforma únicamente para fines lícitos y relacionados a la gestión de salud.</li>
+            <li>No compartir sus credenciales con terceros no autorizados.</li>
+            <li>Mantener actualizados sus datos de contacto y de facturación.</li>
+            <li>Cumplir con la normativa vigente sobre datos personales de sus pacientes (Ley N° 29733 y su Reglamento).</li>
+            <li>No intentar acceder a datos de otros usuarios ni realizar ingeniería inversa sobre la Plataforma.</li>
+            <li>No usar la Plataforma para enviar spam, contenido ilícito o malware.</li>
+          </ul>
+        </section>
+
+        <section id="propiedad">
+          <h2><span class="num">5.</span> Propiedad intelectual</h2>
+          <p>Todos los derechos de propiedad intelectual sobre la Plataforma, incluyendo su código fuente, diseño, marca, logotipos y contenido, son propiedad exclusiva de ECOGIROS NEGOCIOS E.I.R.L. o de sus licenciantes.</p>
+          <p>El usuario recibe una licencia de uso limitada, no exclusiva, intransferible y revocable para acceder a la Plataforma durante la vigencia de su suscripción. Esta licencia no implica cesión de derechos de propiedad intelectual.</p>
+          <p>Los datos ingresados por el usuario (historial clínico, información de pacientes, etc.) son propiedad del usuario. AgendaDr los trata conforme a la Política de Privacidad.</p>
+        </section>
+
+        <section id="datos">
+          <h2><span class="num">6.</span> Protección de datos personales</h2>
+          <p>El tratamiento de datos personales se rige por nuestra <a href="/privacidad">Política de Privacidad</a>, la Ley N° 29733 (Ley de Protección de Datos Personales) y su Reglamento.</p>
+          <p>El usuario, en su condición de titular de un banco de datos, es responsable del tratamiento de los datos personales de sus pacientes ingresados a la Plataforma. AgendaDr actúa como encargado del tratamiento y procesa dichos datos únicamente según las instrucciones del usuario.</p>
+        </section>
+
+        <section id="responsabilidad">
+          <h2><span class="num">7.</span> Limitación de responsabilidad</h2>
+          <p>AgendaDr no será responsable por daños indirectos, incidentales, especiales o consecuentes derivados del uso o imposibilidad de uso de la Plataforma.</p>
+          <p>La Plataforma se ofrece "tal como está". AgendaDr no garantiza disponibilidad ininterrumpida, aunque procura mantener un nivel de servicio mínimo del 99.5% mensual.</p>
+          <p>En ningún caso la responsabilidad total de AgendaDr hacia el usuario superará el importe pagado por el usuario en los últimos 3 meses de servicio.</p>
+          <p>AgendaDr no es responsable por la veracidad o exactitud del contenido clínico ingresado por los usuarios, ni por decisiones médicas tomadas con base en dicho contenido.</p>
+        </section>
+
+        <section id="modificaciones">
+          <h2><span class="num">8.</span> Modificaciones a los términos</h2>
+          <p>AgendaDr puede modificar estos Términos en cualquier momento. Los cambios serán notificados al usuario por correo electrónico y/o mediante un aviso destacado en la Plataforma con al menos 15 días de anticipación.</p>
+          <p>El uso continuado de la Plataforma tras la entrada en vigencia de los nuevos Términos implica la aceptación de los mismos.</p>
+        </section>
+
+        <section id="terminacion">
+          <h2><span class="num">9.</span> Terminación</h2>
+          <p>El usuario puede cancelar su suscripción en cualquier momento desde el panel de administración o contactando a soporte@agendadr.com. La cancelación es efectiva al término del periodo de facturación en curso.</p>
+          <p>AgendaDr puede dar por terminada la relación contractual con el usuario que incumpla estos Términos, sin necesidad de previo aviso y sin derecho a reembolso.</p>
+          <p>Tras la terminación, el usuario tendrá 30 días para exportar sus datos. Transcurrido ese plazo, AgendaDr podrá eliminarlos de sus sistemas, salvo obligación legal en contrario.</p>
+        </section>
+
+        <section id="ley">
+          <h2><span class="num">10.</span> Ley aplicable y jurisdicción</h2>
+          <p>Estos Términos se rigen por las leyes de la República del Perú. Para cualquier controversia, las partes se someten a la jurisdicción de los Juzgados y Tribunales de la ciudad de Lima, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
+        </section>
+
+        <section id="contacto">
+          <h2><span class="num">11.</span> Contacto</h2>
+          <p>Para consultas sobre estos Términos puedes contactarnos en:</p>
+          <ul class="contact-list">
+            <li>📧 <strong>Email:</strong> legal@agendadr.com</li>
+            <li>🏢 <strong>Empresa:</strong> ECOGIROS NEGOCIOS E.I.R.L.</li>
+            <li>📍 <strong>Domicilio:</strong> Lima, Perú</li>
+          </ul>
+        </section>
+
+        <div class="doc-footer">
+          <p>Este documento fue redactado con fines de referencia. El texto definitivo será proporcionado por el equipo legal de ECOGIROS NEGOCIOS E.I.R.L.</p>
+        </div>
+      </article>
+    </div>
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); padding-top:88px; overflow-x:hidden; }
+
+  .legal-layout {
+    max-width:1100px; margin:0 auto; padding:48px 24px 96px;
+    display:grid; grid-template-columns:220px 1fr; gap:56px; align-items:start;
+  }
+  @media(max-width:900px) { .legal-layout { grid-template-columns:1fr; gap:0; } }
+  @media(max-width:600px) { .legal-layout { padding:32px 16px 80px; } }
+  .legal-content { min-width:0; }
+
+  /* SIDEBAR */
+  .toc { position:sticky; top:100px; }
+  @media(max-width:900px) { .toc { display:none; } }
+  .toc-inner { background:var(--bg-subtle); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .toc-label { font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; }
+  .toc nav { display:flex; flex-direction:column; gap:4px; }
+  .toc nav a { font-size:13px; color:var(--text-muted); text-decoration:none; padding:5px 8px; border-radius:6px; transition:all .15s; }
+  .toc nav a:hover { color:var(--green); background:rgba(3,187,133,0.08); }
+
+  /* CONTENT */
+  .doc-header { margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border); }
+  .doc-tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .doc-header h1 { font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; margin-bottom:8px; }
+  .doc-meta { font-size:13px; color:var(--text-muted); margin-bottom:20px; }
+  .doc-meta strong { color:var(--text-secondary); }
+  .doc-notice { background:var(--bg-subtle); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:8px; padding:16px 20px; font-size:13.5px; color:var(--text-secondary); line-height:1.6; }
+
+  .legal-content section { margin-bottom:40px; padding-bottom:40px; border-bottom:1px solid var(--border); }
+  .legal-content section:last-of-type { border-bottom:none; }
+  .legal-content h2 { font-size:1.15rem; font-weight:700; color:var(--text-heading); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .num { color:var(--green); font-size:1rem; font-variant-numeric:tabular-nums; }
+  .legal-content p { font-size:14px; color:var(--text-secondary); line-height:1.75; margin-bottom:12px; }
+  .legal-content p:last-child { margin-bottom:0; }
+  .legal-content ul { margin:8px 0 12px 20px; display:flex; flex-direction:column; gap:8px; }
+  .legal-content ul li { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+  .legal-content a { color:var(--green); text-decoration:none; }
+  .legal-content a:hover { text-decoration:underline; }
+  .contact-list { list-style:none; margin-left:0 !important; }
+  .contact-list li { font-size:14px; color:var(--text-secondary); }
+
+  .doc-footer { margin-top:40px; padding:16px 20px; background:#fffbeb; border:1px solid #fde68a; border-radius:8px; font-size:12.5px; color:#92400e; line-height:1.5; }
+  :global(html.dark) .doc-footer { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); color:#fbbf24; }
 </style>

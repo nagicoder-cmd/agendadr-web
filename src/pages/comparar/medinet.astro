@@ -3,14 +3,262 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="AgendaDr vs Medinet | Comparación" description="Compara AgendaDr vs Medinet. Funcionalidades, precios y qué sistema se adapta mejor a tu clínica.">
+<BaseLayout
+  title="AgendaDr vs Medinet | CRM WhatsApp, Yape y portal de pacientes"
+  description="Comparación AgendaDr vs Medinet. CRM WhatsApp integrado, cobros con Yape/Plin, portal de pacientes completo y comisiones automáticas. Garantía 15 días."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">AgendaDr vs Medinet</h1>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="vs-badge-row">
+          <span class="brand-badge brand-us">AgendaDr</span>
+          <span class="vs-circle">vs</span>
+          <span class="brand-badge brand-them">Medinet</span>
+        </div>
+        <h1 class="hero-headline">¿Usas Medinet?<br class="dbr"> AgendaDr hace todo eso y más.</h1>
+        <p class="hero-sub">Medinet es un buen software peruano para agenda y ficha clínica. Pero si necesitas CRM WhatsApp, cobros con Yape, portal de pacientes y un sistema que escale — AgendaDr es el upgrade natural.</p>
+        <div class="hero-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary">Prueba AgendaDr gratis por 15 días →</a>
+          <a href="/planes" class="btn-ghost">Ver planes</a>
+        </div>
+        <div class="hero-trust">
+          <span>✅ Garantía 15 días con devolución</span>
+          <span>✅ Sin tarjeta de crédito</span>
+          <span>✅ Migración asistida gratis</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA DE COMPARACIÓN -->
+    <section class="table-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Comparación completa</span>
+          <h2>AgendaDr vs Medinet — La comparación honesta</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="col-feature">Aspecto</th>
+                <th class="col-us">AgendaDr</th>
+                <th class="col-them">Medinet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Origen</td><td class="us">🇵🇪 Peruano</td><td class="them">🇵🇪 Peruano</td></tr>
+              <tr class="row-alt"><td>Agenda + ficha clínica</td><td class="us"><span class="yes">✅</span></td><td class="them"><span class="yes">✅</span></td></tr>
+              <tr><td>Facturación SUNAT</td><td class="us"><span class="yes">✅</span></td><td class="them"><span class="yes">✅</span></td></tr>
+              <tr class="row-alt"><td>Portal de pacientes completo</td><td class="us win"><span class="yes">✅</span> Historial, recetas, tratamiento</td><td class="them"><span class="no">❌</span></td></tr>
+              <tr><td>CRM WhatsApp integrado</td><td class="us win"><span class="yes">✅</span> Bandeja + pipeline + métricas</td><td class="them"><span class="partial">Básico</span></td></tr>
+              <tr class="row-alt"><td>Cobros Yape/Plin al agendar</td><td class="us win"><span class="yes">✅</span> Nativo con Culqi</td><td class="them"><span class="no">❌</span></td></tr>
+              <tr><td>Ticket expandible con rangos</td><td class="us win"><span class="yes">✅</span></td><td class="them"><span class="no">❌</span></td></tr>
+              <tr class="row-alt"><td>Planes de tratamiento</td><td class="us win"><span class="yes">✅</span></td><td class="them"><span class="no">❌</span></td></tr>
+              <tr><td>Portal white-label (tu marca)</td><td class="us win"><span class="yes">✅</span> Logo + colores + URL propia</td><td class="them"><span class="no">❌</span></td></tr>
+              <tr class="row-alt"><td>Comisiones automáticas</td><td class="us win"><span class="yes">✅</span> Bruto/comisión/neto</td><td class="them"><span class="no">❌</span></td></tr>
+              <tr><td>Recetas digitales con QR</td><td class="us win"><span class="yes">✅</span></td><td class="them"><span class="no">❌</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ CAMBIAR -->
+    <section class="upgrade-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">El upgrade natural</span>
+          <h2>Lo que ganas al pasarte a AgendaDr</h2>
+        </div>
+        <div class="upgrade-callout">
+          <div class="upgrade-text">
+            <p class="upgrade-lead">Medinet resuelve lo básico: agenda y ficha clínica. AgendaDr resuelve todo lo demás.</p>
+            <p>CRM WhatsApp para captar pacientes desde Meta Ads. Cobros con Yape y Plin integrados en el flujo de agendamiento. Portal de pacientes donde ven su historial y plan de tratamiento. Comisiones automáticas sin fórmulas en Excel. Y un portal con tu marca, no un link genérico.</p>
+            <p>Es el mismo origen peruano. El mismo entendimiento del mercado. Pero con funcionalidades de siguiente nivel.</p>
+          </div>
+          <div class="upgrade-pills">
+            <div class="pill">
+              <span class="pill-icon">💬</span>
+              <div>
+                <strong>CRM WhatsApp</strong>
+                <span>Pipeline de leads desde Meta Ads</span>
+              </div>
+            </div>
+            <div class="pill">
+              <span class="pill-icon">📱</span>
+              <div>
+                <strong>Yape y Plin nativos</strong>
+                <span>Tu paciente agenda y paga en un paso</span>
+              </div>
+            </div>
+            <div class="pill">
+              <span class="pill-icon">🗂️</span>
+              <div>
+                <strong>Portal de pacientes</strong>
+                <span>Historial, recetas, planes de tratamiento</span>
+              </div>
+            </div>
+            <div class="pill">
+              <span class="pill-icon">💸</span>
+              <div>
+                <strong>Comisiones automáticas</strong>
+                <span>Bruto / comisión / neto por doctor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2 class="cta-headline">Mismo espíritu peruano. Más funcionalidades.</h2>
+          <p class="cta-sub">Prueba AgendaDr por 15 días. Si no te convence, te devolvemos tu plata. Sin preguntas.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary btn-lg">Empieza ahora →</a>
+            <a href="/planes" class="btn-ghost-dark btn-lg">Ver planes →</a>
+          </div>
+          <div class="cta-links">
+            <a href="/comparar/doctocliq">AgendaDr vs Doctocliq</a>
+            <span>·</span>
+            <a href="/comparar/agendapro">AgendaDr vs AgendaPro</a>
+            <span>·</span>
+            <a href="/comparar/doctoralia">AgendaDr vs Doctoralia</a>
+            <span>·</span>
+            <a href="/comparar/excel">AgendaDr vs Excel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root {
+    --green:#03BB85; --green-dark:#029e70; --green-light:rgba(3,187,133,0.1);
+    --bg-page:#fff; --bg-subtle:#f8fafc;
+    --text-heading:#0f172a; --text-secondary:#334155; --text-muted:#64748b;
+    --border:#e2e8f0;
+  }
+  :global(html.dark) {
+    --bg-page:#0f172a; --bg-subtle:#1e293b;
+    --text-heading:#f1f5f9; --text-secondary:#cbd5e1; --text-muted:#94a3b8;
+    --border:#334155;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  main { background:var(--bg-page); }
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media(max-width:600px) { .container { padding:0 16px; } }
+  .dbr { display:none; } @media(min-width:768px) { .dbr { display:block; } }
+
+  /* HERO */
+  .hero-section { padding:140px 0 80px; text-align:center; background:linear-gradient(180deg,#f0fdf9 0%,var(--bg-page) 70%); }
+  :global(html.dark) .hero-section { background:linear-gradient(180deg,rgba(3,187,133,0.06) 0%,var(--bg-page) 70%); }
+  .vs-badge-row { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
+  .brand-badge { font-size:15px; font-weight:800; padding:8px 20px; border-radius:10px; letter-spacing:0.01em; }
+  .brand-us { background:#03BB85; color:#fff; box-shadow:0 2px 12px rgba(3,187,133,0.35); }
+  .brand-them { background:var(--bg-subtle); color:var(--text-muted); border:1.5px solid var(--border); }
+  .vs-circle { width:36px; height:36px; border-radius:50%; background:var(--bg-subtle); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:var(--text-muted); letter-spacing:0.04em; text-transform:uppercase; flex-shrink:0; }
+  .hero-headline { font-size:clamp(1.9rem,4.5vw,3rem); font-weight:800; color:var(--text-heading); line-height:1.15; letter-spacing:-0.02em; margin-bottom:20px; }
+  .hero-sub { max-width:640px; margin:0 auto 36px; font-size:clamp(1rem,2vw,1.1rem); color:var(--text-secondary); line-height:1.6; }
+  .hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
+  .hero-trust { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; font-size:13px; color:var(--text-muted); }
+
+  .btn-primary { display:inline-flex; align-items:center; background:var(--green); color:#fff; font-weight:700; font-size:15px; padding:13px 28px; border-radius:10px; text-decoration:none; transition:background .15s,transform .12s; box-shadow:0 2px 12px rgba(3,187,133,0.35); }
+  .btn-primary:hover { background:var(--green-dark); transform:translateY(-1px); }
+  .btn-primary.btn-lg { font-size:16px; padding:15px 32px; }
+  .btn-ghost { display:inline-flex; align-items:center; background:transparent; color:var(--text-secondary); font-weight:600; font-size:15px; padding:13px 24px; border-radius:10px; border:1.5px solid var(--border); text-decoration:none; transition:all .15s; }
+  .btn-ghost:hover { border-color:var(--green); color:var(--green); background:var(--green-light); }
+  .btn-ghost-dark { display:inline-flex; align-items:center; background:transparent; color:#cbd5e1; font-weight:600; font-size:15px; padding:13px 24px; border-radius:10px; border:1.5px solid #475569; text-decoration:none; transition:all .15s; }
+  .btn-ghost-dark:hover { border-color:var(--green); color:var(--green); background:rgba(3,187,133,0.1); }
+  .btn-ghost-dark.btn-lg { font-size:16px; padding:15px 28px; }
+
+  .section-header { text-align:center; margin-bottom:48px; }
+  .section-tag { display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .section-header h2 { font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; color:var(--text-heading); letter-spacing:-0.02em; line-height:1.2; }
+
+  /* TABLE */
+  .table-section { padding:80px 0; background:var(--bg-subtle); }
+  .table-wrap { overflow-x:auto; border-radius:16px; border:1px solid var(--border); box-shadow:0 2px 16px rgba(0,0,0,0.05); }
+  .comp-table { width:100%; border-collapse:collapse; min-width:520px; }
+  .comp-table thead tr { background:var(--bg-subtle); }
+  :global(html.dark) .comp-table thead tr { background:#1e293b; }
+  .comp-table th { padding:14px 20px; font-size:13px; font-weight:700; text-align:left; color:var(--text-heading); border-bottom:2px solid var(--border); }
+  .col-feature { width:38%; }
+  .col-us { background:#ecfdf5; color:#059669 !important; }
+  :global(html.dark) .col-us { background:rgba(3,187,133,0.12) !important; color:#34d399 !important; }
+  .col-them { color:var(--text-muted) !important; }
+  .comp-table td { padding:13px 20px; font-size:13.5px; color:var(--text-secondary); border-bottom:1px solid var(--border); vertical-align:middle; }
+  .comp-table tr:last-child td { border-bottom:none; }
+  .row-alt td { background:var(--bg-page); }
+  :global(html.dark) .row-alt td { background:rgba(255,255,255,0.02); }
+  td.us { background:#f0fdf9 !important; }
+  :global(html.dark) td.us { background:rgba(3,187,133,0.06) !important; }
+  td.them { color:var(--text-muted) !important; }
+  td.win { font-weight:700; color:#059669 !important; }
+  :global(html.dark) td.win { color:#34d399 !important; }
+  .yes { color:#059669; font-weight:700; }
+  :global(html.dark) .yes { color:#34d399; }
+  .no { color:#ef4444; font-weight:700; }
+  .partial { color:#f59e0b; font-weight:600; font-size:12px; }
+
+  /* UPGRADE SECTION */
+  .upgrade-section { padding:80px 0; }
+  .upgrade-callout {
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;
+    background:var(--bg-subtle); border:1px solid var(--border);
+    border-radius:20px; padding:48px;
+  }
+  @media(max-width:800px) { .upgrade-callout { grid-template-columns:1fr; gap:32px; padding:28px 20px; } }
+  .upgrade-lead { font-size:1.1rem; font-weight:700; color:var(--text-heading); line-height:1.4; margin-bottom:16px; }
+  .upgrade-text p { font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:12px; }
+  .upgrade-text p:last-child { margin-bottom:0; }
+  .upgrade-pills { display:flex; flex-direction:column; gap:16px; }
+  .pill {
+    display:flex; align-items:flex-start; gap:14px;
+    background:var(--bg-page); border:1px solid var(--border);
+    border-radius:12px; padding:16px;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .pill:hover { border-color:rgba(3,187,133,0.4); box-shadow:0 2px 12px rgba(3,187,133,0.08); }
+  .pill-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
+  .pill div { display:flex; flex-direction:column; gap:2px; }
+  .pill strong { font-size:14px; font-weight:700; color:var(--text-heading); }
+  .pill span { font-size:12.5px; color:var(--text-muted); }
+
+  /* CTA FINAL */
+  .cta-section { padding:0 0 96px; }
+  .cta-card { background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%); border-radius:24px; padding:64px 40px; text-align:center; }
+  :global(html.dark) .cta-card { background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%); border:1px solid #334155; }
+  @media(max-width:600px) { .cta-card { padding:40px 20px; } }
+  .cta-headline { font-size:clamp(1.6rem,3vw,2.25rem); font-weight:800; color:#f1f5f9; letter-spacing:-0.02em; margin-bottom:12px; }
+  .cta-sub { font-size:1rem; color:#94a3b8; margin-bottom:32px; }
+  .cta-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+  .cta-links { display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; font-size:13px; }
+  .cta-links a { color:#64748b; text-decoration:none; transition:color .15s; }
+  .cta-links a:hover { color:var(--green); }
+  .cta-links span { color:#334155; }
+
+  /* ANIMACIONES */
+  .anim-fade-up { opacity:0; transform:translateY(28px); transition:opacity .55s ease,transform .55s ease; }
+  .anim-fade-up.visible { opacity:1; transform:translateY(0); }
+  @media(prefers-reduced-motion:reduce) { .anim-fade-up { opacity:1; transform:none; transition:none; } }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+</script>

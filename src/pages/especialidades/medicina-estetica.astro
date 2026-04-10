@@ -3,14 +3,319 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/layout/Header.astro';
 import Footer from '../../components/layout/Footer.astro';
 ---
-<BaseLayout title="Software para medicina estética | AgendaDr" description="Sistema de gestión para clínicas estéticas. Planes de tratamiento, antes y después, pagos y agenda.">
+<BaseLayout
+  title="Software para clínica estética en Perú | AgendaDr"
+  description="Sistema para medicina estética. Seguimiento fotográfico, paquetes de sesiones, ticket expandible, cobros con Yape y portal premium para pacientes. Desde S/49/mes."
+>
   <Header />
-  <main class="scaffold">
-    <h1 class="h1">AgendaDr para medicina estética</h1>
+  <main>
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-eyebrow">
+          <span class="specialty-badge">✨ Medicina Estética</span>
+        </div>
+        <h1 class="hero-headline">Tu clínica de estética merece un sistema<br class="dbr"> tan moderno como tus tratamientos.</h1>
+        <p class="hero-sub">Seguimiento fotográfico por sesión, paquetes de tratamiento con citas automáticas, cobros con Yape y un portal donde tus pacientes ven su progreso. Todo en AgendaDr.</p>
+        <div class="hero-actions">
+          <a href="https://app.agendadr.com/registro" class="btn-primary">Empieza desde S/49/mes →</a>
+          <a href="/demo" class="btn-ghost">Pide una demo gratis</a>
+        </div>
+        <div class="hero-trust">
+          <span>✅ 14 días gratis</span>
+          <span>✅ Sin tarjeta de crédito</span>
+          <span>✅ Onboarding incluido</span>
+        </div>
+      </div>
+      <div class="hero-deco" aria-hidden="true">✨</div>
+    </section>
+
+    <section class="features-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Por qué medicina estética + AgendaDr</span>
+          <h2>Cada función diseñada para la experiencia premium que exige tu paciente.</h2>
+          <p class="section-desc">Seguimiento visual, tickets que crecen y un portal que impresiona. El sistema que tu clínica estética estaba esperando.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feat-card anim-item">
+            <div class="feat-icon">📸</div>
+            <div class="feat-body">
+              <h3>Seguimiento con fotos</h3>
+              <p>Adjunta fotos del antes y después en cada sesión. El historial visual te ayuda a mostrar resultados y el paciente lo ve desde su portal. La herramienta de retención más poderosa.</p>
+            </div>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="feat-icon">📦</div>
+            <div class="feat-body">
+              <h3>Paquetes de sesiones</h3>
+              <p>Botox, rellenos, láser, radiofrecuencia — crea paquetes con múltiples sesiones. El sistema genera citas automáticas y controla el avance sesión por sesión.</p>
+            </div>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="feat-icon">💰</div>
+            <div class="feat-body">
+              <h3>Ticket expandible</h3>
+              <p>La paciente viene por botox (S/350) y le recomiendas relleno labial (S/500). Lo agregas en la misma consulta desde el catálogo. Un solo paso, ticket duplicado.</p>
+            </div>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="feat-icon">📱</div>
+            <div class="feat-body">
+              <h3>Cobros con Yape y Plin</h3>
+              <p>Tu paciente paga al agendar o por sesión. Cero efectivo. Los tratamientos de alto ticket quedan pagados antes de que la paciente llegue.</p>
+            </div>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="feat-icon">🌟</div>
+            <div class="feat-body">
+              <h3>Portal premium</h3>
+              <p>Tus pacientes de estética esperan una experiencia premium. El portal con tu marca + historial de sesiones + fotos de progreso entrega exactamente eso.</p>
+            </div>
+          </div>
+          <div class="feat-card anim-item">
+            <div class="feat-icon">💬</div>
+            <div class="feat-body">
+              <h3>CRM WhatsApp</h3>
+              <p>Los leads de Instagram (tu principal canal de captación) llegan al panel. Tu recepcionista convierte mensajes en citas. Ningún lead se pierde en el caos del celular personal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTES Y DESPUÉS CALLOUT -->
+    <section class="callout-section anim-fade-up">
+      <div class="container">
+        <div class="callout-card">
+          <div class="callout-icon">📸</div>
+          <div class="callout-content">
+            <h3>El antes y después que convierte pacientes en embajadoras.</h3>
+            <p>En estética, los resultados se ven. Cuando tu paciente accede a su portal y compara la foto de la primera sesión con la actual, no solo vuelve — te recomienda. El historial fotográfico de AgendaDr es tu mejor herramienta de marketing boca a boca.</p>
+          </div>
+          <div class="callout-pills">
+            <span class="pill">📷 Fotos por sesión</span>
+            <span class="pill">🔄 Comparación visual</span>
+            <span class="pill">📲 Descargable por la paciente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM LEADS CALLOUT -->
+    <section class="instagram-section anim-fade-up">
+      <div class="container">
+        <div class="instagram-card">
+          <div class="ig-left">
+            <div class="ig-tag">El problema del 80% de clínicas estéticas</div>
+            <h3>Tus leads de Instagram se pierden en WhatsApp personal.</h3>
+            <p>Inviertes en anuncios. Los mensajes llegan. Tu recepcionista responde desde su celular. Los que no cierran hoy desaparecen. No sabes cuántos leads entraron ni cuántos se convirtieron en citas.</p>
+          </div>
+          <div class="ig-right">
+            <div class="ig-tag">Con AgendaDr</div>
+            <h3>Un panel centralizado que convierte mensajes en citas.</h3>
+            <p>Todos los leads de Instagram llegan al CRM de tu recepcionista. Pipeline visual: Nuevo → En conversación → Cita agendada. Métricas de conversión en tiempo real. Ningún lead se pierde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-section anim-fade-up">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Plan recomendado</span>
+          <h2>Estética de primer nivel, gestión de primer nivel.</h2>
+        </div>
+        <div class="plans-row">
+          <div class="plan-card anim-item">
+            <div class="plan-for">Solo o 1 médico estético</div>
+            <div class="plan-name">Individual</div>
+            <div class="plan-price"><span class="price-amount">S/49</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Agenda online 24/7</li>
+              <li>✓ Historial con fotos adjuntas</li>
+              <li>✓ Paquetes de sesiones</li>
+              <li>✓ Cobros con Yape y Plin</li>
+              <li>✓ Recordatorios automáticos</li>
+              <li>✓ Portal de pacientes</li>
+            </ul>
+            <a href="https://app.agendadr.com/registro" class="plan-cta plan-cta-ghost">Empezar gratis →</a>
+          </div>
+          <div class="plan-card plan-featured anim-item">
+            <div class="plan-badge">Recomendado para clínicas</div>
+            <div class="plan-for">2–5 médicos</div>
+            <div class="plan-name">Básico</div>
+            <div class="plan-price"><span class="price-amount">S/149</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Todo lo del plan Individual</li>
+              <li>✓ CRM WhatsApp (leads de Instagram)</li>
+              <li>✓ Comisiones automáticas por doctor</li>
+              <li>✓ Reportes de ingresos por tratamiento</li>
+              <li>✓ Ticket expandible con catálogo</li>
+              <li>✓ Hasta 5 usuarios</li>
+            </ul>
+            <a href="https://app.agendadr.com/registro" class="plan-cta plan-cta-primary">Empezar gratis →</a>
+          </div>
+          <div class="plan-card anim-item">
+            <div class="plan-for">Clínica grande o red</div>
+            <div class="plan-name">Profesional</div>
+            <div class="plan-price"><span class="price-amount">S/299</span><span class="price-period">/mes</span></div>
+            <ul class="plan-features">
+              <li>✓ Todo lo del plan Básico</li>
+              <li>✓ White-label completo (tu marca)</li>
+              <li>✓ Multi-sede</li>
+              <li>✓ Reportes avanzados</li>
+              <li>✓ API de integración</li>
+              <li>✓ Usuarios ilimitados</li>
+            </ul>
+            <a href="/demo" class="plan-cta plan-cta-ghost">Hablar con ventas →</a>
+          </div>
+        </div>
+        <p class="plans-note">Todos los planes incluyen 14 días gratis · Sin contrato · Cancela cuando quieras</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-icon" aria-hidden="true">✨</div>
+          <h2 class="cta-headline">Estética de primer nivel, gestión de primer nivel.</h2>
+          <p class="cta-sub">Seguimiento fotográfico, CRM WhatsApp y portal premium para tus pacientes. Desde S/49/mes.</p>
+          <div class="cta-actions">
+            <a href="https://app.agendadr.com/registro" class="btn-primary btn-lg">Empieza desde S/49/mes →</a>
+            <a href="/demo" class="btn-ghost-dark btn-lg">Ver demo en vivo</a>
+          </div>
+          <div class="cta-links">
+            <a href="/especialidades">← Ver todas las especialidades</a>
+            <span>·</span>
+            <a href="/planes">Ver todos los planes →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </BaseLayout>
+
 <style>
-  .scaffold { background:#fff; min-height:100vh; padding:140px 24px 96px; max-width:1100px; margin:0 auto; }
-  :global(html.dark) .scaffold { background:#0f172a; }
+  :root{--green:#03BB85;--green-dark:#029e70;--green-light:rgba(3,187,133,0.1);--accent:#e11d48;--accent-bg:#fff1f2;--accent-border:#fecdd3;--accent-text:#e11d48;--bg-page:#fff;--bg-subtle:#f8fafc;--text-heading:#0f172a;--text-secondary:#334155;--text-muted:#64748b;--border:#e2e8f0;}
+  :global(html.dark){--bg-page:#0f172a;--bg-subtle:#1e293b;--text-heading:#f1f5f9;--text-secondary:#cbd5e1;--text-muted:#94a3b8;--border:#334155;--accent:#fb7185;--accent-bg:rgba(225,29,72,0.08);--accent-border:rgba(225,29,72,0.25);--accent-text:#fb7185;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  main{background:var(--bg-page);}
+  .container{max-width:1100px;margin:0 auto;padding:0 24px;}
+  @media(max-width:600px){.container{padding:0 16px;}}
+  .dbr{display:none;}@media(min-width:768px){.dbr{display:block;}}
+
+  .hero-section{position:relative;padding:140px 0 96px;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--accent-bg) 0%,var(--bg-page) 70%);}
+  .hero-deco{position:absolute;top:48px;right:8%;font-size:120px;opacity:0.08;pointer-events:none;user-select:none;}
+  @media(max-width:768px){.hero-deco{display:none;}}
+  .hero-eyebrow{margin-bottom:20px;}
+  .specialty-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-bg);color:var(--accent-text);border:1px solid var(--accent-border);border-radius:999px;font-size:13px;font-weight:700;padding:6px 16px;letter-spacing:0.02em;}
+  .hero-headline{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;color:var(--text-heading);line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;}
+  .hero-sub{max-width:640px;margin:0 auto 36px;font-size:clamp(1rem,2vw,1.15rem);color:var(--text-secondary);line-height:1.6;}
+  .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+  .hero-trust{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--text-muted);}
+
+  .btn-primary{display:inline-flex;align-items:center;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:13px 28px;border-radius:10px;text-decoration:none;transition:background .15s,transform .12s,box-shadow .15s;box-shadow:0 2px 12px rgba(3,187,133,0.35);}
+  .btn-primary:hover{background:var(--green-dark);transform:translateY(-1px);box-shadow:0 4px 20px rgba(3,187,133,0.45);}
+  .btn-primary.btn-lg{font-size:16px;padding:15px 32px;}
+  .btn-ghost{display:inline-flex;align-items:center;background:transparent;color:var(--text-secondary);font-weight:600;font-size:15px;padding:13px 24px;border-radius:10px;border:1.5px solid var(--border);text-decoration:none;transition:all .15s;}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green);background:var(--green-light);}
+  .btn-ghost-dark{display:inline-flex;align-items:center;background:transparent;color:#cbd5e1;font-weight:600;font-size:15px;padding:13px 24px;border-radius:10px;border:1.5px solid #475569;text-decoration:none;transition:all .15s;}
+  .btn-ghost-dark:hover{border-color:var(--green);color:var(--green);background:rgba(3,187,133,0.1);}
+  .btn-ghost-dark.btn-lg{font-size:16px;padding:15px 28px;}
+
+  .section-header{text-align:center;margin-bottom:52px;}
+  .section-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:12px;}
+  .section-header h2{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800;color:var(--text-heading);letter-spacing:-0.02em;line-height:1.2;margin-bottom:12px;}
+  .section-desc{font-size:1rem;color:var(--text-muted);max-width:520px;margin:0 auto;line-height:1.6;}
+
+  .features-section{padding:96px 0;}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:900px){.features-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.features-grid{grid-template-columns:1fr;}}
+  .feat-card{display:flex;gap:16px;padding:24px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:14px;transition:box-shadow .2s,border-color .2s,transform .2s;}
+  .feat-card:hover{box-shadow:0 4px 24px rgba(3,187,133,0.12);border-color:rgba(3,187,133,0.3);transform:translateY(-2px);}
+  .feat-icon{font-size:28px;flex-shrink:0;line-height:1;margin-top:2px;}
+  .feat-body h3{font-size:15px;font-weight:700;color:var(--text-heading);margin-bottom:6px;line-height:1.3;}
+  .feat-body p{font-size:13.5px;color:var(--text-muted);line-height:1.6;}
+
+  /* CALLOUT */
+  .callout-section{padding:0 0 60px;}
+  .callout-card{background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:16px;padding:36px 40px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;}
+  @media(max-width:768px){.callout-card{grid-template-columns:1fr;}}
+  .callout-icon{font-size:40px;flex-shrink:0;}
+  .callout-content h3{font-size:17px;font-weight:700;color:var(--text-heading);margin-bottom:8px;}
+  .callout-content p{font-size:14px;color:var(--text-secondary);line-height:1.6;}
+  .callout-pills{display:flex;flex-direction:column;gap:8px;flex-shrink:0;}
+  @media(max-width:768px){.callout-pills{flex-direction:row;flex-wrap:wrap;}}
+  .pill{font-size:12px;font-weight:600;padding:5px 12px;background:#ffe4e6;color:#9f1239;border-radius:999px;white-space:nowrap;}
+  :global(html.dark) .pill{background:rgba(225,29,72,0.15);color:#fb7185;}
+
+  /* INSTAGRAM SECTION */
+  .instagram-section{padding:0 0 80px;}
+  .instagram-card{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--border);}
+  @media(max-width:768px){.instagram-card{grid-template-columns:1fr;}}
+  .ig-left{background:#fef2f2;padding:36px;border-right:1px solid var(--border);}
+  :global(html.dark) .ig-left{background:rgba(225,29,72,0.05);border-right-color:var(--border);}
+  .ig-right{background:#f0fdf9;padding:36px;}
+  :global(html.dark) .ig-right{background:rgba(3,187,133,0.05);}
+  .ig-tag{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#dc2626;margin-bottom:12px;}
+  .ig-right .ig-tag{color:#059669;}
+  :global(html.dark) .ig-tag{color:#fb7185;}
+  :global(html.dark) .ig-right .ig-tag{color:#34d399;}
+  .ig-left h3,.ig-right h3{font-size:16px;font-weight:700;color:var(--text-heading);margin-bottom:12px;line-height:1.3;}
+  .ig-left p,.ig-right p{font-size:14px;color:var(--text-secondary);line-height:1.6;}
+
+  /* PLANES */
+  .plan-section{padding:0 0 96px;}
+  .plans-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
+  @media(max-width:900px){.plans-row{grid-template-columns:1fr;max-width:400px;margin:0 auto;}}
+  .plan-card{background:var(--bg-subtle);border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;position:relative;}
+  .plan-card.plan-featured{background:#fff;border-color:var(--green);box-shadow:0 0 0 1px var(--green),0 8px 32px rgba(3,187,133,0.15);}
+  :global(html.dark) .plan-card.plan-featured{background:rgba(3,187,133,0.06);}
+  .plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;}
+  .plan-for{font-size:12px;font-weight:600;color:var(--text-muted);letter-spacing:0.03em;}
+  .plan-name{font-size:20px;font-weight:800;color:var(--text-heading);}
+  .plan-price{display:flex;align-items:baseline;gap:2px;}
+  .price-amount{font-size:36px;font-weight:800;color:var(--text-heading);letter-spacing:-0.02em;}
+  .price-period{font-size:14px;color:var(--text-muted);}
+  .plan-features{list-style:none;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .plan-features li{font-size:13.5px;color:var(--text-secondary);line-height:1.4;}
+  .plan-cta{display:flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+  .plan-cta-primary{background:var(--green);color:#fff;box-shadow:0 2px 12px rgba(3,187,133,0.3);}
+  .plan-cta-primary:hover{background:var(--green-dark);transform:translateY(-1px);}
+  .plan-cta-ghost{background:transparent;color:var(--text-secondary);border:1.5px solid var(--border);}
+  .plan-cta-ghost:hover{border-color:var(--green);color:var(--green);background:var(--green-light);}
+  .plans-note{text-align:center;margin-top:24px;font-size:13px;color:var(--text-muted);}
+
+  .cta-section{padding:0 0 96px;}
+  .cta-card{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);border-radius:24px;padding:64px 40px;text-align:center;}
+  :global(html.dark) .cta-card{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid #334155;}
+  .cta-icon{font-size:48px;margin-bottom:16px;display:block;}
+  .cta-headline{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:12px;line-height:1.2;}
+  .cta-sub{font-size:1rem;color:#94a3b8;margin-bottom:32px;}
+  .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+  .cta-links{display:flex;gap:12px;justify-content:center;align-items:center;font-size:13px;}
+  .cta-links a{color:#64748b;text-decoration:none;transition:color .15s;}
+  .cta-links a:hover{color:var(--green);}
+  .cta-links span{color:#334155;}
+
+  .anim-fade-up{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease;}
+  .anim-fade-up.visible{opacity:1;transform:translateY(0);}
+  .anim-item{opacity:0;transform:translateY(20px);transition:opacity .45s ease,transform .45s ease;}
+  .anim-item.visible{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){.anim-fade-up,.anim-item{opacity:1;transform:none;transition:none;}}
 </style>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('.anim-item').forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 80));
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+</script>
