@@ -12,118 +12,278 @@ import Footer from '../components/layout/Footer.astro';
   <Header />
 
   <main>
-    <div class="contact-page">
 
-      <!-- Columna izquierda -->
-      <div class="contact-info">
-        <p class="label">Contacto</p>
-        <h1 class="h1 title">¿Tienes preguntas?<br />Hablemos.</h1>
-        <p class="subtitle">
-          Escríbenos por WhatsApp, manda un email o llena el formulario.
-          Te respondemos en menos de 2 horas en días hábiles.
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">¿En qué podemos<br />ayudarte?</h1>
+        <p class="hero-sub">
+          Cuéntanos lo que necesitas y te orientamos sin compromiso.<br class="hide-mobile" />
+          Atención real, en español, por el equipo AgendaDr.
         </p>
+        <div class="trust-pills">
+          <span class="pill">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Sin bots, atención real
+          </span>
+          <span class="pill">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            Sin spam ni llamadas
+          </span>
+          <span class="pill">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Lunes a viernes · 9am – 6pm
+          </span>
+        </div>
 
-        <div class="channels">
-          <!-- WhatsApp -->
-          <div class="channel">
-            <div class="channel-icon icon-green">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <!-- Stats inline -->
+        <div class="hero-stats-row">
+          <div class="inline-stat">
+            <span class="inline-stat-value">+500</span>
+            <span class="inline-stat-desc">Médicos confían en AgendaDr</span>
+          </div>
+          <div class="inline-stat-sep"></div>
+          <div class="inline-stat">
+            <span class="inline-stat-value">100%</span>
+            <span class="inline-stat-desc">Atención en español</span>
+          </div>
+          <div class="inline-stat-sep"></div>
+          <div class="inline-stat">
+            <span class="inline-stat-value">14 días</span>
+            <span class="inline-stat-desc">Prueba gratis sin tarjeta</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Body: canales + formulario -->
+    <section class="body-section">
+      <div class="body-inner">
+
+        <!-- Columna izquierda: canales -->
+        <div class="col-left">
+
+          <!-- Canal WhatsApp -->
+          <a href="https://wa.me/51999999999" class="channel-card channel-wsp" target="_blank" rel="noopener noreferrer">
+            <div class="channel-icon-wrap icon-wsp">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>
             </div>
-            <div>
-              <div class="channel-name">
-                WhatsApp
-                <span class="badge">Principal</span>
+            <div class="channel-body">
+              <div class="channel-top">
+                <span class="channel-name">WhatsApp</span>
+                <span class="channel-badge badge-green">Más rápido</span>
               </div>
-              <p class="channel-meta">Lunes a viernes · 9am – 6pm</p>
-              <a href="https://wa.me/51XXXXXXXXX" class="channel-link">Escríbenos →</a>
+              <p class="channel-desc">Lunes a viernes · 9am – 6pm</p>
+              <span class="channel-action">Escríbenos ahora →</span>
             </div>
-          </div>
+          </a>
 
-          <div class="divider"></div>
-
-          <!-- Email -->
-          <div class="channel">
-            <div class="channel-icon icon-gray">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <!-- Canal Email -->
+          <a href="mailto:soporte@agendadr.com" class="channel-card">
+            <div class="channel-icon-wrap icon-gray">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
             </div>
-            <div>
-              <div class="channel-name">Email</div>
-              <a href="mailto:soporte@agendadr.com" class="channel-link">soporte@agendadr.com</a>
-              <p class="channel-meta">Respuesta en menos de 24 h.</p>
+            <div class="channel-body">
+              <div class="channel-top">
+                <span class="channel-name">Email</span>
+              </div>
+              <p class="channel-desc">soporte@agendadr.com</p>
+              <span class="channel-action">Respuesta en &lt; 24 h →</span>
+            </div>
+          </a>
+
+          <!-- Canal Demo -->
+          <a href="/demo" class="channel-card">
+            <div class="channel-icon-wrap icon-primary">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+              </svg>
+            </div>
+            <div class="channel-body">
+              <div class="channel-top">
+                <span class="channel-name">Demo en vivo</span>
+                <span class="channel-badge badge-teal">Gratis</span>
+              </div>
+              <p class="channel-desc">Te mostramos el sistema en 20 minutos</p>
+              <span class="channel-action">Agendar demo →</span>
+            </div>
+          </a>
+
+          <!-- Info legal + horarios -->
+          <div class="info-box">
+            <div class="info-row">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Lima, Perú</span>
+            </div>
+            <div class="info-row">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>ECOGIROS NEGOCIOS E.I.R.L. · RUC 20612344567</span>
             </div>
           </div>
+
+          <!-- Card garantías -->
+          <div class="garantias-card">
+            <p class="garantias-title">Lo que puedes esperar</p>
+            <ul class="garantias-list">
+              <li>
+                <span class="garantia-icon">✓</span>
+                <span>Respuesta personalizada, no genérica</span>
+              </li>
+              <li>
+                <span class="garantia-icon">✓</span>
+                <span>Demo gratuita sin compromiso de compra</span>
+              </li>
+              <li>
+                <span class="garantia-icon">✓</span>
+                <span>Soporte incluido en todos los planes</span>
+              </li>
+              <li>
+                <span class="garantia-icon">✓</span>
+                <span>Onboarding guiado para tu clínica</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <p class="company-data">ECOGIROS NEGOCIOS E.I.R.L. · RUC 20612344567 · Perú</p>
+        <!-- Columna derecha: formulario -->
+        <div class="col-right">
+          <div class="form-card">
+            <div class="form-card-header">
+              <p class="form-card-title">Envíanos un mensaje</p>
+              <p class="form-card-sub">Te respondemos a la brevedad</p>
+            </div>
+
+            <form id="contact-form" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombre">Nombre completo <span class="required">*</span></label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <div class="phone-wrap">
+                    <span class="phone-prefix">
+                      <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-label="Perú" role="img">
+                        <rect width="20" height="14" rx="2" fill="#D91023"/>
+                        <rect x="6.5" width="7" height="14" fill="#F5F5F5"/>
+                      </svg>
+                    </span>
+                    <input type="tel" id="telefono" name="telefono" placeholder="999 999 999" autocomplete="tel" class="phone-input" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="tipo">Tipo de consulta <span class="required">*</span></label>
+                <div class="select-wrap">
+                  <select id="tipo" name="tipo" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="demo">🗓 Quiero una demo gratuita</option>
+                    <option value="ventas">💰 Información y precios</option>
+                    <option value="soporte">🔧 Soporte técnico</option>
+                    <option value="facturacion">🧾 Facturación</option>
+                    <option value="partnership">🤝 Partnership / alianzas</option>
+                    <option value="otro">💬 Otro</option>
+                  </select>
+                  <svg class="select-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">Mensaje <span class="required">*</span></label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit" id="btn-submit">
+                <span class="btn-text">Enviar mensaje</span>
+                <svg class="btn-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              </button>
+
+              <p id="form-status" class="form-status"></p>
+
+            </form>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <!-- Columna derecha: formulario -->
-      <div class="contact-form-col">
-        <form id="contact-form" novalidate>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="+51 999 999 999" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" />
-          </div>
-
-          <div class="form-group">
-            <label for="tipo">Tipo de consulta</label>
-            <select id="tipo" name="tipo" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="ventas">Ventas</option>
-              <option value="soporte">Soporte técnico</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit">Enviar mensaje</button>
-          <p id="form-status"></p>
-
-        </form>
-
-        <!-- FAQ -->
-        <div class="faq">
-          <p class="faq-title">Preguntas frecuentes</p>
+    <!-- FAQ sección propia -->
+    <section class="faq-section">
+      <div class="faq-inner">
+        <div class="faq-header">
+          <span class="faq-section-label">Preguntas frecuentes</span>
+          <h2 class="faq-section-title">Resolvemos tus dudas</h2>
+          <p class="faq-section-sub">¿No encuentras lo que buscas? <a href="https://wa.me/51999999999" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a></p>
+        </div>
+        <div class="faq-grid">
 
           <details class="faq-item">
             <summary>
               ¿Cuánto tardan en responder?
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p>Por WhatsApp, menos de 2 horas en horario laboral. Por email, menos de 24 horas.</p>
+            <p>Por WhatsApp, menos de 2 horas en horario laboral (L–V 9am–6pm). Por email, menos de 24 horas.</p>
           </details>
 
           <details class="faq-item">
             <summary>
               ¿Puedo pedir una demo antes de comprar?
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p>Sí. Agenda una demo en <a href="/demo">agendadr.com/demo</a> y te mostramos el sistema en vivo.</p>
+            <p>Sí. <a href="/demo">Agenda una demo gratuita</a> y te mostramos el sistema en vivo en 20 minutos, sin compromiso.</p>
           </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Tienen soporte en español?
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p>100% en español. Nuestro equipo está en Lima y conoce la realidad de las clínicas peruanas.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Hay costo adicional por el soporte?
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p>No. El soporte está incluido en todos los planes sin costo adicional.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Ofrecen capacitación para mi equipo?
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p>Sí. Incluimos onboarding guiado para que tú y tu equipo puedan usar AgendaDr desde el primer día.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Puedo cancelar cuando quiera?
+              <svg class="faq-chevron" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p>Sí. No hay contratos de permanencia. Puedes cancelar tu suscripción en cualquier momento sin penalidades.</p>
+          </details>
+
         </div>
       </div>
+    </section>
 
-    </div>
+      </div>
+    </section>
+
   </main>
 
   <Footer />
@@ -131,182 +291,377 @@ import Footer from '../components/layout/Footer.astro';
 
 <style>
   main {
-    background: #ffffff;
+    background: var(--bg-page);
     min-height: 100vh;
   }
 
-  :global(html.dark) main {
-    background: #0f172a;
+  /* ── Hero ── */
+  .hero {
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-top: calc(40px + 64px);
+  }
+  @media (max-width: 767px) {
+    .hero { padding-top: calc(48px + 64px); }
   }
 
-  .contact-page {
-    max-width: 1100px;
+  .hero-inner {
+    max-width: 720px;
     margin: 0 auto;
-    padding: 120px 24px 96px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
+    padding: 64px 24px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    .hero-inner { padding: 40px 20px 36px; }
+  }
+  .trust-pills { justify-content: center; }
+
+  /* Stats inline row */
+  .hero-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+  }
+  @media (max-width: 767px) {
+    .hero-stats-row { justify-content: center; gap: 0; }
   }
 
-  @media (max-width: 768px) {
-    .contact-page {
-      grid-template-columns: 1fr;
-      gap: 48px;
-      padding: 100px 20px 64px;
-    }
+  .inline-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  @media (max-width: 767px) {
+    .inline-stat { align-items: center; }
   }
 
-  /* ── Info columna ── */
-  .label {
+  .inline-stat-value {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #03BB85;
+    line-height: 1;
+  }
+  .inline-stat-value:has(+ .inline-stat-desc) {
+    /* emoji stat — mismo tamaño visual */
+  }
+  .inline-stat:last-child .inline-stat-value {
+    font-size: 22px; /* emoji se ve más grande, lo compenso */
+  }
+
+  .inline-stat-desc {
     font-size: 12px;
-    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .inline-stat-sep {
+    width: 1px;
+    height: 40px;
+    background: var(--border-default);
+    flex-shrink: 0;
+    margin: 0 32px;
+  }
+  @media (max-width: 500px) {
+    .inline-stat-sep { margin: 0 16px; }
+    .inline-stat-value { font-size: 20px; }
+  }
+
+  .hero-label {
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #03BB85;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    display: block;
   }
 
-  .title {
-    color: #0f172a;
-    margin-bottom: 20px;
+  .hero-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: var(--text-heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
   }
 
-  :global(html.dark) .title {
-    color: #f1f5f9;
-  }
-
-  .subtitle {
+  .hero-sub {
     font-size: 17px;
     line-height: 1.7;
-    color: #64748b;
-    margin-bottom: 48px;
+    color: var(--text-tertiary);
+    margin-bottom: 32px;
+    max-width: 520px;
   }
+  .hero-sub strong { color: var(--text-heading); font-weight: 600; }
 
-  :global(html.dark) .subtitle {
-    color: #94a3b8;
-  }
+  .hide-mobile { display: inline; }
+  @media (max-width: 767px) { .hide-mobile { display: none; } }
 
-  /* Canales */
-  .channels {
+  /* Trust pills */
+  .trust-pills {
     display: flex;
-    flex-direction: column;
-    gap: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  @media (max-width: 767px) { .trust-pills { justify-content: center; } }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-default);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+  .pill svg { color: #03BB85; flex-shrink: 0; }
+
+  /* ── Body section ── */
+  .body-section {
+    background: var(--bg-page);
   }
 
-  .channel {
+  .body-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .body-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding: 40px 20px 72px;
+    }
+  }
+
+  /* ── Channel cards ── */
+  .channel-card {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding: 20px 0;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    margin-bottom: 12px;
+    background: var(--bg-page);
+  }
+  .channel-card:hover {
+    border-color: #03BB85;
+    box-shadow: 0 4px 20px rgba(3,187,133,0.1);
+    transform: translateY(-2px);
+  }
+  .channel-wsp {
+    background: linear-gradient(135deg, #f0fdf9, #ecfdf5);
+    border-color: #a7f3d0;
+  }
+  :global(html.dark) .channel-wsp {
+    background: linear-gradient(135deg, rgba(3,187,133,0.07), rgba(3,187,133,0.11));
+    border-color: rgba(3,187,133,0.25);
   }
 
-  .channel-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+  .channel-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
+  .icon-wsp    { background: #25D366; color: #ffffff; }
+  .icon-gray   { background: var(--bg-subtle); color: var(--text-muted); }
+  .icon-primary{ background: rgba(3,187,133,0.12); color: #03BB85; }
 
-  .icon-green {
-    background: rgba(3, 187, 133, 0.1);
-    color: #03BB85;
-  }
+  .channel-body { flex: 1; min-width: 0; }
 
-  .icon-gray {
-    background: #f1f5f9;
-    color: #64748b;
-  }
-
-  :global(html.dark) .icon-gray {
-    background: #1e293b;
-    color: #94a3b8;
+  .channel-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
   }
 
   .channel-name {
     font-size: 15px;
     font-weight: 600;
-    color: #0f172a;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--text-heading);
   }
 
-  :global(html.dark) .channel-name {
-    color: #f1f5f9;
-  }
-
-  .badge {
-    font-size: 11px;
-    font-weight: 600;
-    background: rgba(3, 187, 133, 0.1);
-    color: #03BB85;
+  .channel-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     padding: 2px 8px;
     border-radius: 999px;
   }
-
-  .channel-meta {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-bottom: 6px;
+  .badge-green {
+    background: #d1fae5;
+    color: #047857;
   }
-
-  .channel-link {
-    font-size: 14px;
-    font-weight: 500;
+  .badge-teal {
+    background: rgba(3,187,133,0.1);
     color: #03BB85;
-    text-decoration: none;
-    transition: color 0.15s;
+  }
+  :global(html.dark) .badge-green {
+    background: rgba(5,150,105,0.2);
+    color: #34d399;
+  }
+  :global(html.dark) .badge-teal {
+    background: rgba(3,187,133,0.15);
+    color: #4CE5B5;
   }
 
-  .channel-link:hover {
-    color: #02a676;
+  .channel-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 6px;
+    line-height: 1.4;
   }
 
-  .divider {
-    height: 1px;
-    background: #f1f5f9;
+  .channel-action {
+    font-size: 13px;
+    font-weight: 600;
+    color: #03BB85;
   }
 
-  :global(html.dark) .divider {
-    background: #1e293b;
+  /* Card garantías */
+  .garantias-card {
+    border: 1px solid var(--border-default);
+    border-radius: 14px;
+    padding: 18px 20px;
+    background: var(--bg-page);
+    margin-top: 12px;
   }
 
-  .company-data {
+  .garantias-title {
     font-size: 12px;
-    color: #cbd5e1;
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid #f1f5f9;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-label);
+    margin: 0 0 14px;
   }
 
-  :global(html.dark) .company-data {
-    color: #334155;
-    border-top-color: #1e293b;
-  }
-
-  /* ── Formulario ── */
-  form {
+  .garantias-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+  }
+
+  .garantias-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .garantia-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(3,187,133,0.12);
+    color: #03BB85;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Info box */
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: var(--bg-subtle);
+    border-radius: 12px;
+    margin-top: 4px;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .info-row svg { flex-shrink: 0; margin-top: 1px; }
+
+  /* ── Formulario card ── */
+  .form-card {
+    background: var(--bg-page);
+    border: 1px solid var(--border-default);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  :global(html.dark) .form-card {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  }
+
+  .form-card-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-subtle);
+  }
+  .form-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0 0 4px;
+  }
+  .form-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  form {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  @media (max-width: 480px) {
+    form { padding: 20px; }
+    .form-card-header { padding: 20px 20px 16px; }
   }
 
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 14px;
   }
-
-  @media (max-width: 480px) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
+  @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
 
   .form-group {
     display: flex;
@@ -317,171 +672,256 @@ import Footer from '../components/layout/Footer.astro';
   label {
     font-size: 13px;
     font-weight: 500;
-    color: #475569;
+    color: var(--text-secondary);
   }
+  .required { color: #03BB85; }
 
-  :global(html.dark) label {
-    color: #94a3b8;
-  }
-
-  input, select, textarea {
+  input, textarea {
     width: 100%;
-    padding: 12px 14px;
+    padding: 10px 14px;
     font-size: 14px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #0f172a;
+    border: 1.5px solid var(--border-default);
+    border-radius: 9px;
+    background: var(--bg-page);
+    color: var(--text-heading);
     transition: border-color 0.15s, box-shadow 0.15s;
     outline: none;
     font-family: inherit;
     box-sizing: border-box;
   }
-
-  :global(html.dark) input,
-  :global(html.dark) select,
-  :global(html.dark) textarea {
-    background: #1e293b;
-    border-color: #334155;
-    color: #f1f5f9;
+  /* Teléfono con prefijo bandera */
+  .phone-wrap {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--border-default);
+    border-radius: 9px;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    background: var(--bg-page);
   }
-
-  input::placeholder, textarea::placeholder {
-    color: #94a3b8;
-  }
-
-  input:focus, select:focus, textarea:focus {
+  .phone-wrap:focus-within {
     border-color: #03BB85;
-    box-shadow: 0 0 0 3px rgba(3, 187, 133, 0.12);
+    box-shadow: 0 0 0 3px rgba(3,187,133,0.12);
+  }
+  .phone-prefix {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    background: var(--bg-subtle);
+    border-right: 1.5px solid var(--border-default);
+    flex-shrink: 0;
+    user-select: none;
+    line-height: 0;
+  }
+  .phone-input {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    flex: 1;
+    min-width: 0;
+  }
+  .phone-input:focus {
+    border: none !important;
+    box-shadow: none !important;
   }
 
-  textarea {
-    resize: vertical;
-    min-height: 120px;
+  input::placeholder, textarea::placeholder { color: var(--text-label); }
+  input:focus, textarea:focus {
+    border-color: #03BB85;
+    box-shadow: 0 0 0 3px rgba(3,187,133,0.12);
+  }
+  textarea { resize: vertical; min-height: 110px; }
+
+  /* Select custom */
+  .select-wrap { position: relative; }
+  .select-wrap select {
+    width: 100%;
+    padding: 10px 36px 10px 14px;
+    font-size: 14px;
+    border: 1.5px solid var(--border-default);
+    border-radius: 9px;
+    background: var(--bg-page);
+    color: var(--text-heading);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  .select-wrap select:focus {
+    border-color: #03BB85;
+    box-shadow: 0 0 0 3px rgba(3,187,133,0.12);
+  }
+  .select-chevron {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
   }
 
   .btn-submit {
     width: 100%;
-    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
     background: #03BB85;
-    color: white;
+    color: #0f172a;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
     font-family: inherit;
+    box-shadow: 0 2px 8px rgba(3,187,133,0.3);
+    margin-top: 2px;
   }
-
   .btn-submit:hover {
     background: #02a676;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(3,187,133,0.4);
   }
+  .btn-submit:active { transform: scale(0.99); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  .btn-submit:active {
-    transform: scale(0.99);
-  }
-
-  .btn-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
-  #form-status {
+  .form-status {
     font-size: 13px;
     text-align: center;
     color: #16a34a;
-    min-height: 20px;
+    min-height: 18px;
+    margin: 0;
+  }
+  .form-status.error { color: #dc2626; }
+
+  /* ── FAQ sección propia ── */
+  .faq-section {
+    background: var(--bg-subtle);
+    border-top: 1px solid var(--border-subtle);
+    padding: 72px 24px 80px;
+  }
+  @media (max-width: 767px) {
+    .faq-section { padding: 48px 20px 64px; }
   }
 
-  /* ── FAQ ── */
-  .faq {
-    margin-top: 40px;
-    border-top: 1px solid #f1f5f9;
-    padding-top: 32px;
+  .faq-inner {
+    max-width: 860px;
+    margin: 0 auto;
   }
 
-  :global(html.dark) .faq {
-    border-top-color: #1e293b;
+  .faq-header {
+    text-align: center;
+    margin-bottom: 48px;
   }
 
-  .faq-title {
-    font-size: 11px;
-    font-weight: 600;
+  .faq-section-label {
+    font-size: 12px;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #94a3b8;
-    margin-bottom: 16px;
+    color: #03BB85;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .faq-section-title {
+    font-family: 'Cal Sans', Inter, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--text-heading);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-section-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .faq-section-sub a { color: #03BB85; text-decoration: none; font-weight: 500; }
+  .faq-section-sub a:hover { text-decoration: underline; }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+  @media (max-width: 640px) {
+    .faq-grid { grid-template-columns: 1fr; }
   }
 
   .faq-item {
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--border-default);
   }
-
-  :global(html.dark) .faq-item {
-    border-bottom-color: #1e293b;
-  }
+  .faq-item:last-child { border-bottom: none; }
 
   .faq-item summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 16px 4px;
     font-size: 14px;
     font-weight: 500;
-    color: #1e293b;
+    color: var(--text-secondary);
     cursor: pointer;
     list-style: none;
     gap: 12px;
+    transition: color 0.15s;
   }
+  .faq-item summary:hover { color: var(--text-heading); }
+  .faq-item summary::-webkit-details-marker { display: none; }
 
-  :global(html.dark) .faq-item summary {
-    color: #e2e8f0;
-  }
-
-  .faq-item summary svg {
+  .faq-chevron {
     flex-shrink: 0;
-    color: #94a3b8;
-    transition: transform 0.2s;
+    color: var(--text-label);
+    transition: transform 0.2s ease;
   }
-
-  .faq-item[open] summary svg {
-    transform: rotate(180deg);
-  }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
 
   .faq-item p {
-    font-size: 14px;
-    color: #64748b;
-    line-height: 1.6;
-    padding: 0 0 14px;
+    font-size: 13.5px;
+    color: var(--text-tertiary);
+    line-height: 1.65;
+    padding: 0 4px 16px;
+    margin: 0;
   }
+  .faq-item a { color: #03BB85; text-decoration: none; font-weight: 500; }
+  .faq-item a:hover { text-decoration: underline; }
 
-  :global(html.dark) .faq-item p {
-    color: #94a3b8;
-  }
-
-  .faq-item a {
-    color: #03BB85;
-    text-decoration: none;
+  @media (prefers-reduced-motion: reduce) {
+    .faq-chevron { transition: none; }
+    .channel-card { transition: none; }
   }
 </style>
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const status = document.getElementById('form-status') as HTMLParagraphElement;
+  const btn = document.getElementById('btn-submit') as HTMLButtonElement;
+  const btnText = btn?.querySelector('.btn-text') as HTMLSpanElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
     btn.disabled = true;
-    btn.textContent = 'Enviando...';
+    btnText.textContent = 'Enviando...';
+    status.className = 'form-status';
+    status.textContent = '';
 
-    // TODO: conectar a webhook
-    await new Promise((r) => setTimeout(r, 1000));
-
-    status.textContent = '✓ Mensaje enviado. Te contactamos pronto.';
-    form.reset();
-    btn.disabled = false;
-    btn.textContent = 'Enviar mensaje';
+    try {
+      // TODO: conectar a webhook / API
+      await new Promise((r) => setTimeout(r, 1200));
+      status.textContent = '✓ Mensaje enviado. Te contactamos pronto.';
+      form.reset();
+    } catch {
+      status.className = 'form-status error';
+      status.textContent = 'Error al enviar. Intenta por WhatsApp.';
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = 'Enviar mensaje';
+    }
   });
 </script>
