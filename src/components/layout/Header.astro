@@ -449,8 +449,8 @@ const paraQuien = [
   :global(html.dark) #icon-sun, :global(html.dark) #icon-sun-mobile   { opacity: 1; transform: scale(1) rotate(0deg); }
   :global(html.dark) #icon-moon, :global(html.dark) #icon-moon-mobile { opacity: 0; transform: scale(0.6) rotate(30deg); }
 
-  .theme-btn-mobile { display: none; }
-  @media (max-width: 768px) { .theme-btn-mobile { display: flex; } }
+  @media (min-width: 769px) { .theme-btn-mobile { display: none; } }
+  @media (max-width: 768px) { .theme-btn-mobile { display: flex !important; } }
 
   /* ── CTAs desktop ── */
   .nav-ctas { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -473,7 +473,6 @@ const paraQuien = [
 
   /* Mobile CTA btn */
   .mobile-cta-btn {
-    display: none;
     font-size: 12px;
     font-weight: 700;
     color: #0f172a;
@@ -483,12 +482,34 @@ const paraQuien = [
     text-decoration: none;
     white-space: nowrap;
     transition: background 0.15s;
+    display: inline-flex;
   }
   .mobile-cta-btn:hover { background: #02a676; }
-  @media (max-width: 768px) { .mobile-cta-btn { display: inline-flex; } }
+  @media (min-width: 769px) { .mobile-cta-btn { display: none !important; } }
+  @media (max-width: 768px) { .mobile-cta-btn { display: inline-flex !important; } }
 
-  .mobile-right { display: none; }
+  @media (min-width: 769px) { .mobile-right { display: none; } }
   @media (max-width: 768px) { .mobile-right { display: flex !important; } }
+
+  /* High-specificity global override — wins over any scoped rule */
+  @media (max-width: 768px) {
+    :global(#header .header-content .mobile-right) {
+      display: flex !important;
+      align-items: center;
+      gap: 4px;
+    }
+    :global(#header .header-content .mobile-right .mobile-cta-btn) {
+      display: inline-flex !important;
+    }
+    :global(#header .header-content .mobile-right .theme-btn-mobile) {
+      display: flex !important;
+    }
+  }
+  @media (min-width: 769px) {
+    :global(#header .header-content .mobile-right) {
+      display: none !important;
+    }
+  }
 
   /* ─────────────────────────────────────────────
      MOBILE BACKDROP
@@ -966,7 +987,63 @@ const paraQuien = [
   }
 </style>
 
+<!-- Global critical CSS: mobile-right must always win over any page-level cascade -->
+<style is:global>
+  @media (max-width: 768px) {
+    #header .header-content .mobile-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    #header .header-content .mobile-right .mobile-cta-btn {
+      display: inline-flex !important;
+      visibility: visible !important;
+    }
+    #header .header-content .mobile-right .theme-btn-mobile {
+      display: flex !important;
+      visibility: visible !important;
+    }
+  }
+  @media (min-width: 769px) {
+    #header .header-content .mobile-right {
+      display: none !important;
+    }
+  }
+</style>
+
 <script>
+  // ── Mobile right: enforce visibility on small screens ──
+  // CSS cascade behaves unpredictably across pages due to Astro scoping order.
+  // Inline style.setProperty with 'important' always wins over any stylesheet rule.
+  const mobileRight = document.querySelector<HTMLElement>('.mobile-right');
+  const mobileCta   = document.querySelector<HTMLElement>('.mobile-cta-btn');
+  const mobileTheme = document.querySelector<HTMLElement>('.theme-btn-mobile');
+
+  function syncMobileRight() {
+    const isMobile = window.innerWidth <= 768;
+    if (mobileRight) {
+      if (isMobile) {
+        mobileRight.style.setProperty('display', 'flex', 'important');
+        mobileRight.style.alignItems = 'center';
+        mobileRight.style.gap = '4px';
+      } else {
+        mobileRight.style.setProperty('display', 'none', 'important');
+        mobileRight.style.removeProperty('align-items');
+        mobileRight.style.removeProperty('gap');
+      }
+    }
+    if (mobileCta) {
+      mobileCta.style.setProperty('display', isMobile ? 'inline-flex' : 'none', 'important');
+    }
+    if (mobileTheme) {
+      mobileTheme.style.setProperty('display', isMobile ? 'flex' : 'none', 'important');
+    }
+  }
+  syncMobileRight();
+  window.addEventListener('resize', syncMobileRight, { passive: true });
+
   // ── Scroll: sombra en header ──
   const header = document.getElementById('header')!;
   window.addEventListener('scroll', () => {
