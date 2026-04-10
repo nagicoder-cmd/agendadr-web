@@ -602,7 +602,12 @@ import Footer from '../components/layout/Footer.astro';
         </ul>
         <form class="popup-form" id="popup-form" novalidate>
           <div class="popup-input-row">
-            <div class="popup-phone-prefix">🇵🇪</div>
+            <div class="popup-phone-prefix">
+              <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;border-radius:2px;">
+                <rect width="20" height="14" fill="#D91023"/>
+                <rect x="6.5" width="7" height="14" fill="#F5F5F5"/>
+              </svg>
+            </div>
             <input
               type="tel"
               id="popup-phone"
@@ -1455,10 +1460,10 @@ import Footer from '../components/layout/Footer.astro';
     box-shadow: 0 0 0 3px rgba(3,187,133,.12);
   }
   .popup-phone-prefix {
-    padding: 0 12px; font-size: 13.5px; font-weight: 600;
-    color: var(--text-muted, #64748b);
+    padding: 0 12px;
+    display: flex; align-items: center;
     border-right: 1px solid var(--border, #e2e8f0);
-    white-space: nowrap; user-select: none;
+    flex-shrink: 0; user-select: none;
   }
   :global(html.dark) .popup-phone-prefix { border-color: #334155; }
   .popup-input {
