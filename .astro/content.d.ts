@@ -162,7 +162,63 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		
+		"comparar": Record<string, {
+  id: string;
+  body?: string;
+  collection: "comparar";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"especialidades": Record<string, {
+  id: string;
+  body?: string;
+  collection: "especialidades";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"funcionalidades": Record<string, {
+  id: string;
+  body?: string;
+  collection: "funcionalidades";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"legal": Record<string, {
+  id: string;
+  body?: string;
+  collection: "legal";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"pages": Record<string, {
+  id: string;
+  body?: string;
+  collection: "pages";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"para": Record<string, {
+  id: string;
+  body?: string;
+  collection: "para";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"{pages,para,funcionalidades,especialidades,comparar,legal}": Record<string, {
+  id: string;
+  body?: string;
+  collection: "{pages,para,funcionalidades,especialidades,comparar,legal}";
+  data: any;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
