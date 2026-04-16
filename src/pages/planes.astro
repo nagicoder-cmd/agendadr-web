@@ -80,7 +80,7 @@ import Footer from '../components/layout/Footer.astro';
                 <li><span class="fc">✓</span>CRM WhatsApp básico</li>
               </ul>
             </div>
-            <a href="https://app.agendadr.com/adquirir-plan?plan=individual" class="plan-btn">
+            <a href="https://app.agendadr.com/checkout?plan=individual&periodo=mensual" class="plan-btn plan-cta" data-plan="individual">
               Empezar ahora
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -118,7 +118,7 @@ import Footer from '../components/layout/Footer.astro';
                 <li><span class="fc">✓</span>Catálogo de servicios por especialidad</li>
               </ul>
             </div>
-            <a href="https://app.agendadr.com/adquirir-plan?plan=basico" class="plan-btn">
+            <a href="https://app.agendadr.com/checkout?plan=basico&periodo=mensual" class="plan-btn plan-cta" data-plan="basico">
               Empezar ahora
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -162,7 +162,7 @@ import Footer from '../components/layout/Footer.astro';
                 <li><span class="fc">✓</span>Rendimiento por recepcionista</li>
               </ul>
             </div>
-            <a href="https://app.agendadr.com/adquirir-plan?plan=profesional" class="plan-btn plan-btn--pop">
+            <a href="https://app.agendadr.com/checkout?plan=profesional&periodo=mensual" class="plan-btn plan-btn--pop plan-cta" data-plan="profesional">
               Empezar ahora
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -201,7 +201,7 @@ import Footer from '../components/layout/Footer.astro';
                 <li><span class="fc">✓</span>Onboarding asistido</li>
               </ul>
             </div>
-            <a href="https://app.agendadr.com/adquirir-plan?plan=clinica" class="plan-btn">
+            <a href="https://app.agendadr.com/checkout?plan=clinica&periodo=mensual" class="plan-btn plan-cta" data-plan="clinica">
               Empezar ahora
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -220,7 +220,7 @@ import Footer from '../components/layout/Footer.astro';
               <p class="ent-desc">Para cadenas y redes médicas — doctores, sedes y recepcionistas ilimitados. API custom, onboarding dedicado con migración de datos, SLA garantizado y gerente de cuenta asignado.</p>
             </div>
           </div>
-          <a href="/contacto?plan=enterprise" class="ent-btn">Contáctanos →</a>
+          <a href="https://app.agendadr.com/contacto-enterprise" class="ent-btn">Contáctanos →</a>
         </div>
 
         <!-- Guarantee -->
@@ -909,12 +909,21 @@ import Footer from '../components/layout/Footer.astro';
   const btnMonthly   = document.getElementById('btn-monthly')!;
   const btnAnnual    = document.getElementById('btn-annual')!;
 
+  function setPeriodo(periodo: string) {
+    document.querySelectorAll<HTMLAnchorElement>('.plan-cta').forEach((btn) => {
+      const url = new URL(btn.href);
+      url.searchParams.set('periodo', periodo);
+      btn.href = url.toString();
+    });
+  }
+
   btnAnnual.addEventListener('click', () => {
     plansSection.classList.add('is-annual');
     btnAnnual.classList.add('tbtn--active');
     btnAnnual.setAttribute('aria-pressed', 'true');
     btnMonthly.classList.remove('tbtn--active');
     btnMonthly.setAttribute('aria-pressed', 'false');
+    setPeriodo('anual');
   });
   btnMonthly.addEventListener('click', () => {
     plansSection.classList.remove('is-annual');
@@ -922,6 +931,7 @@ import Footer from '../components/layout/Footer.astro';
     btnMonthly.setAttribute('aria-pressed', 'true');
     btnAnnual.classList.remove('tbtn--active');
     btnAnnual.setAttribute('aria-pressed', 'false');
+    setPeriodo('mensual');
   });
 
   // ── FAQ accordion ──
